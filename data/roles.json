@@ -1,0 +1,1025 @@
+{
+    "roles": [
+        {
+            "id": "role_frontend",
+            "title": "Frontend Developer",
+            "required_skills": [
+                {
+                    "skillId": "skill_html",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_css",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_javascript",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_react",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_typescript",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_nextjs",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_design_system",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_backend",
+            "title": "Backend Developer",
+            "required_skills": [
+                {
+                    "skillId": "skill_nodejs",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_postgresql",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_redis",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_fullstack",
+            "title": "Full Stack Developer",
+            "required_skills": [
+                {
+                    "skillId": "skill_javascript",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_react",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_nodejs",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_html",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_css",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_devops",
+            "title": "DevOps Engineer",
+            "required_skills": [
+                {
+                    "skillId": "skill_linux",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_kubernetes",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_terraform",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_shell_bash",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_devsecops",
+            "title": "DevSecOps Engineer",
+            "required_skills": [
+                {
+                    "skillId": "skill_linux",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_kubernetes",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_shell_bash",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_code_review",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_data_analyst",
+            "title": "Data Analyst",
+            "required_skills": [
+                {
+                    "skillId": "skill_sql",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_postgresql",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_ai_engineer",
+            "title": "AI Engineer",
+            "required_skills": [
+                {
+                    "skillId": "skill_python",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_data_structures_algorithms",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_ai_data_scientist",
+            "title": "AI & Data Scientist",
+            "required_skills": [
+                {
+                    "skillId": "skill_python",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_computer_science",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_data_structures_algorithms",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_postgresql",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_data_engineer",
+            "title": "Data Engineer",
+            "required_skills": [
+                {
+                    "skillId": "skill_python",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_postgresql",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_redis",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_elasticsearch",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_android",
+            "title": "Android Developer",
+            "required_skills": [
+                {
+                    "skillId": "skill_kotlin",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_java",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_computer_science",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_design_system",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_machine_learning",
+            "title": "Machine Learning Engineer",
+            "required_skills": [
+                {
+                    "skillId": "skill_python",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_data_structures_algorithms",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_postgresql_dba",
+            "title": "PostgreSQL Expert / DBA",
+            "required_skills": [
+                {
+                    "skillId": "skill_postgresql",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_shell_bash",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_ios",
+            "title": "iOS Developer",
+            "required_skills": [
+                {
+                    "skillId": "skill_swift_swift_ui",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_design_system",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_react_native",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_computer_science",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_blockchain",
+            "title": "Blockchain Developer",
+            "required_skills": [
+                {
+                    "skillId": "skill_rust",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_go",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_cpp",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_data_structures_algorithms",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_qa",
+            "title": "QA Engineer",
+            "required_skills": [
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_javascript",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_shell_bash",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_software_architect",
+            "title": "Software Architect",
+            "required_skills": [
+                {
+                    "skillId": "skill_system_design",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_design_architecture",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_kubernetes",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_database",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_code_review",
+                    "level": "Advanced",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_cyber_security",
+            "title": "Cyber Security Engineer",
+            "required_skills": [
+                {
+                    "skillId": "skill_linux",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_shell_bash",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_networking",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_code_review",
+                    "level": "Advanced",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_ux_design",
+            "title": "UX Designer",
+            "required_skills": [
+                {
+                    "skillId": "skill_design_system",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_html",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_css",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_react",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_javascript",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_technical_writer",
+            "title": "Technical Writer",
+            "required_skills": [
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_html",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_markdown",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_javascript",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_game_developer",
+            "title": "Game Developer",
+            "required_skills": [
+                {
+                    "skillId": "skill_cpp",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_csharp",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_data_structures_algorithms",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_linear_algebra",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_design_patterns",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_server_game_developer",
+            "title": "Server Side Game Developer",
+            "required_skills": [
+                {
+                    "skillId": "skill_cpp",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_go",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_redis",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_mlops",
+            "title": "MLOps Engineer",
+            "required_skills": [
+                {
+                    "skillId": "skill_python",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_docker",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_kubernetes",
+                    "level": "Intermediate",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_aws",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_linux",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_product_manager",
+            "title": "Product Manager",
+            "required_skills": [
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_sql",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_ux_design",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_agile",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                },
+                {
+                    "skillId": "skill_data_analysis",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                }
+            ]
+        },
+        {
+            "id": "role_engineering_manager",
+            "title": "Engineering Manager",
+            "required_skills": [
+                {
+                    "skillId": "skill_system_design",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_code_review",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_agile",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_people_management",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Intermediate",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_developer_relations",
+            "title": "Developer Relations",
+            "required_skills": [
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_javascript",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_writing",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_public_speaking",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_api_design",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "role_bi_analyst",
+            "title": "BI Analyst",
+            "required_skills": [
+                {
+                    "skillId": "skill_sql",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_python",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_data_visualization",
+                    "level": "Advanced",
+                    "priority": "core"
+                },
+                {
+                    "skillId": "skill_excel",
+                    "level": "Advanced",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_statistics",
+                    "level": "Intermediate",
+                    "priority": "essential"
+                },
+                {
+                    "skillId": "skill_git_github",
+                    "level": "Beginner",
+                    "priority": "supporting"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,2994 @@
+{
+  "questions": [
+    {
+      "id": "q_skill_html_1",
+      "skillId": "skill_html",
+      "text": "Which HTML5 element is used to specify a footer for a document or section?",
+      "options": [
+        "<bottom>",
+        "<footer>",
+        "<section>",
+        "<end>"
+      ],
+      "correctAnswer": "<footer>",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_html_2",
+      "skillId": "skill_html",
+      "text": "What is the correct HTML element for playing video files?",
+      "options": [
+        "<media>",
+        "<video>",
+        "<movie>",
+        "<mp4>"
+      ],
+      "correctAnswer": "<video>",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_html_3",
+      "skillId": "skill_html",
+      "text": "Which attribute is used to provide an alternative text for an image?",
+      "options": [
+        "alt",
+        "title",
+        "src",
+        "href"
+      ],
+      "correctAnswer": "alt",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_html_4",
+      "skillId": "skill_html",
+      "text": "Which input type defines a slider control?",
+      "options": [
+        "slider",
+        "range",
+        "controls",
+        "search"
+      ],
+      "correctAnswer": "range",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_html_5",
+      "skillId": "skill_html",
+      "text": "What does the <canvas> element do?",
+      "options": [
+        "Draws graphics on the fly",
+        "Displays database records",
+        "Creates a draggable list",
+        "Formats text"
+      ],
+      "correctAnswer": "Draws graphics on the fly",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_css_6",
+      "skillId": "skill_css",
+      "text": "Which property is used to change the background color?",
+      "options": [
+        "color",
+        "bgcolor",
+        "background-color",
+        "background-image"
+      ],
+      "correctAnswer": "background-color",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_css_7",
+      "skillId": "skill_css",
+      "text": "How do you make each word in a text start with a capital letter?",
+      "options": [
+        "text-transform: capitalize",
+        "text-style: capital",
+        "transform: uppercase",
+        "font-weight: bold"
+      ],
+      "correctAnswer": "text-transform: capitalize",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_css_8",
+      "skillId": "skill_css",
+      "text": "Which CSS property controls the z-order of elements?",
+      "options": [
+        "z-index",
+        "stack-order",
+        "depth",
+        "position"
+      ],
+      "correctAnswer": "z-index",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_css_9",
+      "skillId": "skill_css",
+      "text": "What is the default value of the position property?",
+      "options": [
+        "relative",
+        "fixed",
+        "absolute",
+        "static"
+      ],
+      "correctAnswer": "static",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_css_10",
+      "skillId": "skill_css",
+      "text": "Which Flexbox property aligns items along the cross axis?",
+      "options": [
+        "justify-content",
+        "align-items",
+        "flex-direction",
+        "order"
+      ],
+      "correctAnswer": "align-items",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_javascript_11",
+      "skillId": "skill_javascript",
+      "text": "Which method adds one or more elements to the end of an array?",
+      "options": [
+        "push()",
+        "pop()",
+        "shift()",
+        "unshift()"
+      ],
+      "correctAnswer": "push()",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_javascript_12",
+      "skillId": "skill_javascript",
+      "text": "What is the output of '2' + 2 in JavaScript?",
+      "options": [
+        "4",
+        "22",
+        "NaN",
+        "Error"
+      ],
+      "correctAnswer": "22",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_javascript_13",
+      "skillId": "skill_javascript",
+      "text": "Which operator is used to check for both value and type equality?",
+      "options": [
+        "==",
+        "===",
+        "=",
+        "!="
+      ],
+      "correctAnswer": "===",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_javascript_14",
+      "skillId": "skill_javascript",
+      "text": "What keyword is used to declare a variable that cannot be reassigned?",
+      "options": [
+        "var",
+        "let",
+        "const",
+        "static"
+      ],
+      "correctAnswer": "const",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_javascript_15",
+      "skillId": "skill_javascript",
+      "text": "What does JSON.parse() do?",
+      "options": [
+        "Parses JSON to a JavaScript value",
+        "Stringifies a JavaScript object",
+        "Parses XML",
+        "None of the above"
+      ],
+      "correctAnswer": "Parses JSON to a JavaScript value",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_typescript_16",
+      "skillId": "skill_typescript",
+      "text": "Which symbol is used to define an optional property in an interface?",
+      "options": [
+        "!",
+        "?",
+        "#",
+        "*"
+      ],
+      "correctAnswer": "?",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_typescript_17",
+      "skillId": "skill_typescript",
+      "text": "What is the type 'any' used for?",
+      "options": [
+        "Strict typing",
+        "Disabling type checking for a variable",
+        "String types only",
+        "Number types only"
+      ],
+      "correctAnswer": "Disabling type checking for a variable",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_typescript_18",
+      "skillId": "skill_typescript",
+      "text": "How do you define an interface in TypeScript?",
+      "options": [
+        "struct Person {}",
+        "interface Person {}",
+        "type Person = {}",
+        "class Person {}"
+      ],
+      "correctAnswer": "interface Person {}",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_typescript_19",
+      "skillId": "skill_typescript",
+      "text": "Which command compiles TypeScript files?",
+      "options": [
+        "node",
+        "ts-node",
+        "tsc",
+        "compile"
+      ],
+      "correctAnswer": "tsc",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_typescript_20",
+      "skillId": "skill_typescript",
+      "text": "What is a Union Type?",
+      "options": [
+        "A type that can be one of several types",
+        "A type that combines two interfaces",
+        "An array type",
+        "A void type"
+      ],
+      "correctAnswer": "A type that can be one of several types",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_react_21",
+      "skillId": "skill_react",
+      "text": "Which hook is used to manage state in a function component?",
+      "options": [
+        "useEffect",
+        "useContext",
+        "useState",
+        "useReducer"
+      ],
+      "correctAnswer": "useState",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_react_22",
+      "skillId": "skill_react",
+      "text": "What is the virtual DOM?",
+      "options": [
+        "A direct copy of the real DOM",
+        "A lightweight representation of the real DOM",
+        "A browser plugin",
+        "A database"
+      ],
+      "correctAnswer": "A lightweight representation of the real DOM",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_react_23",
+      "skillId": "skill_react",
+      "text": "How do you pass data from parent to child components?",
+      "options": [
+        "State",
+        "Props",
+        "Context",
+        "Ref"
+      ],
+      "correctAnswer": "Props",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_react_24",
+      "skillId": "skill_react",
+      "text": "Which hook is used to perform side effects?",
+      "options": [
+        "useState",
+        "useEffect",
+        "useCallback",
+        "useMemo"
+      ],
+      "correctAnswer": "useEffect",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_react_25",
+      "skillId": "skill_react",
+      "text": "What prevents a component from re-rendering if props haven't changed?",
+      "options": [
+        "React.memo",
+        "useMemo",
+        "shouldComponentUpdate",
+        "PureComponent"
+      ],
+      "correctAnswer": "React.memo",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_vue_26",
+      "skillId": "skill_vue",
+      "text": "What is the correct syntax for data binding in Vue?",
+      "options": [
+        "{{ }}",
+        "{ }",
+        "[ ]",
+        "( )"
+      ],
+      "correctAnswer": "{{ }}",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_vue_27",
+      "skillId": "skill_vue",
+      "text": "Which directive is used for two-way data binding?",
+      "options": [
+        "v-model",
+        "v-bind",
+        "v-if",
+        "v-for"
+      ],
+      "correctAnswer": "v-model",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_vue_28",
+      "skillId": "skill_vue",
+      "text": "What is the Vue instance entry point?",
+      "options": [
+        "new Vue()",
+        "createApp()",
+        "Vue.start()",
+        "initVue()"
+      ],
+      "correctAnswer": "createApp()",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_vue_29",
+      "skillId": "skill_vue",
+      "text": "Which lifecycle hook is called after the instance has been mounted?",
+      "options": [
+        "created",
+        "mounted",
+        "updated",
+        "destroyed"
+      ],
+      "correctAnswer": "mounted",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_vue_30",
+      "skillId": "skill_vue",
+      "text": "What is Vuex used for?",
+      "options": [
+        "Routing",
+        "State Management",
+        "API Calls",
+        "Testing"
+      ],
+      "correctAnswer": "State Management",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_angular_31",
+      "skillId": "skill_angular",
+      "text": "Which decorator is used to define a component?",
+      "options": [
+        "@Component",
+        "@Module",
+        "@Injectable",
+        "@Directive"
+      ],
+      "correctAnswer": "@Component",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_angular_32",
+      "skillId": "skill_angular",
+      "text": "What is the purpose of *ngFor?",
+      "options": [
+        "Conditionals",
+        "Looping through a list",
+        "Binding data",
+        "Handling events"
+      ],
+      "correctAnswer": "Looping through a list",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_angular_33",
+      "skillId": "skill_angular",
+      "text": "Which file contains the main application module?",
+      "options": [
+        "app.module.ts",
+        "main.ts",
+        "app.component.ts",
+        "angular.json"
+      ],
+      "correctAnswer": "app.module.ts",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_angular_34",
+      "skillId": "skill_angular",
+      "text": "What is dependency injection in Angular?",
+      "options": [
+        "A way to create new instances",
+        "A design pattern to supply dependencies",
+        "A routing mechanism",
+        "A method to compile code"
+      ],
+      "correctAnswer": "A design pattern to supply dependencies",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_angular_35",
+      "skillId": "skill_angular",
+      "text": "Which command creates a new component?",
+      "options": [
+        "ng g c",
+        "ng n c",
+        "ng create component",
+        "ng add component"
+      ],
+      "correctAnswer": "ng g c",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_nextjs_36",
+      "skillId": "skill_nextjs",
+      "text": "Which function is used for server-side rendering?",
+      "options": [
+        "getStaticProps",
+        "getServerSideProps",
+        "getInitialProps",
+        "useEffect"
+      ],
+      "correctAnswer": "getServerSideProps",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_nextjs_37",
+      "skillId": "skill_nextjs",
+      "text": "How do you create a dynamic route in Next.js?",
+      "options": [
+        "[id].js",
+        "{id}.js",
+        "(id).js",
+        "_id.js"
+      ],
+      "correctAnswer": "[id].js",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_nextjs_38",
+      "skillId": "skill_nextjs",
+      "text": "Which component is used for client-side navigation?",
+      "options": [
+        "Link",
+        "a",
+        "Router",
+        "Navigate"
+      ],
+      "correctAnswer": "Link",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_nextjs_39",
+      "skillId": "skill_nextjs",
+      "text": "What file is used to customize the HTML document?",
+      "options": [
+        "_document.js",
+        "_app.js",
+        "index.js",
+        "layout.js"
+      ],
+      "correctAnswer": "_document.js",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_nextjs_40",
+      "skillId": "skill_nextjs",
+      "text": "What is the purpose of 'next/image'?",
+      "options": [
+        "Optimized image loading",
+        "Displaying SVGs",
+        "Editing images",
+        "Uploading images"
+      ],
+      "correctAnswer": "Optimized image loading",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_nodejs_41",
+      "skillId": "skill_nodejs",
+      "text": "Which module is used to create a web server in Node.js?",
+      "options": [
+        "http",
+        "fs",
+        "url",
+        "events"
+      ],
+      "correctAnswer": "http",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_nodejs_42",
+      "skillId": "skill_nodejs",
+      "text": "Is Node.js multi-threaded?",
+      "options": [
+        "Yes",
+        "No, it's single-threaded",
+        "Only on Windows",
+        "Only with special flags"
+      ],
+      "correctAnswer": "No, it's single-threaded",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_nodejs_43",
+      "skillId": "skill_nodejs",
+      "text": "What represents an event loop in Node.js?",
+      "options": [
+        "libuv",
+        "V8",
+        "Express",
+        "npm"
+      ],
+      "correctAnswer": "libuv",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "q_skill_nodejs_44",
+      "skillId": "skill_nodejs",
+      "text": "Which function is used to read a file asynchronously?",
+      "options": [
+        "fs.read()",
+        "fs.readFile()",
+        "fs.readFileSync()",
+        "fs.open()"
+      ],
+      "correctAnswer": "fs.readFile()",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_nodejs_45",
+      "skillId": "skill_nodejs",
+      "text": "What is 'module.exports' used for?",
+      "options": [
+        "Importing modules",
+        "Exporting functions/objects",
+        "Installing modules",
+        "Debugging"
+      ],
+      "correctAnswer": "Exporting functions/objects",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_python_46",
+      "skillId": "skill_python",
+      "text": "Which keyword is used to define a function?",
+      "options": [
+        "func",
+        "def",
+        "function",
+        "lambda"
+      ],
+      "correctAnswer": "def",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_python_47",
+      "skillId": "skill_python",
+      "text": "What data type is the result of: 3 // 2?",
+      "options": [
+        "int",
+        "float",
+        "string",
+        "bool"
+      ],
+      "correctAnswer": "int",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_python_48",
+      "skillId": "skill_python",
+      "text": "Which collection type is mutable?",
+      "options": [
+        "tuple",
+        "list",
+        "string",
+        "frozenset"
+      ],
+      "correctAnswer": "list",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_python_49",
+      "skillId": "skill_python",
+      "text": "How do you handle exceptions in Python?",
+      "options": [
+        "try/catch",
+        "try/except",
+        "do/catch",
+        "try/rescue"
+      ],
+      "correctAnswer": "try/except",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_python_50",
+      "skillId": "skill_python",
+      "text": "What does 'pip' stand for?",
+      "options": [
+        "Python Install Package",
+        "Pip Installs Packages",
+        "Package Installer Python",
+        "None of these"
+      ],
+      "correctAnswer": "Pip Installs Packages",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_java_51",
+      "skillId": "skill_java",
+      "text": "Which keyword is used to inherit a class?",
+      "options": [
+        "implements",
+        "extends",
+        "inherits",
+        "super"
+      ],
+      "correctAnswer": "extends",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_java_52",
+      "skillId": "skill_java",
+      "text": "What is the size of an int in Java?",
+      "options": [
+        "16 bit",
+        "32 bit",
+        "64 bit",
+        "8 bit"
+      ],
+      "correctAnswer": "32 bit",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_java_53",
+      "skillId": "skill_java",
+      "text": "Which collection does not allow duplicate elements?",
+      "options": [
+        "List",
+        "Set",
+        "Map",
+        "Queue"
+      ],
+      "correctAnswer": "Set",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_java_54",
+      "skillId": "skill_java",
+      "text": "What implies 'static'?",
+      "options": [
+        "Belongs to class rather than instance",
+        "Constant value",
+        "Cannot be changed",
+        "Private access"
+      ],
+      "correctAnswer": "Belongs to class rather than instance",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_java_55",
+      "skillId": "skill_java",
+      "text": "Which mechanism handles runtime errors?",
+      "options": [
+        "Polymorphism",
+        "Encapsulation",
+        "Exception Handling",
+        "Inheritance"
+      ],
+      "correctAnswer": "Exception Handling",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_kotlin_56",
+      "skillId": "skill_kotlin",
+      "text": "Which keyword declares a read-only variable?",
+      "options": [
+        "var",
+        "val",
+        "const",
+        "final"
+      ],
+      "correctAnswer": "val",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_kotlin_57",
+      "skillId": "skill_kotlin",
+      "text": "How do you handle null safety in Kotlin?",
+      "options": [
+        "? operator",
+        "try-catch",
+        "if-else",
+        "assert"
+      ],
+      "correctAnswer": "? operator",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_kotlin_58",
+      "skillId": "skill_kotlin",
+      "text": "Which keyword is used for switch-case equivalent?",
+      "options": [
+        "switch",
+        "case",
+        "when",
+        "if"
+      ],
+      "correctAnswer": "when",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_kotlin_59",
+      "skillId": "skill_kotlin",
+      "text": "What is a data class used for?",
+      "options": [
+        "Holding data/state",
+        "Database access",
+        "UI logic",
+        "Networking"
+      ],
+      "correctAnswer": "Holding data/state",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_kotlin_60",
+      "skillId": "skill_kotlin",
+      "text": "What are coroutines?",
+      "options": [
+        "Lightweight threads",
+        "Functions",
+        "Classes",
+        "Interfaces"
+      ],
+      "correctAnswer": "Lightweight threads",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_go_61",
+      "skillId": "skill_go",
+      "text": "How do you declare a variable in Go?",
+      "options": [
+        "var x int",
+        "int x",
+        "x := int",
+        "declare x"
+      ],
+      "correctAnswer": "var x int",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_go_62",
+      "skillId": "skill_go",
+      "text": "What is a goroutine?",
+      "options": [
+        "A lightweight thread",
+        "A function",
+        "A library",
+        "A compiler"
+      ],
+      "correctAnswer": "A lightweight thread",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_go_63",
+      "skillId": "skill_go",
+      "text": "Which keyword is used for loops?",
+      "options": [
+        "for",
+        "while",
+        "do",
+        "loop"
+      ],
+      "correctAnswer": "for",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_go_64",
+      "skillId": "skill_go",
+      "text": "Does Go support inheritance?",
+      "options": [
+        "Yes",
+        "No",
+        "Only for structs",
+        "Only interfaces"
+      ],
+      "correctAnswer": "No",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_go_65",
+      "skillId": "skill_go",
+      "text": "What is 'defer' used for?",
+      "options": [
+        "Delaying execution until surrounding function returns",
+        "Optimizing code",
+        "Defining constants",
+        "Error handling"
+      ],
+      "correctAnswer": "Delaying execution until surrounding function returns",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_rust_66",
+      "skillId": "skill_rust",
+      "text": "What mechanism does Rust use for memory safety?",
+      "options": [
+        "Garbage Collector",
+        "Ownership & Borrowing",
+        "Manual Management",
+        "Reference Counting"
+      ],
+      "correctAnswer": "Ownership & Borrowing",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_rust_67",
+      "skillId": "skill_rust",
+      "text": "Which keyword declares a mutable variable?",
+      "options": [
+        "mut",
+        "var",
+        "let",
+        "const"
+      ],
+      "correctAnswer": "mut",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_rust_68",
+      "skillId": "skill_rust",
+      "text": "What is 'Cargo'?",
+      "options": [
+        "A package manager and build tool",
+        "A compiler",
+        "A database",
+        "A testing framework"
+      ],
+      "correctAnswer": "A package manager and build tool",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_rust_69",
+      "skillId": "skill_rust",
+      "text": "What is the `Option` type used for?",
+      "options": [
+        "Handling null values safely",
+        "Configuration",
+        "Command line args",
+        "Loops"
+      ],
+      "correctAnswer": "Handling null values safely",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_rust_70",
+      "skillId": "skill_rust",
+      "text": "How do you handle errors in Rust?",
+      "options": [
+        "Result type",
+        "Exceptions",
+        "Error codes",
+        "Global variables"
+      ],
+      "correctAnswer": "Result type",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_cpp_71",
+      "skillId": "skill_cpp",
+      "text": "Which operator is used for dynamic memory allocation?",
+      "options": [
+        "new",
+        "malloc",
+        "alloc",
+        "create"
+      ],
+      "correctAnswer": "new",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_cpp_72",
+      "skillId": "skill_cpp",
+      "text": "What is a destructor?",
+      "options": [
+        "A function called when an object is destroyed",
+        "A function to delete files",
+        "A virus",
+        "A compiler error"
+      ],
+      "correctAnswer": "A function called when an object is destroyed",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_cpp_73",
+      "skillId": "skill_cpp",
+      "text": "Which keyword is used to access members of a class publicly?",
+      "options": [
+        "public",
+        "private",
+        "protected",
+        "friend"
+      ],
+      "correctAnswer": "public",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_cpp_74",
+      "skillId": "skill_cpp",
+      "text": "What is a virtual function?",
+      "options": [
+        "A function that can be overridden",
+        "A fake function",
+        "A static function",
+        "An inline function"
+      ],
+      "correctAnswer": "A function that can be overridden",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_cpp_75",
+      "skillId": "skill_cpp",
+      "text": "What is the STL?",
+      "options": [
+        "Standard Template Library",
+        "Standard Text Library",
+        "Simple Type List",
+        "System Tool Linker"
+      ],
+      "correctAnswer": "Standard Template Library",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_php_76",
+      "skillId": "skill_php",
+      "text": "How do you start a PHP script block?",
+      "options": [
+        "<php>",
+        "<?php",
+        "<script>",
+        "<?script"
+      ],
+      "correctAnswer": "<?php",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_php_77",
+      "skillId": "skill_php",
+      "text": "Which symbol starts every variable name in PHP?",
+      "options": [
+        "$",
+        "@",
+        "%",
+        "#"
+      ],
+      "correctAnswer": "$",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_php_78",
+      "skillId": "skill_php",
+      "text": "Which function outputs text?",
+      "options": [
+        "echo",
+        "print_line",
+        "write",
+        "display"
+      ],
+      "correctAnswer": "echo",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_php_79",
+      "skillId": "skill_php",
+      "text": "How do you connect to a database in PHP?",
+      "options": [
+        "PDO or mysqli",
+        "connect_db()",
+        "mysql_connect",
+        "db_link"
+      ],
+      "correctAnswer": "PDO or mysqli",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_php_80",
+      "skillId": "skill_php",
+      "text": "What is Composer?",
+      "options": [
+        "A dependency manager for PHP",
+        "A framework",
+        "A debugger",
+        "A server"
+      ],
+      "correctAnswer": "A dependency manager for PHP",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_ruby_81",
+      "skillId": "skill_ruby",
+      "text": "What is everything in Ruby?",
+      "options": [
+        "An object",
+        "A function",
+        "A variable",
+        "A string"
+      ],
+      "correctAnswer": "An object",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_ruby_82",
+      "skillId": "skill_ruby",
+      "text": "How do you define a method in Ruby?",
+      "options": [
+        "def",
+        "func",
+        "method",
+        "fn"
+      ],
+      "correctAnswer": "def",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_ruby_83",
+      "skillId": "skill_ruby",
+      "text": "Which symbol acts as a placeholder for variable interpolation?",
+      "options": [
+        "#{}",
+        "${}",
+        "{{}}",
+        "[]"
+      ],
+      "correctAnswer": "#{}",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_ruby_84",
+      "skillId": "skill_ruby",
+      "text": "What is a 'gem'?",
+      "options": [
+        "A library or package",
+        "A coin",
+        "A database",
+        "A user"
+      ],
+      "correctAnswer": "A library or package",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_ruby_85",
+      "skillId": "skill_ruby",
+      "text": "What is the purpose of 'yield'?",
+      "options": [
+        "To pass control to a block",
+        "To return a value",
+        "To stop execution",
+        "To include a file"
+      ],
+      "correctAnswer": "To pass control to a block",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_sql_86",
+      "skillId": "skill_sql",
+      "text": "Which statement is used to remove a table?",
+      "options": [
+        "DELETE TABLE",
+        "DROP TABLE",
+        "REMOVE TABLE",
+        "TRUNCATE TABLE"
+      ],
+      "correctAnswer": "DROP TABLE",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_sql_87",
+      "skillId": "skill_sql",
+      "text": "Which clause is used to filter records?",
+      "options": [
+        "GROUP BY",
+        "WHERE",
+        "HAVING",
+        "ORDER BY"
+      ],
+      "correctAnswer": "WHERE",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_sql_88",
+      "skillId": "skill_sql",
+      "text": "How do you select unique values from a column?",
+      "options": [
+        "SELECT DISTINCT",
+        "SELECT UNIQUE",
+        "SELECT DIFFERENT",
+        "SELECT ALL"
+      ],
+      "correctAnswer": "SELECT DISTINCT",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_sql_89",
+      "skillId": "skill_sql",
+      "text": "Which JOIN returns all records from the left table, and the matched records from the right table?",
+      "options": [
+        "INNER JOIN",
+        "RIGHT JOIN",
+        "LEFT JOIN",
+        "FULL JOIN"
+      ],
+      "correctAnswer": "LEFT JOIN",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_sql_90",
+      "skillId": "skill_sql",
+      "text": "What is a Primary Key?",
+      "options": [
+        "A unique identifier for a record",
+        "A foreign key",
+        "A password",
+        "An index"
+      ],
+      "correctAnswer": "A unique identifier for a record",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_mongodb_91",
+      "skillId": "skill_mongodb",
+      "text": "What type of database is MongoDB?",
+      "options": [
+        "Relational",
+        "NoSQL Document",
+        "Graph",
+        "Key-Value"
+      ],
+      "correctAnswer": "NoSQL Document",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_mongodb_92",
+      "skillId": "skill_mongodb",
+      "text": "Which format does MongoDB use to store data?",
+      "options": [
+        "XML",
+        "JSON",
+        "BSON",
+        "CSV"
+      ],
+      "correctAnswer": "BSON",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_mongodb_93",
+      "skillId": "skill_mongodb",
+      "text": "What is a 'Collection' in MongoDB?",
+      "options": [
+        "A table",
+        "A row",
+        "A database",
+        "A key"
+      ],
+      "correctAnswer": "A table",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_mongodb_94",
+      "skillId": "skill_mongodb",
+      "text": "How do you insert a document?",
+      "options": [
+        "insertOne()",
+        "add()",
+        "put()",
+        "create()"
+      ],
+      "correctAnswer": "insertOne()",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_mongodb_95",
+      "skillId": "skill_mongodb",
+      "text": "What is '_id'?",
+      "options": [
+        "A unique identifier for documents",
+        "A file name",
+        "A timestamp",
+        "A user id"
+      ],
+      "correctAnswer": "A unique identifier for documents",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_redis_96",
+      "skillId": "skill_redis",
+      "text": "What kind of data structure store is Redis?",
+      "options": [
+        "In-memory key-value",
+        "Relational",
+        "Document",
+        "Graph"
+      ],
+      "correctAnswer": "In-memory key-value",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_redis_97",
+      "skillId": "skill_redis",
+      "text": "Which command sets a value?",
+      "options": [
+        "PUT",
+        "SET",
+        "ADD",
+        "create"
+      ],
+      "correctAnswer": "SET",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_redis_98",
+      "skillId": "skill_redis",
+      "text": "Is Redis single-threaded?",
+      "options": [
+        "Yes",
+        "No",
+        "Only on Linux",
+        "Configurable"
+      ],
+      "correctAnswer": "Yes",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_redis_99",
+      "skillId": "skill_redis",
+      "text": "What is TTL?",
+      "options": [
+        "Time To Live (Expiration)",
+        "Time To Load",
+        "Total Transfer Limit",
+        "Text Transfer Language"
+      ],
+      "correctAnswer": "Time To Live (Expiration)",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_redis_100",
+      "skillId": "skill_redis",
+      "text": "Which data type is NOT supported by Redis?",
+      "options": [
+        "Tables",
+        "Strings",
+        "Lists",
+        "Hashes"
+      ],
+      "correctAnswer": "Tables",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_postgresql_101",
+      "skillId": "skill_postgresql",
+      "text": "What is PostgreSQL known for?",
+      "options": [
+        "Advanced object-relational features",
+        "Being a document store",
+        "Speed only",
+        "Mobile apps"
+      ],
+      "correctAnswer": "Advanced object-relational features",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_postgresql_102",
+      "skillId": "skill_postgresql",
+      "text": "Which JSON data type stores data in binary format?",
+      "options": [
+        "JSONB",
+        "JSON",
+        "BLOB",
+        "TEXT"
+      ],
+      "correctAnswer": "JSONB",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_postgresql_103",
+      "skillId": "skill_postgresql",
+      "text": "What is MVCC?",
+      "options": [
+        "Multi-Version Concurrency Control",
+        "Model View Controller Class",
+        "Main Virtual Core Control",
+        "None"
+      ],
+      "correctAnswer": "Multi-Version Concurrency Control",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "q_skill_postgresql_104",
+      "skillId": "skill_postgresql",
+      "text": "How do you list all databases directly from the command line interface (psql)?",
+      "options": [
+        "\\l",
+        "\\show",
+        "\\db",
+        "SHOW DATABASES"
+      ],
+      "correctAnswer": "\\l",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_postgresql_105",
+      "skillId": "skill_postgresql",
+      "text": "Which extension is commonly used for geospatial data?",
+      "options": [
+        "PostGIS",
+        "GeoPost",
+        "PG-Earth",
+        "GIS-Module"
+      ],
+      "correctAnswer": "PostGIS",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_elasticsearch_106",
+      "skillId": "skill_elasticsearch",
+      "text": "What is the primary use case for Elasticsearch?",
+      "options": [
+        "Full-text Search and Analytics",
+        "Relational transactions",
+        "Hosting videos",
+        "Running code"
+      ],
+      "correctAnswer": "Full-text Search and Analytics",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_elasticsearch_107",
+      "skillId": "skill_elasticsearch",
+      "text": "What is an Index in Elasticsearch?",
+      "options": [
+        "Similar to a Database in SQL",
+        "A primary key",
+        "A folder",
+        "A file"
+      ],
+      "correctAnswer": "Similar to a Database in SQL",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_elasticsearch_108",
+      "skillId": "skill_elasticsearch",
+      "text": "Which query language does Elasticsearch use?",
+      "options": [
+        "Query DSL (JSON)",
+        "SQL",
+        "GraphQL",
+        "XML"
+      ],
+      "correctAnswer": "Query DSL (JSON)",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_elasticsearch_109",
+      "skillId": "skill_elasticsearch",
+      "text": "What is the basic unit of information in Elasticsearch?",
+      "options": [
+        "Document",
+        "Row",
+        "Table",
+        "Cell"
+      ],
+      "correctAnswer": "Document",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_elasticsearch_110",
+      "skillId": "skill_elasticsearch",
+      "text": "What is a Shard?",
+      "options": [
+        "A subdivision of an index",
+        "A broken table",
+        "A type of query",
+        "A backup"
+      ],
+      "correctAnswer": "A subdivision of an index",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_linux_111",
+      "skillId": "skill_linux",
+      "text": "Which command lists files in a directory?",
+      "options": [
+        "ls",
+        "cd",
+        "pwd",
+        "mkdir"
+      ],
+      "correctAnswer": "ls",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_linux_112",
+      "skillId": "skill_linux",
+      "text": "How do you change permission of a file?",
+      "options": [
+        "chown",
+        "chmod",
+        "chgrp",
+        "usr"
+      ],
+      "correctAnswer": "chmod",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_linux_113",
+      "skillId": "skill_linux",
+      "text": "What does 'grep' do?",
+      "options": [
+        "Builds software",
+        "Searches text using patterns",
+        "Removes files",
+        "Compresses files"
+      ],
+      "correctAnswer": "Searches text using patterns",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_linux_114",
+      "skillId": "skill_linux",
+      "text": "Which command shows current processes?",
+      "options": [
+        "ps",
+        "top",
+        "proc",
+        "jobs"
+      ],
+      "correctAnswer": "ps",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_linux_115",
+      "skillId": "skill_linux",
+      "text": "What does 'sudo' stand for?",
+      "options": [
+        "SuperUser Do",
+        "System User Do",
+        "Safe User Do",
+        "Admin Do"
+      ],
+      "correctAnswer": "SuperUser Do",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_docker_116",
+      "skillId": "skill_docker",
+      "text": "What is the file name used to build a Docker image?",
+      "options": [
+        "Dockerbuild",
+        "Dockerfile",
+        "docker.yml",
+        "Containerfile"
+      ],
+      "correctAnswer": "Dockerfile",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_docker_117",
+      "skillId": "skill_docker",
+      "text": "Which command lists running containers?",
+      "options": [
+        "docker ps",
+        "docker images",
+        "docker run",
+        "docker ls"
+      ],
+      "correctAnswer": "docker ps",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_docker_118",
+      "skillId": "skill_docker",
+      "text": "What is a Docker Image?",
+      "options": [
+        "A running instance",
+        "A read-only template to create containers",
+        "A volume",
+        "A network"
+      ],
+      "correctAnswer": "A read-only template to create containers",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_docker_119",
+      "skillId": "skill_docker",
+      "text": "How do you stop a running container?",
+      "options": [
+        "docker kill",
+        "docker stop",
+        "docker pause",
+        "docker end"
+      ],
+      "correctAnswer": "docker stop",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_docker_120",
+      "skillId": "skill_docker",
+      "text": "What is Docker Compose used for?",
+      "options": [
+        "Building images",
+        "Running multi-container applications",
+        "Managing swarms",
+        "Monitoring"
+      ],
+      "correctAnswer": "Running multi-container applications",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_kubernetes_121",
+      "skillId": "skill_kubernetes",
+      "text": "What is the smallest deployable unit in K8s?",
+      "options": [
+        "Pod",
+        "Node",
+        "Cluster",
+        "Container"
+      ],
+      "correctAnswer": "Pod",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_kubernetes_122",
+      "skillId": "skill_kubernetes",
+      "text": "Which component manages the cluster?",
+      "options": [
+        "Worker Node",
+        "Control Plane / Master",
+        "Kubelet",
+        "Proxy"
+      ],
+      "correctAnswer": "Control Plane / Master",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_kubernetes_123",
+      "skillId": "skill_kubernetes",
+      "text": "What does 'kubectl' do?",
+      "options": [
+        "Runs the cluster",
+        "CLI tool for communicating with cluster",
+        "Builds images",
+        "Monitoring"
+      ],
+      "correctAnswer": "CLI tool for communicating with cluster",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_kubernetes_124",
+      "skillId": "skill_kubernetes",
+      "text": "What is a Service?",
+      "options": [
+        "A background process",
+        "An abstraction defining a logical set of Pods",
+        "A user",
+        "A storage unit"
+      ],
+      "correctAnswer": "An abstraction defining a logical set of Pods",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_kubernetes_125",
+      "skillId": "skill_kubernetes",
+      "text": "What is Helm?",
+      "options": [
+        "A package manager for Kubernetes",
+        "A monitoring tool",
+        "A networking plugin",
+        "A database"
+      ],
+      "correctAnswer": "A package manager for Kubernetes",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_aws_126",
+      "skillId": "skill_aws",
+      "text": "What does EC2 stand for?",
+      "options": [
+        "Elastic Compute Cloud",
+        "Elastic Cloud Computer",
+        "Electronic Computer Cloud",
+        "Enterprise Cloud Computing"
+      ],
+      "correctAnswer": "Elastic Compute Cloud",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_aws_127",
+      "skillId": "skill_aws",
+      "text": "Which service is used for object storage?",
+      "options": [
+        "EBS",
+        "S3",
+        "EFS",
+        "Glacier"
+      ],
+      "correctAnswer": "S3",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_aws_128",
+      "skillId": "skill_aws",
+      "text": "What is an IAM Role?",
+      "options": [
+        "A user account",
+        "An identity with permission policies",
+        "A server",
+        "A network rule"
+      ],
+      "correctAnswer": "An identity with permission policies",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_aws_129",
+      "skillId": "skill_aws",
+      "text": "Which service provides serverless computing?",
+      "options": [
+        "Lambda",
+        "EC2",
+        "Lightsail",
+        "Fargate"
+      ],
+      "correctAnswer": "Lambda",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_aws_130",
+      "skillId": "skill_aws",
+      "text": "What is a VPC?",
+      "options": [
+        "Virtual Private Cloud",
+        "Virtual Public Cloud",
+        "Visual Private Connection",
+        "Virtual Private Computer"
+      ],
+      "correctAnswer": "Virtual Private Cloud",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_terraform_131",
+      "skillId": "skill_terraform",
+      "text": "What is Terraform used for?",
+      "options": [
+        "Infrastructure as Code",
+        "Database Management",
+        "Website Hosting",
+        "Video Processing"
+      ],
+      "correctAnswer": "Infrastructure as Code",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_terraform_132",
+      "skillId": "skill_terraform",
+      "text": "Which command initializes the working directory?",
+      "options": [
+        "terraform init",
+        "terraform start",
+        "terraform run",
+        "terraform create"
+      ],
+      "correctAnswer": "terraform init",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_terraform_133",
+      "skillId": "skill_terraform",
+      "text": "What is the plan command used for?",
+      "options": [
+        "To show execution plan",
+        "To apply changes",
+        "To delete resources",
+        "To login"
+      ],
+      "correctAnswer": "To show execution plan",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_terraform_134",
+      "skillId": "skill_terraform",
+      "text": "Which file stores the state of the infrastructure?",
+      "options": [
+        "terraform.tfstate",
+        "state.json",
+        "infrastructure.xml",
+        "main.tf"
+      ],
+      "correctAnswer": "terraform.tfstate",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_terraform_135",
+      "skillId": "skill_terraform",
+      "text": "What language does Terraform use?",
+      "options": [
+        "HCL (HashiCorp Configuration Language)",
+        "JSON",
+        "YAML",
+        "Python"
+      ],
+      "correctAnswer": "HCL (HashiCorp Configuration Language)",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_git_github_136",
+      "skillId": "skill_git_github",
+      "text": "Which command initializes a new Git repository?",
+      "options": [
+        "git commit",
+        "git init",
+        "git push",
+        "git config"
+      ],
+      "correctAnswer": "git init",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_git_github_137",
+      "skillId": "skill_git_github",
+      "text": "How do you check the status of your files?",
+      "options": [
+        "git log",
+        "git status",
+        "git diff",
+        "git show"
+      ],
+      "correctAnswer": "git status",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_git_github_138",
+      "skillId": "skill_git_github",
+      "text": "Which command downloads a remote repository?",
+      "options": [
+        "git pull",
+        "git clone",
+        "git fetch",
+        "git remote"
+      ],
+      "correctAnswer": "git clone",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_git_github_139",
+      "skillId": "skill_git_github",
+      "text": "What is 'HEAD' in Git?",
+      "options": [
+        "A pointer to the latest commit in the current branch",
+        "A server",
+        "A merged branch",
+        "A tag"
+      ],
+      "correctAnswer": "A pointer to the latest commit in the current branch",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_git_github_140",
+      "skillId": "skill_git_github",
+      "text": "How do you switch branches?",
+      "options": [
+        "git checkout",
+        "git branch",
+        "git merge",
+        "git switch"
+      ],
+      "correctAnswer": "git checkout",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_shell_bash_141",
+      "skillId": "skill_shell_bash",
+      "text": "What does the shebang (#!) do?",
+      "options": [
+        "Tells the system which interpreter to use",
+        "Comments out the line",
+        "Starts a loop",
+        "Defines a variable"
+      ],
+      "correctAnswer": "Tells the system which interpreter to use",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_shell_bash_142",
+      "skillId": "skill_shell_bash",
+      "text": "How do you print text to the console?",
+      "options": [
+        "echo",
+        "print",
+        "write",
+        "cat"
+      ],
+      "correctAnswer": "echo",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_shell_bash_143",
+      "skillId": "skill_shell_bash",
+      "text": "What is the pipe operator (|) used for?",
+      "options": [
+        "Passing output of one command as input to another",
+        "Running commands in parallel",
+        "Redirecting output to a file",
+        "Stopping a command"
+      ],
+      "correctAnswer": "Passing output of one command as input to another",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_shell_bash_144",
+      "skillId": "skill_shell_bash",
+      "text": "Which variable holds the exit status of the last command?",
+      "options": [
+        "$?",
+        "$!",
+        "$0",
+        "$#"
+      ],
+      "correctAnswer": "$?",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "q_skill_shell_bash_145",
+      "skillId": "skill_shell_bash",
+      "text": "How do you define a variable?",
+      "options": [
+        "NAME=value",
+        "var NAME=value",
+        "set NAME=value",
+        "define NAME"
+      ],
+      "correctAnswer": "NAME=value",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_computer_science_146",
+      "skillId": "skill_computer_science",
+      "text": "What is big O notation used for?",
+      "options": [
+        "Describing algorithm complexity",
+        "Naming variables",
+        "Calculating memory space only",
+        "Network speed"
+      ],
+      "correctAnswer": "Describing algorithm complexity",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_computer_science_147",
+      "skillId": "skill_computer_science",
+      "text": "What is the difference between a process and a thread?",
+      "options": [
+        "Threads share memory, processes do not",
+        "Processes share memory",
+        "They are the same",
+        "Threads are larger"
+      ],
+      "correctAnswer": "Threads share memory, processes do not",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_computer_science_148",
+      "skillId": "skill_computer_science",
+      "text": "What is recursion?",
+      "options": [
+        "A function calling itself",
+        "A loop inside a loop",
+        "A database query",
+        "A compilation error"
+      ],
+      "correctAnswer": "A function calling itself",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_computer_science_149",
+      "skillId": "skill_computer_science",
+      "text": "What is binary code?",
+      "options": [
+        "Code using 0s and 1s",
+        "Code using 2 digits",
+        "Code for biology",
+        "Source code"
+      ],
+      "correctAnswer": "Code using 0s and 1s",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_computer_science_150",
+      "skillId": "skill_computer_science",
+      "text": "What is a compiler?",
+      "options": [
+        "Translates source code to machine code",
+        "Runs code line by line",
+        "Edits code",
+        "Debugs code"
+      ],
+      "correctAnswer": "Translates source code to machine code",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_data_structures_algorithms_151",
+      "skillId": "skill_data_structures_algorithms",
+      "text": "Which data structure operates on LIFO principle?",
+      "options": [
+        "Stack",
+        "Queue",
+        "Array",
+        "Tree"
+      ],
+      "correctAnswer": "Stack",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_data_structures_algorithms_152",
+      "skillId": "skill_data_structures_algorithms",
+      "text": "What is the time complexity of binary search?",
+      "options": [
+        "O(log n)",
+        "O(n)",
+        "O(n^2)",
+        "O(1)"
+      ],
+      "correctAnswer": "O(log n)",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_data_structures_algorithms_153",
+      "skillId": "skill_data_structures_algorithms",
+      "text": "Which sorting algorithm is generally fastest in practice?",
+      "options": [
+        "Quick Sort",
+        "Bubble Sort",
+        "Insertion Sort",
+        "Selection Sort"
+      ],
+      "correctAnswer": "Quick Sort",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_data_structures_algorithms_154",
+      "skillId": "skill_data_structures_algorithms",
+      "text": "What is a Hash Map?",
+      "options": [
+        "A key-value pair data structure",
+        "A sorted list",
+        "A tree",
+        "A graph"
+      ],
+      "correctAnswer": "A key-value pair data structure",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_data_structures_algorithms_155",
+      "skillId": "skill_data_structures_algorithms",
+      "text": "What is a Linked List?",
+      "options": [
+        "A linear collection of nodes",
+        "A fixed size array",
+        "A circular buffer",
+        "A hash table"
+      ],
+      "correctAnswer": "A linear collection of nodes",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_system_design_156",
+      "skillId": "skill_system_design",
+      "text": "What is Horizontal Scaling?",
+      "options": [
+        "Adding more machines",
+        "Adding more power to existing machine",
+        "Reducing machines",
+        "Deleting data"
+      ],
+      "correctAnswer": "Adding more machines",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_system_design_157",
+      "skillId": "skill_system_design",
+      "text": "What is a Load Balancer?",
+      "options": [
+        "Distributes traffic across servers",
+        "Stores data",
+        "Encrypts data",
+        "Runs background jobs"
+      ],
+      "correctAnswer": "Distributes traffic across servers",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_system_design_158",
+      "skillId": "skill_system_design",
+      "text": "What is CAP theorem?",
+      "options": [
+        "Consistency, Availability, Partition Tolerance",
+        "Consistency, Accuracy, Performance",
+        "Computer, Algorithm, Process",
+        "None"
+      ],
+      "correctAnswer": "Consistency, Availability, Partition Tolerance",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "q_skill_system_design_159",
+      "skillId": "skill_system_design",
+      "text": "What is Caching used for?",
+      "options": [
+        "Improving read performance",
+        "Storing permanent data",
+        "Encrypting passwords",
+        "Logging"
+      ],
+      "correctAnswer": "Improving read performance",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_system_design_160",
+      "skillId": "skill_system_design",
+      "text": "What is a Microservices Architecture?",
+      "options": [
+        "Splitting app into small, independent services",
+        "One large code base",
+        "Using small computers",
+        "None"
+      ],
+      "correctAnswer": "Splitting app into small, independent services",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_design_architecture_161",
+      "skillId": "skill_design_architecture",
+      "text": "What does MVC stand for?",
+      "options": [
+        "Model View Controller",
+        "Model View Component",
+        "Main Virtual Controller",
+        "Method Variable Class"
+      ],
+      "correctAnswer": "Model View Controller",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_design_architecture_162",
+      "skillId": "skill_design_architecture",
+      "text": "What is Singleton pattern?",
+      "options": [
+        "Restricts class instantiation to one object",
+        "Creation of multiple objects",
+        "Cloning objects",
+        "None"
+      ],
+      "correctAnswer": "Restricts class instantiation to one object",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_design_architecture_163",
+      "skillId": "skill_design_architecture",
+      "text": "What is Dependency Injection?",
+      "options": [
+        "Inverting control of dependencies",
+        "Hardcoding dependencies",
+        "Removing dependencies",
+        "Installing libraries"
+      ],
+      "correctAnswer": "Inverting control of dependencies",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_design_architecture_164",
+      "skillId": "skill_design_architecture",
+      "text": "What is SOLID?",
+      "options": [
+        "5 design principles",
+        "A programming language",
+        "A framework",
+        "A database"
+      ],
+      "correctAnswer": "5 design principles",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_design_architecture_165",
+      "skillId": "skill_design_architecture",
+      "text": "What is Monolithic Architecture?",
+      "options": [
+        "Unified single codebase",
+        "Many services",
+        "Cloud based",
+        "Serverless"
+      ],
+      "correctAnswer": "Unified single codebase",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_api_design_166",
+      "skillId": "skill_api_design",
+      "text": "What does REST stand for?",
+      "options": [
+        "Representational State Transfer",
+        "Request Send Transfer",
+        "Remote Service Transfer",
+        "None"
+      ],
+      "correctAnswer": "Representational State Transfer",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_api_design_167",
+      "skillId": "skill_api_design",
+      "text": "Which HTTP method is used to create a resource?",
+      "options": [
+        "POST",
+        "GET",
+        "PUT",
+        "DELETE"
+      ],
+      "correctAnswer": "POST",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_api_design_168",
+      "skillId": "skill_api_design",
+      "text": "What code represents 'Not Found'?",
+      "options": [
+        "404",
+        "200",
+        "500",
+        "401"
+      ],
+      "correctAnswer": "404",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_api_design_169",
+      "skillId": "skill_api_design",
+      "text": "What is GraphQL?",
+      "options": [
+        "A query language for APIs",
+        "A database",
+        "A server",
+        "A frontend framework"
+      ],
+      "correctAnswer": "A query language for APIs",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_api_design_170",
+      "skillId": "skill_api_design",
+      "text": "What is Idempotency?",
+      "options": [
+        "Operations produce same result if executed multiple times",
+        "Operations fail if repeated",
+        "Operations are fast",
+        "None"
+      ],
+      "correctAnswer": "Operations produce same result if executed multiple times",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "q_skill_graphql_171",
+      "skillId": "skill_graphql",
+      "text": "What is the main advantage of GraphQL over REST?",
+      "options": [
+        "Fetch exactly what you need",
+        "It is older",
+        "It uses XML",
+        "No advantage"
+      ],
+      "correctAnswer": "Fetch exactly what you need",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_graphql_172",
+      "skillId": "skill_graphql",
+      "text": "What is a Mutation in GraphQL?",
+      "options": [
+        "Operation to modify data",
+        "A query",
+        "A type definition",
+        "A mistake"
+      ],
+      "correctAnswer": "Operation to modify data",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_graphql_173",
+      "skillId": "skill_graphql",
+      "text": "What is a Schema?",
+      "options": [
+        "Blueprint of the data graph",
+        "A database table",
+        "A query",
+        "A resolver"
+      ],
+      "correctAnswer": "Blueprint of the data graph",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_graphql_174",
+      "skillId": "skill_graphql",
+      "text": "Which company developed GraphQL?",
+      "options": [
+        "Facebook (Meta)",
+        "Google",
+        "Microsoft",
+        "Amazon"
+      ],
+      "correctAnswer": "Facebook (Meta)",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_graphql_175",
+      "skillId": "skill_graphql",
+      "text": "What are Resolvers?",
+      "options": [
+        "Functions that populate data for a field",
+        "Database queries",
+        "Frontend components",
+        "Network requests"
+      ],
+      "correctAnswer": "Functions that populate data for a field",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "q_skill_swift_swift_ui_176",
+      "skillId": "skill_swift_swift_ui",
+      "text": "What is Swift?",
+      "options": [
+        "A programming language for Apple platforms",
+        "A cloud platform",
+        "A database",
+        "An Android tool"
+      ],
+      "correctAnswer": "A programming language for Apple platforms",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_swift_swift_ui_177",
+      "skillId": "skill_swift_swift_ui",
+      "text": "Which keyword declares a constant in Swift?",
+      "options": [
+        "let",
+        "var",
+        "const",
+        "final"
+      ],
+      "correctAnswer": "let",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_swift_swift_ui_178",
+      "skillId": "skill_swift_swift_ui",
+      "text": "What is SwiftUI?",
+      "options": [
+        "Declarative framework for building UIs",
+        "A database",
+        "A compiler",
+        "An older UI kit"
+      ],
+      "correctAnswer": "Declarative framework for building UIs",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_swift_swift_ui_179",
+      "skillId": "skill_swift_swift_ui",
+      "text": "What is 'Optional' in Swift?",
+      "options": [
+        "A type that can hold a value or nil",
+        "A configuration",
+        "A choice",
+        "A loop"
+      ],
+      "correctAnswer": "A type that can hold a value or nil",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_swift_swift_ui_180",
+      "skillId": "skill_swift_swift_ui",
+      "text": "What does '@State' do in SwiftUI?",
+      "options": [
+        "Manages local state of a view",
+        "Fetches data",
+        "Defines global variable",
+        "Navigates"
+      ],
+      "correctAnswer": "Manages local state of a view",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_flutter_181",
+      "skillId": "skill_flutter",
+      "text": "What language is Flutter built with?",
+      "options": [
+        "Dart",
+        "Java",
+        "Kotlin",
+        "Swift"
+      ],
+      "correctAnswer": "Dart",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_flutter_182",
+      "skillId": "skill_flutter",
+      "text": "What is a Widget?",
+      "options": [
+        "Building block of Flutter UI",
+        "A database",
+        "A server",
+        "A function"
+      ],
+      "correctAnswer": "Building block of Flutter UI",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_flutter_183",
+      "skillId": "skill_flutter",
+      "text": "What is the difference between Stateless and Stateful widgets?",
+      "options": [
+        "Stateful holds state, Stateless does not",
+        "Stateless holds state",
+        "They are the same",
+        "None"
+      ],
+      "correctAnswer": "Stateful holds state, Stateless does not",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_flutter_184",
+      "skillId": "skill_flutter",
+      "text": "What is 'hot reload'?",
+      "options": [
+        "Sub-second rebuild of UI without losing state",
+        "Restarting app",
+        "Compiling code",
+        "Deleting data"
+      ],
+      "correctAnswer": "Sub-second rebuild of UI without losing state",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_flutter_185",
+      "skillId": "skill_flutter",
+      "text": "What is 'pubspec.yaml'?",
+      "options": [
+        "Configuration file for dependencies",
+        "Source code",
+        "Build script",
+        "Documentation"
+      ],
+      "correctAnswer": "Configuration file for dependencies",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_react_native_186",
+      "skillId": "skill_react_native",
+      "text": "What is React Native used for?",
+      "options": [
+        "Building mobile apps using React",
+        "Web development",
+        "Server management",
+        "Machine Learning"
+      ],
+      "correctAnswer": "Building mobile apps using React",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_react_native_187",
+      "skillId": "skill_react_native",
+      "text": "Which component is equivalent to 'div'?",
+      "options": [
+        "View",
+        "Text",
+        "Image",
+        "ScrollView"
+      ],
+      "correctAnswer": "View",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_react_native_188",
+      "skillId": "skill_react_native",
+      "text": "How do you style components in React Native?",
+      "options": [
+        "StyleSheet",
+        "CSS files",
+        "SASS",
+        "Bootstrap"
+      ],
+      "correctAnswer": "StyleSheet",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_react_native_189",
+      "skillId": "skill_react_native",
+      "text": "Does React Native use the DOM?",
+      "options": [
+        "No, it uses native components",
+        "Yes",
+        "Only on Android",
+        "Only on iOS"
+      ],
+      "correctAnswer": "No, it uses native components",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_react_native_190",
+      "skillId": "skill_react_native",
+      "text": "What is Expo?",
+      "options": [
+        "A framework/toolchain for React Native",
+        "A database",
+        "A cloud provider",
+        "A testing tool"
+      ],
+      "correctAnswer": "A framework/toolchain for React Native",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_design_system_191",
+      "skillId": "skill_design_system",
+      "text": "What is a Design System?",
+      "options": [
+        "Collection of reusable components and standards",
+        "A single color palette",
+        "A logo",
+        "A website"
+      ],
+      "correctAnswer": "Collection of reusable components and standards",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_design_system_192",
+      "skillId": "skill_design_system",
+      "text": "What are Design Tokens?",
+      "options": [
+        "Variables for design values (colors, spacing)",
+        "NFTs",
+        "Icons",
+        "Fonts"
+      ],
+      "correctAnswer": "Variables for design values (colors, spacing)",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_design_system_193",
+      "skillId": "skill_design_system",
+      "text": "What is Atomic Design?",
+      "options": [
+        "Methodology for creating design systems",
+        "Designing atoms",
+        "Science project",
+        "None"
+      ],
+      "correctAnswer": "Methodology for creating design systems",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_design_system_194",
+      "skillId": "skill_design_system",
+      "text": "Why is consistency important?",
+      "options": [
+        "Improves UX and development speed",
+        "It generates code",
+        "It is cheaper",
+        "None"
+      ],
+      "correctAnswer": "Improves UX and development speed",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_design_system_195",
+      "skillId": "skill_design_system",
+      "text": "What is a Component Library?",
+      "options": [
+        "Implementation of the design system in code",
+        "A book",
+        "A list of files",
+        "None"
+      ],
+      "correctAnswer": "Implementation of the design system in code",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_code_review_196",
+      "skillId": "skill_code_review",
+      "text": "What is the main goal of code review?",
+      "options": [
+        "Improve code quality and share knowledge",
+        "Find someone to blame",
+        "Delay release",
+        "Write comments"
+      ],
+      "correctAnswer": "Improve code quality and share knowledge",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_code_review_197",
+      "skillId": "skill_code_review",
+      "text": "What should you check for first?",
+      "options": [
+        "Logic and correctness",
+        "Variable naming",
+        "Indentation",
+        "Comments"
+      ],
+      "correctAnswer": "Logic and correctness",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_code_review_198",
+      "skillId": "skill_code_review",
+      "text": "How should feedback be given?",
+      "options": [
+        "Constructive and respectful",
+        "Harsh and direct",
+        "Vague",
+        "Silent"
+      ],
+      "correctAnswer": "Constructive and respectful",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_code_review_199",
+      "skillId": "skill_code_review",
+      "text": "What is 'Nit' in code review?",
+      "options": [
+        "Minor issue or suggestion",
+        "Critical bug",
+        "Security flaw",
+        "Major error"
+      ],
+      "correctAnswer": "Minor issue or suggestion",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_code_review_200",
+      "skillId": "skill_code_review",
+      "text": "Should style be reviewed manually?",
+      "options": [
+        "Better automated with linters",
+        "Yes always",
+        "No never",
+        "Only sometimes"
+      ],
+      "correctAnswer": "Better automated with linters",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_laravel_201",
+      "skillId": "skill_laravel",
+      "text": "What language is Laravel based on?",
+      "options": [
+        "PHP",
+        "Python",
+        "Ruby",
+        "Java"
+      ],
+      "correctAnswer": "PHP",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_laravel_202",
+      "skillId": "skill_laravel",
+      "text": "What is Blade?",
+      "options": [
+        "Templating engine",
+        "Database",
+        "Router",
+        "Controller"
+      ],
+      "correctAnswer": "Templating engine",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_laravel_203",
+      "skillId": "skill_laravel",
+      "text": "What is Eloquent?",
+      "options": [
+        "ORM (Object Relational Mapper)",
+        "Testing tool",
+        "API",
+        "Frontend"
+      ],
+      "correctAnswer": "ORM (Object Relational Mapper)",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_laravel_204",
+      "skillId": "skill_laravel",
+      "text": "Which command tool does Laravel use?",
+      "options": [
+        "Artisan",
+        "Composer",
+        "NPM",
+        "Pip"
+      ],
+      "correctAnswer": "Artisan",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_laravel_205",
+      "skillId": "skill_laravel",
+      "text": "What is Middleware used for?",
+      "options": [
+        "Filtering HTTP requests",
+        "Database migrations",
+        "Sending emails",
+        "Compiling assets"
+      ],
+      "correctAnswer": "Filtering HTTP requests",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_django_206",
+      "skillId": "skill_django",
+      "text": "What language is Django based on?",
+      "options": [
+        "Python",
+        "PHP",
+        "Ruby",
+        "Java"
+      ],
+      "correctAnswer": "Python",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_django_207",
+      "skillId": "skill_django",
+      "text": "What architecture does Django follow?",
+      "options": [
+        "MVT (Model View Template)",
+        "MVC",
+        "MVVM",
+        "None"
+      ],
+      "correctAnswer": "MVT (Model View Template)",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_django_208",
+      "skillId": "skill_django",
+      "text": "What is the Django Admin?",
+      "options": [
+        "Automatic admin interface",
+        "A command line tool",
+        "A database",
+        "A server"
+      ],
+      "correctAnswer": "Automatic admin interface",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_django_209",
+      "skillId": "skill_django",
+      "text": "What is 'manage.py'?",
+      "options": [
+        "Command-line utility",
+        "Main server file",
+        "Config file",
+        "Database"
+      ],
+      "correctAnswer": "Command-line utility",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_django_210",
+      "skillId": "skill_django",
+      "text": "What is ORM in Django?",
+      "options": [
+        "Maps objects to database tables",
+        "Routing system",
+        "Template engine",
+        "Security tool"
+      ],
+      "correctAnswer": "Maps objects to database tables",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_ruby_on_rails_211",
+      "skillId": "skill_ruby_on_rails",
+      "text": "Which architecture does Rails use?",
+      "options": [
+        "MVC",
+        "MVT",
+        "MVVM",
+        "None"
+      ],
+      "correctAnswer": "MVC",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_ruby_on_rails_212",
+      "skillId": "skill_ruby_on_rails",
+      "text": "What is Active Record?",
+      "options": [
+        " The M in MVC (Model / ORM)",
+        "Audit tool",
+        "Controller",
+        "View"
+      ],
+      "correctAnswer": " The M in MVC (Model / ORM)",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_ruby_on_rails_213",
+      "skillId": "skill_ruby_on_rails",
+      "text": "What is the principle 'CoC'?",
+      "options": [
+        "Convention over Configuration",
+        "Code over Comments",
+        "Class over Config",
+        "None"
+      ],
+      "correctAnswer": "Convention over Configuration",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_ruby_on_rails_214",
+      "skillId": "skill_ruby_on_rails",
+      "text": "What is a 'Gemfile'?",
+      "options": [
+        "Lists project dependencies",
+        "A ruby script",
+        "Database",
+        "Config"
+      ],
+      "correctAnswer": "Lists project dependencies",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_ruby_on_rails_215",
+      "skillId": "skill_ruby_on_rails",
+      "text": "What is Scaffolding?",
+      "options": [
+        "Generating code for CRUD operations",
+        "Building UI",
+        "Testing",
+        "Deployment"
+      ],
+      "correctAnswer": "Generating code for CRUD operations",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_spring_boot_216",
+      "skillId": "skill_spring_boot",
+      "text": "What language is Spring Boot based on?",
+      "options": [
+        "Java",
+        "Python",
+        "C#",
+        "Ruby"
+      ],
+      "correctAnswer": "Java",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_spring_boot_217",
+      "skillId": "skill_spring_boot",
+      "text": "What is the main advantage of Spring Boot?",
+      "options": [
+        "Simplified configuration and setup",
+        "Speed only",
+        "Uses C++",
+        "None"
+      ],
+      "correctAnswer": "Simplified configuration and setup",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_spring_boot_218",
+      "skillId": "skill_spring_boot",
+      "text": "What is '@Autowired' used for?",
+      "options": [
+        "Dependency Injection",
+        "Defining a class",
+        "Routing",
+        "Database"
+      ],
+      "correctAnswer": "Dependency Injection",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_spring_boot_219",
+      "skillId": "skill_spring_boot",
+      "text": "What is the embedded server?",
+      "options": [
+        "Tomcat",
+        "Apache",
+        "Nginx",
+        "IIS"
+      ],
+      "correctAnswer": "Tomcat",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_spring_boot_220",
+      "skillId": "skill_spring_boot",
+      "text": "What is Actuator?",
+      "options": [
+        "Production-ready features (metrics, health checks)",
+        "A database",
+        "A compiler",
+        "An IDE plugin"
+      ],
+      "correctAnswer": "Production-ready features (metrics, health checks)",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_aspnet_core_221",
+      "skillId": "skill_aspnet_core",
+      "text": "What language is ASP.NET Core primarily used with?",
+      "options": [
+        "C#",
+        "Java",
+        "Python",
+        "C++"
+      ],
+      "correctAnswer": "C#",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_aspnet_core_222",
+      "skillId": "skill_aspnet_core",
+      "text": "Is ASP.NET Core cross-platform?",
+      "options": [
+        "Yes",
+        "No",
+        "Only Windows",
+        "Only Linux"
+      ],
+      "correctAnswer": "Yes",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_aspnet_core_223",
+      "skillId": "skill_aspnet_core",
+      "text": "What is Entity Framework Core?",
+      "options": [
+        "ORM",
+        "Database",
+        "Server",
+        "Frontend"
+      ],
+      "correctAnswer": "ORM",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_aspnet_core_224",
+      "skillId": "skill_aspnet_core",
+      "text": "What is Dependency Injection in .NET?",
+      "options": [
+        "Built-in feature",
+        "External library needed",
+        "Not supported",
+        "None"
+      ],
+      "correctAnswer": "Built-in feature",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_aspnet_core_225",
+      "skillId": "skill_aspnet_core",
+      "text": "What starts the application?",
+      "options": [
+        "Program.cs / Startup",
+        "Index.html",
+        "Main.java",
+        "App.js"
+      ],
+      "correctAnswer": "Program.cs / Startup",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_wordpress_226",
+      "skillId": "skill_wordpress",
+      "text": "What language is WordPress built with?",
+      "options": [
+        "PHP",
+        "Python",
+        "Ruby",
+        "Java"
+      ],
+      "correctAnswer": "PHP",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_wordpress_227",
+      "skillId": "skill_wordpress",
+      "text": "What is a Theme?",
+      "options": [
+        "Controls the look and presentation",
+        "A plugin",
+        "A database",
+        "A post"
+      ],
+      "correctAnswer": "Controls the look and presentation",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_wordpress_228",
+      "skillId": "skill_wordpress",
+      "text": "What is a Plugin?",
+      "options": [
+        "Extends functionality",
+        "A theme",
+        "A user",
+        "A page"
+      ],
+      "correctAnswer": "Extends functionality",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "q_skill_wordpress_229",
+      "skillId": "skill_wordpress",
+      "text": "What database does WordPress use typically?",
+      "options": [
+        "MySQL / MariaDB",
+        "MongoDB",
+        "PostgreSQL",
+        "Oracle"
+      ],
+      "correctAnswer": "MySQL / MariaDB",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "q_skill_wordpress_230",
+      "skillId": "skill_wordpress",
+      "text": "What is 'wp-config.php'?",
+      "options": [
+        "Core configuration file",
+        "Theme file",
+        "Plugin",
+        "Post"
+      ],
+      "correctAnswer": "Core configuration file",
+      "difficulty": "Intermediate"
+    }
+  ]
+}
