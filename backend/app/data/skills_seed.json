@@ -1,0 +1,1023 @@
+[
+    {
+        "skill_id": "python",
+        "skill_name": "Python",
+        "category": "technical",
+        "description": "High-level programming language for general-purpose programming",
+        "sub_skills": [
+            "syntax",
+            "oop",
+            "modules",
+            "error_handling",
+            "file_io"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "javascript",
+        "skill_name": "JavaScript",
+        "category": "technical",
+        "description": "Programming language for web development",
+        "sub_skills": [
+            "es6",
+            "async_await",
+            "dom",
+            "promises",
+            "closures"
+        ],
+        "prerequisites": [
+            "html_css"
+        ],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "machine_learning",
+        "skill_name": "Machine Learning",
+        "category": "technical",
+        "description": "Algorithms that learn from data to make predictions",
+        "sub_skills": [
+            "supervised_learning",
+            "unsupervised_learning",
+            "feature_engineering",
+            "model_evaluation"
+        ],
+        "prerequisites": [
+            "python",
+            "statistics"
+        ],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "deep_learning",
+        "skill_name": "Deep Learning",
+        "category": "technical",
+        "description": "Neural networks with multiple layers for complex pattern recognition",
+        "sub_skills": [
+            "cnn",
+            "rnn",
+            "transformers",
+            "transfer_learning"
+        ],
+        "prerequisites": [
+            "machine_learning",
+            "linear_algebra"
+        ],
+        "difficulty_levels": [
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "statistics",
+        "skill_name": "Statistics",
+        "category": "technical",
+        "description": "Mathematical analysis and interpretation of data",
+        "sub_skills": [
+            "probability",
+            "hypothesis_testing",
+            "regression",
+            "distributions"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "sql",
+        "skill_name": "SQL",
+        "category": "technical",
+        "description": "Language for managing and querying databases",
+        "sub_skills": [
+            "select",
+            "joins",
+            "aggregations",
+            "subqueries",
+            "indexes"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "react",
+        "skill_name": "React",
+        "category": "technical",
+        "description": "JavaScript library for building user interfaces",
+        "sub_skills": [
+            "components",
+            "hooks",
+            "state",
+            "props",
+            "routing"
+        ],
+        "prerequisites": [
+            "javascript",
+            "html_css"
+        ],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "nodejs",
+        "skill_name": "Node.js",
+        "category": "technical",
+        "description": "JavaScript runtime for server-side development",
+        "sub_skills": [
+            "express",
+            "async",
+            "modules",
+            "npm",
+            "rest_api"
+        ],
+        "prerequisites": [
+            "javascript"
+        ],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "docker",
+        "skill_name": "Docker",
+        "category": "tool",
+        "description": "Platform for containerizing applications",
+        "sub_skills": [
+            "containers",
+            "images",
+            "dockerfile",
+            "compose",
+            "volumes"
+        ],
+        "prerequisites": [
+            "linux"
+        ],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "kubernetes",
+        "skill_name": "Kubernetes",
+        "category": "tool",
+        "description": "Container orchestration platform",
+        "sub_skills": [
+            "pods",
+            "services",
+            "deployments",
+            "ingress",
+            "configmaps"
+        ],
+        "prerequisites": [
+            "docker"
+        ],
+        "difficulty_levels": [
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "git",
+        "skill_name": "Git",
+        "category": "tool",
+        "description": "Version control system for tracking code changes",
+        "sub_skills": [
+            "commits",
+            "branches",
+            "merge",
+            "rebase",
+            "pull_requests"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "aws",
+        "skill_name": "AWS",
+        "category": "tool",
+        "description": "Amazon Web Services cloud platform",
+        "sub_skills": [
+            "ec2",
+            "s3",
+            "lambda",
+            "rds",
+            "iam"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "html_css",
+        "skill_name": "HTML & CSS",
+        "category": "technical",
+        "description": "Markup and styling languages for web pages",
+        "sub_skills": [
+            "html5",
+            "css3",
+            "flexbox",
+            "grid",
+            "responsive"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "typescript",
+        "skill_name": "TypeScript",
+        "category": "technical",
+        "description": "Typed superset of JavaScript",
+        "sub_skills": [
+            "types",
+            "interfaces",
+            "generics",
+            "decorators"
+        ],
+        "prerequisites": [
+            "javascript"
+        ],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "tensorflow",
+        "skill_name": "TensorFlow",
+        "category": "technical",
+        "description": "Machine learning framework",
+        "sub_skills": [
+            "keras",
+            "tensors",
+            "models",
+            "training",
+            "deployment"
+        ],
+        "prerequisites": [
+            "python",
+            "machine_learning"
+        ],
+        "difficulty_levels": [
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "linux",
+        "skill_name": "Linux",
+        "category": "technical",
+        "description": "Unix-like operating system",
+        "sub_skills": [
+            "command_line",
+            "bash",
+            "permissions",
+            "processes",
+            "networking"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "cicd",
+        "skill_name": "CI/CD",
+        "category": "technical",
+        "description": "Continuous Integration and Continuous Deployment",
+        "sub_skills": [
+            "jenkins",
+            "github_actions",
+            "gitlab_ci",
+            "pipelines",
+            "automation"
+        ],
+        "prerequisites": [
+            "git"
+        ],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "data_visualization",
+        "skill_name": "Data Visualization",
+        "category": "technical",
+        "description": "Presenting data in graphical format",
+        "sub_skills": [
+            "matplotlib",
+            "seaborn",
+            "plotly",
+            "tableau",
+            "dashboards"
+        ],
+        "prerequisites": [
+            "python"
+        ],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "rest_api",
+        "skill_name": "REST API",
+        "category": "technical",
+        "description": "RESTful API design and implementation",
+        "sub_skills": [
+            "http",
+            "json",
+            "endpoints",
+            "authentication",
+            "documentation"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "linear_algebra",
+        "skill_name": "Linear Algebra",
+        "category": "technical",
+        "description": "Mathematical concepts for ML and data science",
+        "sub_skills": [
+            "matrices",
+            "vectors",
+            "eigenvalues",
+            "transformations"
+        ],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "html",
+        "skill_name": "HTML",
+        "category": "technical",
+        "description": "HTML (Web Fundamentals)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "css",
+        "skill_name": "CSS",
+        "category": "technical",
+        "description": "CSS (Web Fundamentals)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "vue",
+        "skill_name": "Vue",
+        "category": "technical",
+        "description": "Vue (Frontend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "angular",
+        "skill_name": "Angular",
+        "category": "technical",
+        "description": "Angular (Frontend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "nextjs",
+        "skill_name": "Next.js",
+        "category": "technical",
+        "description": "Next.js (Frontend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "java",
+        "skill_name": "Java",
+        "category": "technical",
+        "description": "Java (Programming Language)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "kotlin",
+        "skill_name": "Kotlin",
+        "category": "technical",
+        "description": "Kotlin (Programming Language)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "go",
+        "skill_name": "Go",
+        "category": "technical",
+        "description": "Go (Programming Language)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "rust",
+        "skill_name": "Rust",
+        "category": "technical",
+        "description": "Rust (Programming Language)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "cpp",
+        "skill_name": "C++",
+        "category": "technical",
+        "description": "C++ (Programming Language)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "php",
+        "skill_name": "PHP",
+        "category": "technical",
+        "description": "PHP (Programming Language)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "ruby",
+        "skill_name": "Ruby",
+        "category": "technical",
+        "description": "Ruby (Programming Language)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "mongodb",
+        "skill_name": "MongoDB",
+        "category": "tool",
+        "description": "MongoDB (Database)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "redis",
+        "skill_name": "Redis",
+        "category": "tool",
+        "description": "Redis (Database)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "postgresql",
+        "skill_name": "PostgreSQL",
+        "category": "tool",
+        "description": "PostgreSQL (Database)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "elasticsearch",
+        "skill_name": "Elasticsearch",
+        "category": "tool",
+        "description": "Elasticsearch (Database)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "terraform",
+        "skill_name": "Terraform",
+        "category": "tool",
+        "description": "Terraform (DevOps)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "git_github",
+        "skill_name": "Git and GitHub",
+        "category": "tool",
+        "description": "Git and GitHub (Developer Tools)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "shell_bash",
+        "skill_name": "Shell / Bash",
+        "category": "tool",
+        "description": "Shell / Bash (DevOps)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "computer_science",
+        "skill_name": "Computer Science",
+        "category": "technical",
+        "description": "Computer Science (Fundamentals)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "data_structures_algorithms",
+        "skill_name": "Data Structures & Algorithms",
+        "category": "technical",
+        "description": "Data Structures & Algorithms (Fundamentals)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "system_design",
+        "skill_name": "System Design",
+        "category": "technical",
+        "description": "System Design (Architecture)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "design_architecture",
+        "skill_name": "Design and Architecture",
+        "category": "technical",
+        "description": "Design and Architecture (Architecture)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "api_design",
+        "skill_name": "API Design",
+        "category": "technical",
+        "description": "API Design (Backend)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "graphql",
+        "skill_name": "GraphQL",
+        "category": "technical",
+        "description": "GraphQL (Backend)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "swift_swift_ui",
+        "skill_name": "Swift & Swift UI",
+        "category": "technical",
+        "description": "Swift & Swift UI (Mobile)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "flutter",
+        "skill_name": "Flutter",
+        "category": "technical",
+        "description": "Flutter (Mobile)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "react_native",
+        "skill_name": "React Native",
+        "category": "technical",
+        "description": "React Native (Mobile)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "design_system",
+        "skill_name": "Design System",
+        "category": "domain",
+        "description": "Design System (Design)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "code_review",
+        "skill_name": "Code Review",
+        "category": "technical",
+        "description": "Code Review (Process)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "laravel",
+        "skill_name": "Laravel",
+        "category": "technical",
+        "description": "Laravel (Backend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "django",
+        "skill_name": "Django",
+        "category": "technical",
+        "description": "Django (Backend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "ruby_on_rails",
+        "skill_name": "Ruby on Rails",
+        "category": "technical",
+        "description": "Ruby on Rails (Backend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "spring_boot",
+        "skill_name": "Spring Boot",
+        "category": "technical",
+        "description": "Spring Boot (Backend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "aspnet_core",
+        "skill_name": "ASP.NET Core",
+        "category": "technical",
+        "description": "ASP.NET Core (Backend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "wordpress",
+        "skill_name": "WordPress",
+        "category": "technical",
+        "description": "WordPress (Backend Framework)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "agile",
+        "skill_name": "Agile",
+        "category": "technical",
+        "description": "Agile (Process)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "csharp",
+        "skill_name": "C#",
+        "category": "technical",
+        "description": "C# (Programming Language)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "data_analysis",
+        "skill_name": "Data Analysis",
+        "category": "technical",
+        "description": "Data Analysis (Data Science)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "database",
+        "skill_name": "Database Fundamentals",
+        "category": "technical",
+        "description": "Database Fundamentals (Fundamentals)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "design_patterns",
+        "skill_name": "Design Patterns",
+        "category": "soft_skill",
+        "description": "Design Patterns (Software Engineering)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "excel",
+        "skill_name": "Excel",
+        "category": "tool",
+        "description": "Excel (Tools)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "markdown",
+        "skill_name": "Markdown",
+        "category": "tool",
+        "description": "Markdown (Developer Tools)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "networking",
+        "skill_name": "Networking",
+        "category": "technical",
+        "description": "Networking (Fundamentals)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "people_management",
+        "skill_name": "People Management",
+        "category": "soft_skill",
+        "description": "People Management (Soft Skills)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "public_speaking",
+        "skill_name": "Public Speaking",
+        "category": "soft_skill",
+        "description": "Public Speaking (Soft Skills)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "ux_design",
+        "skill_name": "UX Design",
+        "category": "domain",
+        "description": "UX Design (Design)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    },
+    {
+        "skill_id": "writing",
+        "skill_name": "Technical Writing",
+        "category": "soft_skill",
+        "description": "Technical Writing (Soft Skills)",
+        "sub_skills": [],
+        "prerequisites": [],
+        "difficulty_levels": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ]
+    }
+]
