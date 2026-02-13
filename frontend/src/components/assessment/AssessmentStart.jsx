@@ -80,8 +80,8 @@ export const AssessmentStart = () => {
                         <div key={s} className="flex items-center">
                             <div
                                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${step >= s
-                                        ? 'bg-primary-600 text-white'
-                                        : 'bg-gray-200 text-gray-500'
+                                    ? 'bg-primary-600 text-white'
+                                    : 'bg-gray-200 text-gray-500'
                                     }`}
                             >
                                 {s}
@@ -124,8 +124,8 @@ export const AssessmentStart = () => {
                                 key={role.role_id}
                                 onClick={() => setSelectedRole(role.role_id)}
                                 className={`card-hover text-left p-4 transition-all ${selectedRole === role.role_id
-                                        ? 'border-2 border-primary-600 bg-primary-50'
-                                        : ''
+                                    ? 'border-2 border-primary-600 bg-primary-50'
+                                    : ''
                                     }`}
                             >
                                 <div className="flex items-start gap-3">
@@ -174,9 +174,21 @@ export const AssessmentStart = () => {
                             <h3 className="font-semibold text-gray-900 mb-2">Selected Role</h3>
                             <div className="text-sm text-gray-700">
                                 <p className="font-medium">{roleDetails.role_name}</p>
-                                <p className="text-gray-600 mt-1">
-                                    {roleDetails.required_skills.length} required skills
-                                </p>
+                                <div className="mt-3">
+                                    <p className="text-xs text-gray-500 mb-2 uppercase tracking-wide font-semibold">
+                                        Required Skills ({roleDetails.required_skills.length})
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {roleDetails.required_skills.map(skill => (
+                                            <span
+                                                key={skill.skill_id}
+                                                className="px-2 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm"
+                                            >
+                                                {skill.skill_name}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )}

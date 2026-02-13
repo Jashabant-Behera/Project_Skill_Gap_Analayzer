@@ -25,6 +25,7 @@ class QuestionResponse(BaseModel):
     question_type: str
     difficulty_level: str
     options: Optional[List[str]] = None
+    time_limit_seconds: Optional[int] = 300
     
     class Config:
         from_attributes = True

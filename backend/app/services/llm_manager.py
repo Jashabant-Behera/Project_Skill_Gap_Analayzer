@@ -37,6 +37,55 @@ class LLMManager:
             logger.error(f"Groq API error: {str(e)}")
             raise Exception(f"LLM API call failed: {str(e)}")
     
+    def _extract_json(self, text: str) -> dict:
+        """Extract JSON from LLM response with fallback strategies"""
+        import re
+        
+        # Strategy 1: Try direct parsing
+        try:
+            return json.loads(text.strip())
+        except json.JSONDecodeError:
+            pass
+        
+        # Strategy 2: Extract from markdown code block
+        markdown_pattern = r'```(?:json)?\s*(\{.*?\})\s*```'
+        match = re.search(markdown_pattern, text, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group(1))
+            except json.JSONDecodeError:
+                pass
+                
+        # Strategy 3: Extract array from markdown code block
+        array_pattern = r'```(?:json)?\s*(\[.*?\])\s*```'
+        match = re.search(array_pattern, text, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group(1))
+            except json.JSONDecodeError:
+                pass
+        
+        # Strategy 4: Find first valid JSON object or array
+        brace_pattern = r'\{(?:[^{}]|(?:\{[^{}]*\}))*\}'
+        matches = re.finditer(brace_pattern, text, re.DOTALL)
+        for match in matches:
+            try:
+                return json.loads(match.group(0))
+            except json.JSONDecodeError:
+                continue
+                
+        bracket_pattern = r'\[(?:[^\[\]]|(?:\[[^\[\]]*\]))*\]'
+        match = re.search(bracket_pattern, text, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group(0))
+            except json.JSONDecodeError:
+                pass
+        
+        # All strategies failed
+        logger.error(f"Failed to extract JSON from: {text[:200]}...")
+        raise ValueError("Could not extract valid JSON from response")
+    
     def generate_questions(
         self,
         skill: str,
@@ -61,27 +110,39 @@ class LLMManager:
 Return ONLY valid JSON array with this structure:
 [
   {{
-    "question_text": "...",
-    "question_type": "scenario|mcq|short_answer",
+    "question_text": "Scenario based question text...",
+    "question_type": "mcq",
     "difficulty_level": "beginner|intermediate|advanced",
-    "options": ["A", "B", "C", "D"] or null,
-    "correct_answer": "A" or null,
-    "expected_competency": ["...", "..."],
-    "evaluation_criteria": ["...", "..."]
+    "options": ["Specific Answer A", "Specific Answer B", "Specific Answer C", "Specific Answer D"],
+    "correct_answer": "Specific Answer C (Must be exact textmatch with one option)",
+    "expected_competency": ["Competency 1", "Competency 2"],
+    "evaluation_criteria": ["Criteria 1", "Criteria 2"]
   }}
-]"""
+]
+Ensure all questions are Multiple Choice Questions (MCQ) with 4 distinct, realistic technical options. Do NOT use placeholders like 'Option 1'. The correct_answer field must exactly match the text of one of the options."""
 
         messages = [{"role": "user", "content": prompt}]
         response = self._make_completion(messages, temperature=0.4)
         
         try:
-            questions = json.loads(response)
+            questions = self._extract_json(response)
+            if not isinstance(questions, list):
+                 # Try to wrap if single object
+                 if isinstance(questions, dict):
+                     questions = [questions]
+                 else:
+                     raise ValueError("Expected list of questions")
+            
             for q in questions:
                 q['skill_id'] = skill.lower().replace(' ', '_')
                 q['skill_name'] = skill
+                # Sanitize question text
+                if 'question_text' in q:
+                    from app.services.validation_service import ValidationService
+                    q['question_text'] = ValidationService.sanitize_html(q['question_text'])
             return questions
-        except json.JSONDecodeError:
-            logger.error(f"Failed to parse questions: {response}")
+        except Exception as e:
+            logger.error(f"Failed to parse questions: {response}. Error: {e}")
             raise Exception("Failed to generate questions")
     
     def evaluate_response(
@@ -98,7 +159,8 @@ Question: {question['question_text']}
 Type: {question['question_type']}
 Skill: {skill_name}
 
-Expected: {', '.join(question['expected_competency'])}
+Expected: {', '.join(question.get('expected_competency', []))}
+Correct Answer: {question.get('correct_answer', 'Not provided')}
 
 Answer: {user_answer}
 
@@ -116,8 +178,8 @@ Return ONLY valid JSON:
         response = self._make_completion(messages, temperature=0.2, max_tokens=1500)
         
         try:
-            return json.loads(response)
-        except json.JSONDecodeError:
+            return self._extract_json(response)
+        except Exception:
             return {
                 "score": 50,
                 "competency_level": "beginner",
@@ -171,8 +233,8 @@ Return ONLY valid JSON:
         response = self._make_completion(messages, max_tokens=8000, temperature=0.4)
         
         try:
-            return json.loads(response)
-        except json.JSONDecodeError:
+            return self._extract_json(response)
+        except Exception:
             raise Exception("Failed to generate roadmap")
 
 # Global instance

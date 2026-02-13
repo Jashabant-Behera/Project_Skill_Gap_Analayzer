@@ -35,7 +35,7 @@ export const AssessmentProvider = ({ children }) => {
             if (error.response?.status === 400) {
                 toast.info('All questions completed!');
             } else {
-                toast.error('Failed to load question');
+                // toast.error('Failed to load question');
             }
             throw error;
         } finally {
@@ -49,7 +49,7 @@ export const AssessmentProvider = ({ children }) => {
             const evaluation = await assessmentService.submitAnswer(assessmentId, answerData);
             return evaluation;
         } catch (error) {
-            toast.error('Failed to submit answer');
+            // toast.error('Failed to submit answer');
             throw error;
         } finally {
             setLoading(false);
@@ -73,7 +73,7 @@ export const AssessmentProvider = ({ children }) => {
             toast.success('Assessment completed!');
             return result;
         } catch (error) {
-            toast.error('Failed to complete assessment');
+            // toast.error('Failed to complete assessment');
             throw error;
         } finally {
             setLoading(false);

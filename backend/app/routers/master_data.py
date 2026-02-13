@@ -54,37 +54,67 @@ async def list_roles(
 async def get_role_details(role_id: str):
     """Get detailed role information with required skills"""
     
-    role = await Role.find_one(Role.role_id == role_id)
-    
-    if not role:
+    try:
+        # Get role document
+        role = await Role.find_one(Role.role_id == role_id)
+        
+        if not role:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Role not found"
+            )
+        
+        # Get invalid skill types handled
+        if not role.required_skills:
+            role.required_skills = []
+            
+        # Extract skill IDs
+        skill_ids = []
+        for req in role.required_skills:
+            if isinstance(req, dict) and req.get("skill_id"):
+                skill_ids.append(req.get("skill_id"))
+        
+        # Fetch all related skills in one query
+        skills = await Skill.find({"skill_id": {"$in": skill_ids}}).to_list()
+        skill_map = {s.skill_id: s for s in skills}
+        
+        enriched_skills = []
+        for req_skill in role.required_skills:
+            if not isinstance(req_skill, dict):
+                continue
+                
+            skill_id = req_skill.get("skill_id")
+            if not skill_id:
+                continue
+                
+            skill = skill_map.get(skill_id)
+            if skill:
+                enriched_skills.append({
+                    "skill_id": skill_id,
+                    "skill_name": skill.skill_name,
+                    "proficiency_level": req_skill.get("proficiency_level", "intermediate"),
+                    "importance": req_skill.get("importance", "important"),
+                    "weightage": req_skill.get("weightage", 0.5),
+                    "category": skill.category,
+                    "prerequisites": skill.prerequisites
+                })
+        
+        return {
+            "role_id": role.role_id,
+            "role_name": role.role_name,
+            "description": role.description,
+            "category": role.category,
+            "experience_level": role.experience_level,
+            "required_skills": enriched_skills
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error fetching role details for {role_id}: {str(e)}", exc_info=True)
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Role not found"
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Internal server error: {str(e)}"
         )
-    
-    # Enrich skill information
-    enriched_skills = []
-    for req_skill in role.required_skills:
-        skill = await Skill.find_one(Skill.skill_id == req_skill["skill_id"])
-        if skill:
-            enriched_skills.append({
-                "skill_id": req_skill["skill_id"],
-                "skill_name": skill.skill_name,
-                "proficiency_level": req_skill.get("proficiency_level", "intermediate"),
-                "importance": req_skill.get("importance", "important"),
-                "weightage": req_skill.get("weightage", 0.5),
-                "category": skill.category,
-                "prerequisites": skill.prerequisites
-            })
-    
-    return {
-        "role_id": role.role_id,
-        "role_name": role.role_name,
-        "description": role.description,
-        "category": role.category,
-        "experience_level": role.experience_level,
-        "required_skills": enriched_skills
-    }
 
 # ============= SKILLS ENDPOINTS =============
 

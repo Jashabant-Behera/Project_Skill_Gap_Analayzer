@@ -79,3 +79,22 @@ def create_tokens(user_id: UUID, email: str) -> Dict[str, str]:
         "refresh_token": refresh_token,
         "token_type": "bearer"
     }
+
+class TokenBlacklist:
+    def __init__(self, redis_client):
+        self.redis = redis_client
+    
+    async def add_token(self, token: str, exp: int):
+        """Add token to blacklist until expiration"""
+        ttl = exp - int(datetime.utcnow().timestamp())
+        if ttl > 0:
+            await self.redis.setex(
+                f"blacklist:{token}",
+                ttl,
+                "1"
+            )
+    
+    async def is_blacklisted(self, token: str) -> bool:
+        """Check if token is blacklisted"""
+        return await self.redis.exists(f"blacklist:{token}") == 1
+

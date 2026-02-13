@@ -18,6 +18,13 @@ import logging
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
+# Add file handler for debugging errors
+file_handler = logging.FileHandler('error_debug.log')
+file_handler.setLevel(logging.ERROR)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
 async def check_profile_complete(user: User) -> dict:
     """Check if user profile is complete"""
     missing = []
@@ -45,83 +52,117 @@ async def create_assessment(
 ):
     """Start a new assessment"""
     
-    # Check profile completion
-    profile_check = await check_profile_complete(current_user)
-    if not profile_check["complete"]:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail={
-                "message": "Profile incomplete",
-                "missing_fields": profile_check["missing_fields"]
-            }
+    try:
+        logger.info(f"Starting assessment creation for user: {current_user.user_id}")
+        
+        # Check profile completion
+        profile_check = await check_profile_complete(current_user)
+        if not profile_check["complete"]:
+            logger.warning(f"Profile incomplete for user {current_user.user_id}: {profile_check['missing_fields']}")
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={
+                    "message": "Profile incomplete",
+                    "missing_fields": profile_check["missing_fields"]
+                }
+            )
+        
+        # Validate target role exists
+        logger.info(f"Validating target role: {assessment_data.target_role_id}")
+        target_role = await Role.find_one(Role.role_id == assessment_data.target_role_id)
+        if not target_role:
+            logger.error(f"Target role not found: {assessment_data.target_role_id}")
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Target role not found"
+            )
+        
+        # Get user's known skills
+        logger.info("Fetching user skills...")
+        user_skills = await UserSkill.find(
+            UserSkill.user_id == current_user.user_id
+        ).to_list()
+        
+        known_skill_ids = [
+            skill.skill_id for skill in user_skills 
+            if skill.proficiency_level in ["intermediate", "advanced"]
+        ]
+        logger.info(f"Known skills: {known_skill_ids}")
+        
+        # Get skills to assess
+        skills_to_assess = []
+        # Handle case where required_skills might be None or invalid
+        if not target_role.required_skills:
+            target_role.required_skills = []
+            
+        for req_skill in target_role.required_skills:
+            # Handle dict access safely
+            if isinstance(req_skill, dict):
+                skill_id = req_skill.get("skill_id")
+                if skill_id and skill_id not in known_skill_ids:
+                    skills_to_assess.append(skill_id)
+        
+        # NEW: Add user's additional skills to learn
+        additional_skill_ids = []
+        if assessment_data.additional_skills_to_learn:
+            logger.info("Processing additional skills...")
+            for add_skill in assessment_data.additional_skills_to_learn:
+                # Validate skill exists
+                skill = await Skill.find_one(Skill.skill_id == add_skill.skill_id)
+                if skill:
+                    skills_to_assess.append(add_skill.skill_id)
+                    additional_skill_ids.append({
+                        "skill_id": add_skill.skill_id,
+                        "skill_name": add_skill.skill_name,
+                        "desired_proficiency": add_skill.desired_proficiency,
+                        "reason": add_skill.reason
+                    })
+        
+        skills_to_assess = list(set(skills_to_assess))
+        logger.info(f"Skills to assess: {skills_to_assess}")
+        
+        if not skills_to_assess:
+            logger.warning("No skills to assess.")
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="No skills to assess. You already know all required skills!"
+            )
+        
+        # Calculate total questions (1 per skill for testing)
+        questions_per_skill = 1
+        total_questions = len(skills_to_assess) * questions_per_skill
+        
+        # Create assessment
+        new_assessment = Assessment(
+            user_id=current_user.user_id,
+            target_role_id=target_role.role_id,
+            target_role_name=target_role.role_name,
+            status="in_progress",
+            additional_learning_goals=additional_skill_ids,
+            total_questions=total_questions,
+            answered_questions=0
         )
-    
-    # Validate target role exists
-    target_role = await Role.find_one(Role.role_id == assessment_data.target_role_id)
-    if not target_role:
+        
+        logger.info("Inserting new assessment...")
+        await new_assessment.insert()
+        
+        logger.info(f"Assessment created: {new_assessment.assessment_id} for user {current_user.email}")
+        
+        return {
+            "assessment_id": new_assessment.assessment_id,
+            "target_role_name": target_role.role_name,
+            "skills_to_assess": skills_to_assess,
+            "total_skills": len(skills_to_assess),
+            "message": "Assessment started successfully"
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error creating assessment: {str(e)}", exc_info=True)
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Target role not found"
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Internal server error: {str(e)}"
         )
-    
-    # Get user's known skills
-    user_skills = await UserSkill.find(
-        UserSkill.user_id == current_user.user_id
-    ).to_list()
-    
-    known_skill_ids = [
-        skill.skill_id for skill in user_skills 
-        if skill.proficiency_level in ["intermediate", "advanced"]
-    ]
-    
-    # Get skills to assess
-    skills_to_assess = []
-    for req_skill in target_role.required_skills:
-        if req_skill["skill_id"] not in known_skill_ids:
-            skills_to_assess.append(req_skill["skill_id"])
-    
-    # NEW: Add user's additional skills to learn
-    additional_skill_ids = []
-    for add_skill in assessment_data.additional_skills_to_learn:
-        # Validate skill exists
-        skill = await Skill.find_one(Skill.skill_id == add_skill.skill_id)
-        if skill:
-            skills_to_assess.append(add_skill.skill_id)
-            additional_skill_ids.append({
-                "skill_id": add_skill.skill_id,
-                "skill_name": add_skill.skill_name,
-                "desired_proficiency": add_skill.desired_proficiency,
-                "reason": add_skill.reason
-            })
-    
-    skills_to_assess = list(set(skills_to_assess))
-    
-    if not skills_to_assess:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="No skills to assess. You already know all required skills!"
-        )
-    
-    # Create assessment
-    new_assessment = Assessment(
-        user_id=current_user.user_id,
-        target_role_id=target_role.role_id,
-        target_role_name=target_role.role_name,
-        status="in_progress",
-        additional_learning_goals=additional_skill_ids  # NEW field
-    )
-    
-    await new_assessment.insert()
-    
-    logger.info(f"Assessment created: {new_assessment.assessment_id} for user {current_user.email}")
-    
-    return {
-        "assessment_id": new_assessment.assessment_id,
-        "target_role_name": target_role.role_name,
-        "skills_to_assess": skills_to_assess,
-        "total_skills": len(skills_to_assess),
-        "message": "Assessment started successfully"
-    }
 
 @router.get("/{assessment_id}/questions/next", response_model=QuestionResponse)
 async def get_next_question(
@@ -159,16 +200,80 @@ async def get_next_question(
     
     # Get target role
     target_role = await Role.find_one(Role.role_id == assessment.target_role_id)
-    required_skill_ids = [s["skill_id"] for s in target_role.required_skills]
+    required_skill_ids = []
+    if target_role and target_role.required_skills:
+        for s in target_role.required_skills:
+             if isinstance(s, dict) and "skill_id" in s:
+                 required_skill_ids.append(s["skill_id"])
     
-    # Find next skill
+    # Add additional skills
+    if assessment.additional_learning_goals:
+        for goal in assessment.additional_learning_goals:
+            if isinstance(goal, dict) and "skill_id" in goal:
+                if goal["skill_id"] not in required_skill_ids:
+                    required_skill_ids.append(goal["skill_id"])
+            
+    # Count questions per skill
+    skill_counts = {}
+    for q in existing_questions:
+        skill_counts[q.skill_id] = skill_counts.get(q.skill_id, 0) + 1
+    
+    # Re-filter specific logic inline:
+    user_skills_list = await UserSkill.find(UserSkill.user_id == current_user.user_id).to_list()
+    known_ids = [s.skill_id for s in user_skills_list if s.proficiency_level in ["intermediate", "advanced"]]
+    
+    logger.info(f"Finding next question. Required: {required_skill_ids}, Known: {known_ids}, Counts: {skill_counts}")
+
+    # Check for unanswered existing questions
+    responses = await UserResponse.find(
+        UserResponse.assessment_id == assessment_id
+    ).to_list()
+    answered_question_ids = [r.question_id for r in responses]
+    
+    for q in existing_questions:
+        if str(q.id) not in answered_question_ids:
+            # Found an unanswered question, return it
+            return QuestionResponse(
+                question_id=str(q.id),
+                skill_name=q.skill_name,
+                question_text=q.question_text,
+                question_type=q.question_type,
+                difficulty_level=q.difficulty_level,
+                options=q.options,
+                time_limit_seconds=300 # Default
+            )
+            
     next_skill_id = None
+    questions_per_skill = 1
+    
     for skill_id in required_skill_ids:
-        if skill_id not in assessed_skills:
+        # Check if additional goal
+        is_additional = False
+        if assessment.additional_learning_goals:
+            for g in assessment.additional_learning_goals:
+                if g.get("skill_id") == skill_id:
+                     is_additional = True
+                     break
+        
+        # Skip if known AND not additional
+        if skill_id in known_ids and not is_additional:
+            continue 
+            
+        if skill_counts.get(skill_id, 0) < questions_per_skill:
             next_skill_id = skill_id
             break
     
     if not next_skill_id:
+        logger.warning(f"No next skill found for assessment {assessment_id}")
+        # Build detailed debug info
+        debug_info = {
+            "required": required_skill_ids,
+            "known": known_ids,
+            "counts": skill_counts,
+            "additional": [g.get("skill_id") for g in assessment.additional_learning_goals or []]
+        }
+        logger.warning(f"Debug Info: {debug_info}")
+        
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="All skills have been assessed. Please complete the assessment."
@@ -221,7 +326,6 @@ async def get_next_question(
     
     await new_question.insert()
     
-    assessment.total_questions += 1
     await assessment.save()
     
     logger.info(f"Question generated for assessment {assessment_id}, skill: {skill.skill_name}")
@@ -250,13 +354,17 @@ async def submit_answer(
         )
     
     # Get question
-    from bson import ObjectId
-    question = await AssessmentQuestion.get(ObjectId(answer_data.question_id))
+    from beanie import PydanticObjectId
+    try:
+        q_id = PydanticObjectId(answer_data.question_id)
+        question = await AssessmentQuestion.get(q_id)
+    except Exception:
+        question = None
     
     if not question or question.assessment_id != assessment_id:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Question not found"
+            detail="Question not found or does not belong to this assessment"
         )
     
     # Check if already answered
@@ -265,10 +373,25 @@ async def submit_answer(
         UserResponse.question_id == answer_data.question_id
     )
     
+    # Update assessment progress (self-healing)
+    answered_count = await UserResponse.find(
+        UserResponse.assessment_id == assessment_id
+    ).count()
+    
+    if assessment.answered_questions != answered_count:
+        assessment.answered_questions = answered_count
+        await assessment.save()
+
     if existing_response:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Question already answered"
+        # Return existing evaluation to handle idempotent retries
+        return EvaluationResponse(
+            question_id=existing_response.question_id,
+            score=existing_response.score,
+            competency_level=existing_response.competency_level or "intermediate",
+            feedback=existing_response.evaluation_feedback or "",
+            strengths=existing_response.strengths or [],
+            gaps=existing_response.gaps or [],
+            missing_concepts=existing_response.missing_concepts or []
         )
     
     # Evaluate answer
@@ -303,7 +426,11 @@ async def submit_answer(
     await user_response.insert()
     
     # Update assessment
-    assessment.answered_questions += 1
+    answered_count = await UserResponse.find(
+        UserResponse.assessment_id == assessment_id
+    ).count()
+    
+    assessment.answered_questions = answered_count
     assessment.time_taken_minutes += answer_data.time_taken_seconds // 60
     await assessment.save()
     
@@ -367,66 +494,92 @@ async def complete_assessment(
             detail="Assessment not found"
         )
     
-    # Check all questions answered
-    if assessment.answered_questions < assessment.total_questions:
+    try:
+        # Check all questions answered
+        if assessment.answered_questions < assessment.total_questions:
+            # Check if we mistakenly incremented answered_questions?
+            # Or if questions were skipped?
+            # For now, we allow completion if at least 1 question is answered? No, strictly check unless debugging.
+            # actually, if user is stuck, we probably want to allow force completion?
+            # But let's stick to logic.
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Please answer all questions. {assessment.answered_questions}/{assessment.total_questions} answered."
+            )
+        
+        # Get all responses
+        responses = await UserResponse.find(
+            UserResponse.assessment_id == assessment_id
+        ).to_list()
+        
+        # Fetch questions to map skill_ids (Analyzer needs skill_id)
+        questions = await AssessmentQuestion.find(
+            AssessmentQuestion.assessment_id == assessment_id
+        ).to_list()
+        question_map = {str(q.id): q.skill_id for q in questions}
+        
+        # Enrich responses with skill_id dynamically
+        for r in responses:
+            if hasattr(r, 'question_id') and r.question_id in question_map:
+                setattr(r, 'skill_id', question_map[r.question_id])
+        
+        # Calculate overall score
+        if responses:
+            overall_score = sum(r.score for r in responses) / len(responses)
+        else:
+            overall_score = 0
+        
+        # Get target role
+        target_role = await Role.find_one(Role.role_id == assessment.target_role_id)
+        
+        # Analyze skill gaps
+        skill_gaps = await skill_gap_analyzer.analyze_gaps(
+            assessment_results=responses,
+            target_role_requirements=target_role.dict(),
+            user_profile=current_user.dict(),
+            additional_goals=assessment.additional_learning_goals
+        )
+        
+        # Save skill gaps
+        for gap in skill_gaps["skill_gaps"]:
+            skill_gap = SkillGap(
+                assessment_id=assessment_id,
+                skill_id=gap["skill_id"],
+                skill_name=gap["skill_name"],
+                current_level=gap.get("current_level"),
+                current_score=gap["current_score"],
+                required_level=gap["required_level"],
+                gap_score=gap["gap_score"],
+                priority=gap["priority"],
+                estimated_learning_weeks=gap.get("estimated_learning_time", 0),
+                missing_concepts=gap.get("missing_concepts", []),
+                is_additional=gap.get("is_additional", False)
+            )
+            await skill_gap.insert()
+        
+        # Update assessment
+        assessment.overall_score = overall_score
+        assessment.readiness_score = skill_gaps["overall_readiness_score"]
+        assessment.status = "completed"
+        assessment.completed_at = datetime.utcnow()
+        await assessment.save()
+        
+        logger.info(f"Assessment completed: {assessment_id}")
+        
+        return {
+            "assessment_id": assessment_id,
+            "overall_score": round(overall_score, 2),
+            "readiness_score": round(skill_gaps["overall_readiness_score"], 2),
+            "skill_gaps_count": len(skill_gaps["skill_gaps"]),
+            "high_priority_gaps": skill_gaps["high_priority_gaps"],
+            "message": "Assessment completed successfully!"
+        }
+    except Exception as e:
+        logger.error(f"Error completing assessment: {e}", exc_info=True)
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Please answer all questions. {assessment.answered_questions}/{assessment.total_questions} answered."
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to complete assessment: {str(e)}"
         )
-    
-    # Get all responses
-    responses = await UserResponse.find(
-        UserResponse.assessment_id == assessment_id
-    ).to_list()
-    
-    # Calculate overall score
-    overall_score = sum(r.score for r in responses) / len(responses)
-    
-    # Get target role
-    target_role = await Role.find_one(Role.role_id == assessment.target_role_id)
-    
-    # Analyze skill gaps
-    skill_gaps = await skill_gap_analyzer.analyze_gaps(
-        assessment_results=responses,
-        target_role_requirements=target_role.dict(),
-        user_profile=current_user.dict(),
-        additional_goals=assessment.additional_learning_goals
-    )
-    
-    # Save skill gaps
-    for gap in skill_gaps["skill_gaps"]:
-        skill_gap = SkillGap(
-            assessment_id=assessment_id,
-            skill_id=gap["skill_id"],
-            skill_name=gap["skill_name"],
-            current_level=gap.get("current_level"),
-            current_score=gap["current_score"],
-            required_level=gap["required_level"],
-            gap_score=gap["gap_score"],
-            priority=gap["priority"],
-            estimated_learning_weeks=gap.get("estimated_learning_time", 0),
-            missing_concepts=gap.get("missing_concepts", []),
-            is_additional=gap.get("is_additional", False)
-        )
-        await skill_gap.insert()
-    
-    # Update assessment
-    assessment.overall_score = overall_score
-    assessment.readiness_score = skill_gaps["overall_readiness_score"]
-    assessment.status = "completed"
-    assessment.completed_at = datetime.utcnow()
-    await assessment.save()
-    
-    logger.info(f"Assessment completed: {assessment_id}")
-    
-    return {
-        "assessment_id": assessment_id,
-        "overall_score": round(overall_score, 2),
-        "readiness_score": round(skill_gaps["overall_readiness_score"], 2),
-        "skill_gaps_count": len(skill_gaps["skill_gaps"]),
-        "high_priority_gaps": skill_gaps["high_priority_gaps"],
-        "message": "Assessment completed successfully!"
-    }
 
 @router.get("/{assessment_id}/results")
 async def get_assessment_results(

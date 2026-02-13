@@ -15,6 +15,7 @@ import { AssessmentStart } from './components/assessment/AssessmentStart';
 import { AssessmentPage } from './pages/AssessmentPage';
 import { ResultsPage } from './pages/ResultsPage';
 import { RoadmapPage } from './pages/RoadmapPage';
+import { RoadmapGenerationPage } from './pages/RoadmapGenerationPage';
 
 function App() {
   return (
@@ -71,6 +72,15 @@ function App() {
                   element={
                     <ProtectedRoute>
                       <RoadmapPage />
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route
+                  path="/roadmap/generate/:assessmentId"
+                  element={
+                    <ProtectedRoute>
+                      <RoadmapGenerationPage />
                     </ProtectedRoute>
                   }
                 />

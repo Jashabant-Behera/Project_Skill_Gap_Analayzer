@@ -81,15 +81,15 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
                                 <label
                                     key={index}
                                     className={`flex items-start p-4 border-2 rounded-lg cursor-pointer transition-all ${selectedOption === optionLabel
-                                            ? 'border-primary-600 bg-primary-50'
-                                            : 'border-gray-200 hover:border-primary-300'
+                                        ? 'border-primary-600 bg-primary-50'
+                                        : 'border-gray-200 hover:border-primary-300'
                                         }`}
                                 >
                                     <input
                                         type="radio"
                                         name="mcq-option"
-                                        value={optionLabel}
-                                        checked={selectedOption === optionLabel}
+                                        value={option}
+                                        checked={selectedOption === option}
                                         onChange={(e) => setSelectedOption(e.target.value)}
                                         className="mt-1 mr-3 text-primary-600"
                                     />

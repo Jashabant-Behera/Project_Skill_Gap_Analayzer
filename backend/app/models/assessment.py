@@ -31,6 +31,7 @@ class UserResponse(Document):
     
     assessment_id: UUID
     question_id: str  # Reference to AssessmentQuestion
+    skill_id: Optional[str] = None  # Added for analysis context
     user_answer: str
     score: float = 0.0
     competency_level: Optional[str] = None

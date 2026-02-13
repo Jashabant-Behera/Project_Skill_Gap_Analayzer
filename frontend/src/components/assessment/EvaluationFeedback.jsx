@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle, XCircle, ArrowRight, Lightbulb, TrendingUp } from 'lucide-react';
 
-export const EvaluationFeedback = ({ evaluation, onNext }) => {
+export const EvaluationFeedback = ({ evaluation, onNext, isLastQuestion }) => {
     const getScoreColor = (score) => {
         if (score >= 80) return 'text-green-600';
         if (score >= 60) return 'text-blue-600';
@@ -112,7 +112,7 @@ export const EvaluationFeedback = ({ evaluation, onNext }) => {
             {/* Next Button */}
             <div className="flex justify-center">
                 <button onClick={onNext} className="btn-primary flex items-center gap-2">
-                    <span>Next Question</span>
+                    <span>{isLastQuestion ? 'Complete Assessment' : 'Next Question'}</span>
                     <ArrowRight className="w-5 h-5" />
                 </button>
             </div>

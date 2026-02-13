@@ -44,22 +44,27 @@ async def get_current_user(
         raise credentials_exception
     
     # Check cache first
-    cached_user = await cache.get_json(f"user:{user_id}")
-    if cached_user:
-        # Reconstruct user from cache
-        if "id" in cached_user and isinstance(cached_user["id"], str):
-             cached_user["id"] = PydanticObjectId(cached_user["id"])
-        elif "_id" in cached_user and isinstance(cached_user["_id"], str):
-             cached_user["_id"] = PydanticObjectId(cached_user["_id"])
-             
-        user = User(**cached_user)
-        return user
+    try:
+        cached_user = await cache.get_json(f"user:{user_id}")
+        if cached_user:
+            # Reconstruct user from cache
+            if "id" in cached_user and isinstance(cached_user["id"], str):
+                 cached_user["id"] = PydanticObjectId(cached_user["id"])
+            elif "_id" in cached_user and isinstance(cached_user["_id"], str):
+                 cached_user["_id"] = PydanticObjectId(cached_user["_id"])
+                 
+            user = User(**cached_user)
+            return user
+    except Exception as e:
+        logger.error(f"Error retrieving user from cache: {e}")
+        # Build broken cache key to delete?
+        # Continue to DB fetch
     
     # Get user from database
     try:
         user = await User.find_one(User.user_id == UUID(user_id))
     except Exception as e:
-        logger.error(f"Error fetching user: {e}")
+        logger.error(f"Error fetching user from DB: {e}")
         raise credentials_exception
     
     if user is None:

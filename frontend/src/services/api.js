@@ -60,8 +60,18 @@ api.interceptors.response.use(
         }
 
         // Handle other errors
-        const errorMessage = error.response?.data?.detail || 'An error occurred';
-        toast.error(errorMessage);
+        let errorMessage = 'An error occurred';
+        const detail = error.response?.data?.detail;
+
+        if (detail) {
+            if (typeof detail === 'string') {
+                errorMessage = detail;
+            } else if (typeof detail === 'object') {
+                errorMessage = detail.message || JSON.stringify(detail);
+            }
+        }
+
+        // toast.error(errorMessage);
 
         return Promise.reject(error);
     }

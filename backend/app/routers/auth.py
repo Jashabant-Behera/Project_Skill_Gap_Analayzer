@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Request
 from fastapi.encoders import jsonable_encoder
-from fastapi.security import HTTPBearer
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from datetime import datetime
 from typing import Dict
 from uuid import UUID
@@ -12,10 +12,11 @@ from app.schemas.user import (
 from app.models.user import User
 from app.core.security import (
     get_password_hash, verify_password, 
-    create_tokens, decode_token
+    create_tokens, decode_token, TokenBlacklist
 )
 from app.core.cache import cache
 from app.core.dependencies import get_current_user
+from app.core.rate_limit import limiter
 from app.config import settings
 import logging
 
@@ -24,7 +25,8 @@ security = HTTPBearer()
 logger = logging.getLogger(__name__)
 
 @router.post("/register", response_model=Dict, status_code=status.HTTP_201_CREATED)
-async def register_user(user_data: UserRegister):
+@limiter.limit("3/hour")
+async def register_user(request: Request, user_data: UserRegister):
     """
     Register a new user
     
@@ -75,7 +77,8 @@ async def register_user(user_data: UserRegister):
     }
 
 @router.post("/login", response_model=Dict)
-async def login_user(credentials: UserLogin):
+@limiter.limit("5/minute")
+async def login_user(request: Request, credentials: UserLogin):
     """
     Login user and get access tokens
     
@@ -170,12 +173,25 @@ async def refresh_access_token(refresh_request: RefreshTokenRequest):
     return TokenResponse(**tokens)
 
 @router.post("/logout")
-async def logout_user(current_user: User = Depends(get_current_user)):
+async def logout_user(
+    request: Request,
+    current_user: User = Depends(get_current_user),
+    token_creds: HTTPAuthorizationCredentials = Depends(security)
+):
     """
     Logout user and invalidate current session
     
     Requires authentication
     """
+    # Blacklist token
+    if cache.redis:
+        blacklist = TokenBlacklist(cache.redis)
+        token = token_creds.credentials
+        payload = decode_token(token)
+        if payload:
+            exp = payload.get("exp")
+            if exp:
+                 await blacklist.add_token(token, exp)
     
     # Clear user cache
     await cache.delete(f"user:{current_user.user_id}")

@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from pydantic import Field
+from pydantic import Field, field_validator, ValidationError
 from typing import List
 from functools import lru_cache
 
@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     GROQ_MODEL_SMART: str = "llama-3.3-70b-versatile"
     
     # CORS
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:5173"
+    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:5173,http://localhost:5174,http://localhost:5175"
     
     # Pagination
     DEFAULT_PAGE_SIZE: int = 10
@@ -48,6 +48,35 @@ class Settings(BaseSettings):
     def allowed_origins_list(self) -> List[str]:
         return [origin.strip() for origin in self.ALLOWED_ORIGINS.split(",")]
     
+    @field_validator("SECRET_KEY")
+    @classmethod
+    def validate_secret_key(cls, v: str) -> str:
+        """Ensure SECRET_KEY is not a default/weak value"""
+        weak_keys = [
+            "your-secret-key-change-this",
+            "change-me",
+            "secret",
+            "password",
+            "default",
+        ]
+        
+        if v.lower() in weak_keys or len(v) < 32:
+            raise ValueError(
+                "SECRET_KEY must be at least 32 characters and not a default value. "
+                "Generate with: openssl rand -hex 32"
+            )
+        return v
+    
+    @field_validator("GROQ_API_KEY")
+    @classmethod
+    def validate_groq_key(cls, v: str) -> str:
+        """Ensure GROQ_API_KEY is set"""
+        if v.startswith("your-") or v.startswith("change-"):
+            raise ValueError(
+                "GROQ_API_KEY must be set to a valid API key"
+            )
+        return v
+
     class Config:
         env_file = ".env"
         case_sensitive = True

@@ -12,7 +12,7 @@ export const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await login({ username: email, password });
+            await login({ email, password });
             navigate('/');
         } catch (error) {
             // Error handled in context

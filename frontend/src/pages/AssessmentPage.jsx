@@ -34,7 +34,7 @@ export const AssessmentPage = () => {
                 // All questions completed
                 handleComplete();
             } else {
-                toast.error('Failed to load question');
+                // toast.error('Failed to load question');
             }
         } finally {
             setLoading(false);
@@ -45,19 +45,30 @@ export const AssessmentPage = () => {
         try {
             const progressData = await updateProgress(assessmentId);
             setProgress(progressData);
+            return progressData;
         } catch (error) {
             console.error('Failed to load progress:', error);
+            return null;
         }
     };
 
     const handleSubmitAnswer = async (answerData) => {
         try {
-            const evaluationResult = await submitAnswer(assessmentId, answerData);
-            setEvaluation(evaluationResult);
-            setShowEvaluation(true);
-            await loadProgress();
+            await submitAnswer(assessmentId, answerData);
+            // No longer show individual feedback
+            // setEvaluation(evaluationResult);
+            // setShowEvaluation(true);
+
+            const progressData = await loadProgress();
+            // setProgress(progressData); // This line is now redundant as loadProgress already sets it
+
+            if (progressData && progressData.answered_questions >= progressData.total_questions) {
+                await handleComplete();
+            } else {
+                await loadQuestion();
+            }
         } catch (error) {
-            toast.error('Failed to submit answer');
+            // toast.error('Failed to submit answer');
         }
     };
 
@@ -70,7 +81,7 @@ export const AssessmentPage = () => {
             await completeAssessment(assessmentId);
             navigate(`/results/${assessmentId}`);
         } catch (error) {
-            toast.error('Failed to complete assessment');
+            // toast.error('Failed to complete assessment');
         }
     };
 
@@ -94,6 +105,7 @@ export const AssessmentPage = () => {
                 <EvaluationFeedback
                     evaluation={evaluation}
                     onNext={handleNextQuestion}
+                    isLastQuestion={progress && progress.answered_questions >= progress.total_questions}
                 />
             ) : (
                 currentQuestion && (

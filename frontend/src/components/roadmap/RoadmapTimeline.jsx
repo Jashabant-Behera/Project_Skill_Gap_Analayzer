@@ -116,26 +116,37 @@ export const RoadmapTimeline = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="mt-6 flex justify-end">
+                        <button
+                            onClick={() => navigate('/')}
+                            className="btn-secondary flex items-center gap-2"
+                        >
+                            <span className="font-semibold">Go to Home</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
+
             {/* Additional Skills Callout */}
-            {weeksWithAdditionalSkills.length > 0 && (
-                <div className="card bg-green-50 border-2 border-green-200">
-                    <div className="flex items-start gap-3">
-                        <Plus className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                        <div>
-                            <h3 className="font-semibold text-green-900 mb-2">
-                                Your Custom Learning Goals Included
-                            </h3>
-                            <p className="text-green-800 text-sm">
-                                This roadmap includes the additional skills you wanted to learn.
-                                They're integrated into your learning path at optimal points.
-                            </p>
+            {
+                weeksWithAdditionalSkills.length > 0 && (
+                    <div className="card bg-green-50 border-2 border-green-200">
+                        <div className="flex items-start gap-3">
+                            <Plus className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                            <div>
+                                <h3 className="font-semibold text-green-900 mb-2">
+                                    Your Custom Learning Goals Included
+                                </h3>
+                                <p className="text-green-800 text-sm">
+                                    This roadmap includes the additional skills you wanted to learn.
+                                    They're integrated into your learning path at optimal points.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Timeline */}
             <div className="relative">
@@ -178,6 +189,6 @@ export const RoadmapTimeline = () => {
                     Remember, the journey of a thousand miles begins with a single step!
                 </p>
             </div>
-        </div>
+        </div >
     );
 };

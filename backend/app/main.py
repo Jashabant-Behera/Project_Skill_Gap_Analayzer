@@ -7,8 +7,10 @@ import logging
 import time
 
 from app.config import settings
-from app.core.database import connect_to_mongo, close_mongo_connection
+from app.core.database import connect_to_mongo, close_mongo_connection, ensure_indexes
 from app.core.cache import cache
+from app.core.rate_limit import limiter, rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
 # Import routers
 from app.routers import auth, users, assessments, roadmaps, analytics, master_data
@@ -29,6 +31,7 @@ async def lifespan(app: FastAPI):
     try:
         # Connect to MongoDB
         await connect_to_mongo()
+        await ensure_indexes()
         
         # Connect to Redis
         await cache.connect()
@@ -60,6 +63,10 @@ app = FastAPI(
     openapi_url=f"/api/{settings.API_VERSION}/openapi.json",
     lifespan=lifespan
 )
+
+# Rate Limiter
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)
 
 # CORS Middleware
 app.add_middleware(
@@ -177,6 +184,7 @@ app.include_router(
 logger.info(f"{settings.APP_NAME} v{settings.API_VERSION}")
 logger.info(f"CORS enabled for: {settings.allowed_origins_list}")
 logger.info(f"API Documentation: /api/{settings.API_VERSION}/docs")
+# Force reload for CORS update
 
 if __name__ == "__main__":
     import uvicorn
@@ -186,3 +194,4 @@ if __name__ == "__main__":
         port=8000,
         reload=settings.DEBUG
     )
+ 

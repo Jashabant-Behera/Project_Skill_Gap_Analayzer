@@ -1,6 +1,8 @@
 # FastAPI & Server
 fastapi==0.109.0
 uvicorn[standard]==0.27.0
+slowapi==0.1.9
+bleach==6.1.0
 python-multipart==0.0.6
 
 # MongoDB
@@ -9,9 +11,8 @@ pymongo==4.6.1
 beanie==1.24.0
 
 # Authentication & Security
-python-jose[cryptography]==3.3.0
-passlib[bcrypt]==1.7.4
-bcrypt==4.1.2
+python-jose==3.3.0
+passlib==1.7.4
 pydantic[email]==2.5.3
 
 # Redis for caching
