@@ -36,13 +36,13 @@ export const StatsCards = ({ summary }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-                <div key={index} className="card hover:shadow-lg transition-shadow">
+                <div key={index} className="card card-hover">
                     <div className="flex items-center justify-between">
                         <div>
-                            <p className="text-sm text-gray-600 mb-1">{stat.label}</p>
-                            <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
+                            <p className="text-sm mb-1" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
+                            <p className="text-3xl font-bold gradient-text">{stat.value}</p>
                         </div>
-                        <div className={`p-3 rounded-lg ${stat.bgColor}`}>
+                        <div className="p-3 rounded-xl bg-white shadow-sm">
                             <stat.icon className={`w-8 h-8 ${stat.color}`} />
                         </div>
                     </div>

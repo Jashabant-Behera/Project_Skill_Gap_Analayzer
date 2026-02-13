@@ -10,4 +10,9 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    port: 3000,
+    strictPort: true, // Fail if port 3000 is already in use instead of auto-incrementing
+    open: true, // Automatically open browser on server start
+  },
 })

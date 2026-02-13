@@ -9,24 +9,24 @@ export const WeekCard = ({ week, isExpanded, onToggle, roadmapId }) => {
     );
 
     return (
-        <div className={`card border-2 transition-all ${isExpanded ? 'border-primary-300 shadow-lg' : 'border-gray-200'
-            }`}>
+        <div className={`card border-2 transition-all ${isExpanded ? 'shadow-glow' : ''}
+            }`} style={{ borderColor: isExpanded ? 'var(--accent-primary)' : 'var(--border-primary)' }}>
             <button
                 onClick={onToggle}
                 className="w-full flex items-center justify-between text-left"
             >
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-bold text-gray-900">{week.title}</h3>
+                        <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>{week.title}</h3>
                         {hasAdditionalSkills && (
-                            <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full flex items-center gap-1">
+                            <span className="px-3 py-1 text-xs font-medium rounded-full flex items-center gap-1" style={{ background: 'rgba(52, 211, 153, 0.2)', color: 'rgb(52, 211, 153)', border: '1px solid rgba(52, 211, 153, 0.3)' }}>
                                 <Plus className="w-3 h-3" />
                                 Custom Goal
                             </span>
                         )}
                     </div>
 
-                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                    <div className="flex items-center gap-4 text-sm" style={{ color: 'var(--text-muted)' }}>
                         <div className="flex items-center gap-1">
                             <Clock className="w-4 h-4" />
                             <span>{week.estimated_hours} hours</span>
@@ -51,8 +51,8 @@ export const WeekCard = ({ week, isExpanded, onToggle, roadmapId }) => {
                 <div className="mt-6 space-y-6 animate-fadeIn">
                     {/* Learning Objectives */}
                     <div>
-                        <h4 className="font-semibold text-gray-900 mb-3">Learning Objectives</h4>
-                        <div className="prose prose-sm max-w-none text-gray-700">
+                        <h4 className="font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>Learning Objectives</h4>
+                        <div className="prose prose-sm max-w-none" style={{ color: 'var(--text-secondary)' }}>
                             {week.learning_objectives}
                         </div>
                     </div>
@@ -60,15 +60,23 @@ export const WeekCard = ({ week, isExpanded, onToggle, roadmapId }) => {
                     {/* Skills Breakdown */}
                     {week.skills_to_learn && week.skills_to_learn.length > 0 && (
                         <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">Skills Covered</h4>
+                            <h4 className="font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>Skills Covered</h4>
                             <div className="flex flex-wrap gap-2">
                                 {week.skills_to_learn.map((skillId, index) => (
                                     <span
                                         key={index}
-                                        className={`px-3 py-1.5 rounded-lg text-sm font-medium ${week.is_additional_skill?.[skillId]
-                                                ? 'bg-green-100 text-green-800 border border-green-300'
-                                                : 'bg-primary-100 text-primary-800'
-                                            }`}
+                                        className="px-3 py-1.5 rounded-lg text-sm font-medium"
+                                        style={{
+                                            background: week.is_additional_skill?.[skillId]
+                                                ? 'rgba(52, 211, 153, 0.2)'
+                                                : 'rgba(0, 245, 255, 0.2)',
+                                            color: week.is_additional_skill?.[skillId]
+                                                ? 'rgb(52, 211, 153)'
+                                                : 'var(--accent-primary)',
+                                            border: week.is_additional_skill?.[skillId]
+                                                ? '1px solid rgba(52, 211, 153, 0.3)'
+                                                : '1px solid rgba(0, 245, 255, 0.3)'
+                                        }}
                                     >
                                         {skillId.replace(/_/g, ' ')}
                                         {week.is_additional_skill?.[skillId] && (
@@ -115,11 +123,11 @@ export const WeekCard = ({ week, isExpanded, onToggle, roadmapId }) => {
                     {/* Success Criteria */}
                     {week.success_criteria && week.success_criteria.length > 0 && (
                         <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">✅ Success Criteria</h4>
+                            <h4 className="font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>✅ Success Criteria</h4>
                             <ul className="space-y-2">
                                 {week.success_criteria.map((criteria, index) => (
-                                    <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                                        <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                    <li key={index} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                                         <span>{criteria}</span>
                                     </li>
                                 ))}

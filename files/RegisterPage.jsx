@@ -19,10 +19,10 @@ export const RegisterPage = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            await register({
-                full_name: formData.name,
-                email: formData.email,
-                password: formData.password,
+            await register({ 
+                full_name: formData.name, 
+                email: formData.email, 
+                password: formData.password, 
                 current_role: formData.role,
                 experience_years: formData.experience
             });
@@ -55,12 +55,12 @@ export const RegisterPage = () => {
                             <Sparkles className="w-4 h-4" />
                             <span>Start Your Journey Today</span>
                         </div>
-
+                        
                         <h1 className="text-5xl font-bold text-white leading-tight">
                             Transform Your
-                            <span className="gradient-text block mt-2">Career Path</span>
+                            <span className="text-gradient block mt-2">Career Path</span>
                         </h1>
-
+                        
                         <p className="text-xl text-gray-400">
                             Join thousands of professionals leveling up their skills with AI-powered guidance
                         </p>
@@ -68,7 +68,7 @@ export const RegisterPage = () => {
 
                     <div className="space-y-4">
                         {features.map((feature, index) => (
-                            <div
+                            <div 
                                 key={index}
                                 className="flex items-center gap-3 text-gray-300"
                             >
@@ -88,7 +88,7 @@ export const RegisterPage = () => {
                             { value: '24/7', label: 'Support' }
                         ].map((stat, index) => (
                             <div key={index} className="text-center">
-                                <div className="text-3xl font-bold gradient-text">
+                                <div className="text-3xl font-bold text-gradient">
                                     {stat.value}
                                 </div>
                                 <div className="text-sm text-gray-500">
@@ -198,8 +198,8 @@ export const RegisterPage = () => {
                             </div>
 
                             {/* Submit Button */}
-                            <button
-                                type="submit"
+                            <button 
+                                type="submit" 
                                 disabled={loading}
                                 className="btn-primary w-full text-base py-3 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-6"
                             >
@@ -221,8 +221,8 @@ export const RegisterPage = () => {
                         <div className="text-center pt-4 border-t border-dark-700">
                             <p className="text-gray-400">
                                 Already have an account?{' '}
-                                <Link
-                                    to="/login"
+                                <Link 
+                                    to="/login" 
                                     className="text-primary-400 hover:text-primary-300 font-medium transition-colors"
                                 >
                                     Sign in

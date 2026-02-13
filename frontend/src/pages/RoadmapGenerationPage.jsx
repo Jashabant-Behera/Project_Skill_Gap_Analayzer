@@ -38,8 +38,8 @@ export const RoadmapGenerationPage = () => {
             <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-6">
                 <LoadingSpinner size="lg" />
                 <div className="text-center space-y-2">
-                    <h2 className="text-2xl font-bold text-gray-800">Designing Your Personal Path...</h2>
-                    <p className="text-gray-600 animate-pulse">
+                    <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Designing Your Personal Path...</h2>
+                    <p style={{ color: 'var(--text-secondary)' }} className="animate-pulse">
                         Analyzing your skill gaps and creating an optimal learning schedule.
                     </p>
                 </div>
@@ -49,23 +49,23 @@ export const RoadmapGenerationPage = () => {
 
     return (
         <div className="max-w-2xl mx-auto py-12 px-4">
-            <div className="card bg-white shadow-xl border-t-4 border-t-primary-600">
+            <div className="card shadow-glow">
                 <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4">
-                        <Sparkles className="w-8 h-8 text-primary-600" />
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 bg-gradient-to-br from-primary-600 to-purple-600">
+                        <Sparkles className="w-8 h-8 text-white" />
                     </div>
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
                         Create Your Learning Roadmap
                     </h1>
-                    <p className="text-gray-600 max-w-md mx-auto">
+                    <p className="max-w-md mx-auto" style={{ color: 'var(--text-secondary)' }}>
                         We'll generate a personalized week-by-week plan to help you bridge your skill gaps efficiently.
                     </p>
                 </div>
 
                 <div className="space-y-8">
                     {/* Time Commitment Input */}
-                    <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <label className="block text-sm font-semibold text-gray-700 mb-4 flex items-center gap-2">
+                    <div className="p-6 rounded-xl border" style={{ background: 'var(--bg-secondary)', borderColor: 'var(--border-primary)' }}>
+                        <label className="block text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                             <Clock className="w-4 h-4" />
                             Weekly Time Commitment
                         </label>
@@ -84,7 +84,7 @@ export const RoadmapGenerationPage = () => {
                                 {hoursPerWeek}h
                             </span>
                         </div>
-                        <p className="text-sm text-gray-500 mt-2">
+                        <p className="text-sm mt-2" style={{ color: 'var(--text-muted)' }}>
                             Recommended: 10-15 hours for steady progress.
                         </p>
                     </div>
@@ -94,15 +94,15 @@ export const RoadmapGenerationPage = () => {
                         <div className="flex items-start gap-3 p-3">
                             <Target className="w-5 h-5 text-green-500 mt-1" />
                             <div>
-                                <h4 className="font-semibold text-gray-900">Goal Focused</h4>
-                                <p className="text-sm text-gray-600">Prioritizes high-impact skills first</p>
+                                <h4 className="font-semibold" style={{ color: 'var(--text-primary)' }}>Goal Focused</h4>
+                                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Prioritizes high-impact skills first</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3 p-3">
                             <BookOpen className="w-5 h-5 text-blue-500 mt-1" />
                             <div>
-                                <h4 className="font-semibold text-gray-900">Curated Resources</h4>
-                                <p className="text-sm text-gray-600">Includes best tutorials and projects</p>
+                                <h4 className="font-semibold" style={{ color: 'var(--text-primary)' }}>Curated Resources</h4>
+                                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Includes best tutorials and projects</p>
                             </div>
                         </div>
                     </div>

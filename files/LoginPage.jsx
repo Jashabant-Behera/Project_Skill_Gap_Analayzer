@@ -69,8 +69,8 @@ export const LoginPage = () => {
                                 <label className="block text-sm font-medium text-gray-300">
                                     Password
                                 </label>
-                                <Link
-                                    to="/forgot-password"
+                                <Link 
+                                    to="/forgot-password" 
                                     className="text-sm text-primary-400 hover:text-primary-300 transition-colors"
                                 >
                                     Forgot?
@@ -106,8 +106,8 @@ export const LoginPage = () => {
                         </div>
 
                         {/* Submit Button */}
-                        <button
-                            type="submit"
+                        <button 
+                            type="submit" 
                             disabled={loading}
                             className="btn-primary w-full text-base py-3 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                         >
@@ -138,8 +138,8 @@ export const LoginPage = () => {
                     </div>
 
                     {/* Sign Up Link */}
-                    <Link
-                        to="/register"
+                    <Link 
+                        to="/register" 
                         className="btn-outline w-full text-base py-3 flex items-center justify-center gap-2 group"
                     >
                         <Sparkles className="w-5 h-5" />

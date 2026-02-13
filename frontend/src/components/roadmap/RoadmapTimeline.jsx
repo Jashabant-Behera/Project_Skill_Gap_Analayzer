@@ -78,38 +78,44 @@ export const RoadmapTimeline = () => {
     );
 
     return (
-        <div className="max-w-6xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
             {/* Header */}
-            <div className="card bg-gradient-to-br from-primary-50 to-blue-50 border-primary-200">
+            <div className="card shadow-glow" style={{ background: 'linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(124, 58, 237, 0.1))' }}>
                 <div className="flex items-start justify-between">
                     <div className="flex-1">
-                        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                        <h1 className="text-3xl font-bold mb-2 gradient-text">
                             Your Learning Roadmap
                         </h1>
-                        <p className="text-gray-700 mb-4">{roadmap.overview}</p>
+                        <p style={{ color: 'var(--text-secondary)' }} className="mb-4">{roadmap.overview}</p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-                                <Calendar className="w-5 h-5 text-primary-600" />
+                            <div className="flex items-center gap-3  p-3 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
+                                <div className="p-2 rounded-lg bg-white">
+                                    <Calendar className="w-5 h-5 text-primary-600" />
+                                </div>
                                 <div>
-                                    <p className="text-sm text-gray-600">Duration</p>
-                                    <p className="font-semibold text-gray-900">{roadmap.total_weeks} weeks</p>
+                                    <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Duration</p>
+                                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>{roadmap.total_weeks} weeks</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-                                <Clock className="w-5 h-5 text-primary-600" />
+                            <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
+                                <div className="p-2 rounded-lg bg-white">
+                                    <Clock className="w-5 h-5 text-primary-600" />
+                                </div>
                                 <div>
-                                    <p className="text-sm text-gray-600">Weekly Commitment</p>
-                                    <p className="font-semibold text-gray-900">{roadmap.hours_per_week} hours</p>
+                                    <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Weekly Commitment</p>
+                                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>{roadmap.hours_per_week} hours</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-                                <BookOpen className="w-5 h-5 text-primary-600" />
+                            <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
+                                <div className="p-2 rounded-lg bg-white">
+                                    <BookOpen className="w-5 h-5 text-primary-600" />
+                                </div>
                                 <div>
-                                    <p className="text-sm text-gray-600">Total Hours</p>
-                                    <p className="font-semibold text-gray-900">
+                                    <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Total Hours</p>
+                                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>
                                         {roadmap.total_weeks * roadmap.hours_per_week} hours
                                     </p>
                                 </div>
@@ -151,14 +157,14 @@ export const RoadmapTimeline = () => {
             {/* Timeline */}
             <div className="relative">
                 {/* Vertical Line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200" />
+                <div className="absolute left-8 top-0 bottom-0 w-0.5" style={{ background: 'linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary))' }} />
 
                 {/* Weeks */}
                 <div className="space-y-8">
                     {roadmap.weeks.map((week, index) => (
                         <div key={week.week_number} className="relative">
                             {/* Week Number Badge */}
-                            <div className="absolute left-0 w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10 shadow-lg">
+                            <div className="absolute left-0 w-16 h-16 text-white rounded-full flex items-center justify-center font-bold text-lg z-10 shadow-glow" style={{ background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))' }}>
                                 {week.week_number}
                             </div>
 

@@ -106,12 +106,12 @@ export const ProfilePage = () => {
     if (!user) return <LoadingSpinner />;
 
     return (
-        <div className="max-w-4xl mx-auto animate-fadeIn">
+        <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Left Column: Profile Form */}
                 <div className="lg:col-span-2">
                     <div className="card">
-                        <h1 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <h1 className="text-2xl font-bold mb-6 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                             <User className="w-6 h-6" />
                             My Profile
                         </h1>
@@ -120,7 +120,7 @@ export const ProfilePage = () => {
                             {/* Existing form fields */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                    <label className="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
                                     <div className="relative">
                                         <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                         <input
@@ -170,7 +170,7 @@ export const ProfilePage = () => {
                                 </div>
                             </div>
 
-                            <div className="flex justify-end pt-4 border-t border-gray-100">
+                            <div className="flex justify-end pt-4 border-t" style={{ borderColor: 'var(--border-primary)' }}>
                                 <button
                                     type="submit"
                                     disabled={loading}
@@ -187,7 +187,7 @@ export const ProfilePage = () => {
                 <div className="lg:col-span-1">
                     <div className="card h-full">
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-xl font-bold text-gray-900">My Skills</h2>
+                            <h2 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>My Skills</h2>
                             <button onClick={() => setShowSkillModal(true)} className="text-primary-600 hover:bg-primary-50 p-2 rounded-full">
                                 <Plus className="w-5 h-5" />
                             </button>
@@ -195,10 +195,10 @@ export const ProfilePage = () => {
 
                         <div className="space-y-3">
                             {userSkills.map(skill => (
-                                <div key={skill.skill_id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <div key={skill.skill_id} className="flex justify-between items-center p-3 rounded-lg" style={{ background: 'var(--bg-tertiary)' }}>
                                     <div>
-                                        <p className="font-medium text-gray-900">{skill.skill_name}</p>
-                                        <p className="text-xs text-gray-500">{skill.proficiency_level}</p>
+                                        <p className="font-medium" style={{ color: 'var(--text-primary)' }}>{skill.skill_name}</p>
+                                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{skill.proficiency_level}</p>
                                     </div>
                                     <button onClick={() => handleRemoveSkill(skill.skill_id)} className="text-red-400 hover:text-red-600">
                                         <X className="w-4 h-4" />
@@ -206,7 +206,7 @@ export const ProfilePage = () => {
                                 </div>
                             ))}
                             {userSkills.length === 0 && (
-                                <p className="text-gray-500 text-center py-4">No skills added yet.</p>
+                                <p className="text-center py-4" style={{ color: 'var(--text-muted)' }}>No skills added yet.</p>
                             )}
                         </div>
                     </div>
@@ -215,10 +215,10 @@ export const ProfilePage = () => {
 
             {/* Add Skill Modal - Simplified */}
             {showSkillModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-xl max-w-md w-full">
-                        <div className="p-4 border-b flex justify-between items-center">
-                            <h3 className="font-bold">Add Skill</h3>
+                <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                    <div className="card max-w-md w-full">
+                        <div className="p-4 border-b flex justify-between items-center" style={{ borderColor: 'var(--border-primary)' }}>
+                            <h3 className="font-bold" style={{ color: 'var(--text-primary)' }}>Add Skill</h3>
                             <button onClick={() => setShowSkillModal(false)}><X className="w-5 h-5" /></button>
                         </div>
                         <div className="p-4">
@@ -234,7 +234,10 @@ export const ProfilePage = () => {
                                     <button
                                         key={skill.skill_id}
                                         onClick={() => handleAddSkill(skill)}
-                                        className="w-full text-left p-2 hover:bg-gray-50 rounded border border-transparent hover:border-gray-200"
+                                        className="w-full text-left p-2 rounded border border-transparent transition-all"
+                                        style={{ color: 'var(--text-primary)' }}
+                                        onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--bg-tertiary)'; e.currentTarget.style.borderColor = 'var(--border-secondary)'; }}
+                                        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'transparent'; }}
                                     >
                                         {skill.skill_name}
                                     </button>

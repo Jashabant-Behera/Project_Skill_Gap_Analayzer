@@ -80,7 +80,7 @@ export const AdditionalSkillsManager = ({ additionalSkills, onSkillsChange }) =>
     return (
         <div className="space-y-4">
             <div className="flex justify-between items-center">
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>
                     Additional Skills to Learn
                 </h3>
                 <button
@@ -92,32 +92,32 @@ export const AdditionalSkillsManager = ({ additionalSkills, onSkillsChange }) =>
                 </button>
             </div>
 
-            <p className="text-sm text-gray-600">
+            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
                 Add skills you want to learn that aren't part of your target role. These will appear as gaps in your analysis and be included in your learning roadmap.
             </p>
 
             {/* Current Additional Skills */}
             <div className="space-y-3">
                 {additionalSkills.length === 0 ? (
-                    <div className="card bg-gray-50 text-center py-8">
-                        <p className="text-gray-500">No additional skills added yet</p>
-                        <p className="text-sm text-gray-400 mt-2">
+                    <div className="card text-center py-8" style={{ background: 'var(--bg-secondary)' }}>
+                        <p style={{ color: 'var(--text-muted)' }}>No additional skills added yet</p>
+                        <p className="text-sm mt-2" style={{ color: 'var(--text-muted)', opacity: 0.7 }}>
                             Add skills you want to learn to customize your roadmap
                         </p>
                     </div>
                 ) : (
                     additionalSkills.map((skill) => (
-                        <div key={skill.skill_id} className="card-hover border-l-4 border-primary-500">
+                        <div key={skill.skill_id} className="card-hover border-l-4 border-primary-500" style={{ background: 'var(--bg-secondary)' }}>
                             <div className="flex items-start justify-between">
                                 <div className="flex-1">
-                                    <h4 className="font-semibold text-gray-900">{skill.skill_name}</h4>
+                                    <h4 className="font-semibold" style={{ color: 'var(--text-primary)' }}>{skill.skill_name}</h4>
                                     {skill.reason && (
-                                        <p className="text-sm text-gray-600 mt-1">{skill.reason}</p>
+                                        <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{skill.reason}</p>
                                     )}
 
                                     {/* Proficiency Selector */}
                                     <div className="mt-3 flex items-center gap-2">
-                                        <span className="text-sm text-gray-600">Target Level:</span>
+                                        <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Target Level:</span>
                                         <select
                                             value={skill.desired_proficiency}
                                             onChange={(e) => handleUpdateProficiency(skill.skill_id, e.target.value)}
@@ -144,13 +144,16 @@ export const AdditionalSkillsManager = ({ additionalSkills, onSkillsChange }) =>
 
             {/* Add Skill Modal */}
             {showAddModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
-                        <div className="p-6 border-b border-gray-200 flex justify-between items-center">
-                            <h3 className="text-xl font-semibold">Add Skill to Learn</h3>
+                <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                    <div className="card max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-glow">
+                        <div className="p-6 border-b flex justify-between items-center" style={{ borderColor: 'var(--border-primary)' }}>
+                            <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Add Skill to Learn</h3>
                             <button
                                 onClick={() => setShowAddModal(false)}
-                                className="text-gray-400 hover:text-gray-600"
+                                className="transition-colors"
+                                style={{ color: 'var(--text-muted)' }}
+                                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}
                             >
                                 <X className="w-6 h-6" />
                             </button>
@@ -159,11 +162,11 @@ export const AdditionalSkillsManager = ({ additionalSkills, onSkillsChange }) =>
                         <div className="p-6 space-y-4">
                             {/* Search */}
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>
                                     Search for a skill
                                 </label>
                                 <div className="relative">
-                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                                     <input
                                         type="text"
                                         value={searchQuery}
@@ -176,7 +179,7 @@ export const AdditionalSkillsManager = ({ additionalSkills, onSkillsChange }) =>
 
                             {/* Search Results */}
                             {searchResults.length > 0 && (
-                                <div className="border border-gray-200 rounded-lg max-h-60 overflow-y-auto">
+                                <div className="border rounded-lg max-h-60 overflow-y-auto" style={{ borderColor: 'var(--border-secondary)', background: 'var(--bg-tertiary)' }}>
                                     {searchResults.map((skill) => (
                                         <button
                                             key={skill.skill_id}
@@ -185,11 +188,16 @@ export const AdditionalSkillsManager = ({ additionalSkills, onSkillsChange }) =>
                                                 setSearchResults([]);
                                                 setSearchQuery(skill.skill_name);
                                             }}
-                                            className={`w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 ${selectedSkill?.skill_id === skill.skill_id ? 'bg-primary-50' : ''
-                                                }`}
+                                            className="w-full text-left px-4 py-3 border-b last:border-b-0 transition-all"
+                                            style={{
+                                                borderColor: 'var(--border-primary)',
+                                                background: selectedSkill?.skill_id === skill.skill_id ? 'var(--bg-secondary)' : 'transparent'
+                                            }}
+                                            onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg-secondary)'}
+                                            onMouseLeave={(e) => e.currentTarget.style.background = selectedSkill?.skill_id === skill.skill_id ? 'var(--bg-secondary)' : 'transparent'}
                                         >
-                                            <div className="font-medium text-gray-900">{skill.skill_name}</div>
-                                            <div className="text-sm text-gray-500">{skill.category}</div>
+                                            <div className="font-medium" style={{ color: 'var(--text-primary)' }}>{skill.skill_name}</div>
+                                            <div className="text-sm" style={{ color: 'var(--text-muted)' }}>{skill.category}</div>
                                         </button>
                                     ))}
                                 </div>
@@ -198,14 +206,14 @@ export const AdditionalSkillsManager = ({ additionalSkills, onSkillsChange }) =>
                             {selectedSkill && (
                                 <>
                                     {/* Selected Skill Info */}
-                                    <div className="card bg-primary-50 border-primary-200">
-                                        <div className="font-medium text-gray-900">{selectedSkill.skill_name}</div>
-                                        <div className="text-sm text-gray-600 mt-1">{selectedSkill.description}</div>
+                                    <div className="card" style={{ background: 'linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(124, 58, 237, 0.1))', borderColor: 'var(--accent-primary)' }}>
+                                        <div className="font-medium" style={{ color: 'var(--text-primary)' }}>{selectedSkill.skill_name}</div>
+                                        <div className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{selectedSkill.description}</div>
                                     </div>
 
                                     {/* Desired Proficiency */}
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>
                                             Target Proficiency Level
                                         </label>
                                         <select
@@ -221,7 +229,7 @@ export const AdditionalSkillsManager = ({ additionalSkills, onSkillsChange }) =>
 
                                     {/* Reason */}
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>
                                             Why do you want to learn this? (Optional)
                                         </label>
                                         <textarea

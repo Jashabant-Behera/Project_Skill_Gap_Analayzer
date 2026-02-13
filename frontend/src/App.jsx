@@ -22,10 +22,10 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <AssessmentProvider>
-          <div className="min-h-screen bg-gray-50">
+          <div className="min-h-screen bg-dark-950" style={{ background: 'var(--bg-primary)' }}>
             <Navbar />
 
-            <main className="container mx-auto px-4 py-8">
+            <main>
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
@@ -94,20 +94,23 @@ function App() {
               toastOptions={{
                 duration: 4000,
                 style: {
-                  background: '#363636',
-                  color: '#fff',
+                  background: 'var(--bg-elevated)',
+                  color: 'var(--text-primary)',
+                  border: '1px solid var(--border-secondary)',
+                  borderRadius: '0.75rem',
+                  padding: '1rem',
                 },
                 success: {
                   duration: 3000,
                   iconTheme: {
-                    primary: '#10b981',
+                    primary: 'var(--success)',
                     secondary: '#fff',
                   },
                 },
                 error: {
                   duration: 4000,
                   iconTheme: {
-                    primary: '#ef4444',
+                    primary: 'var(--error)',
                     secondary: '#fff',
                   },
                 },

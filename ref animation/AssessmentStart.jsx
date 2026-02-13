@@ -80,10 +80,11 @@ export const AssessmentStart = () => {
                         <React.Fragment key={s}>
                             <div className="flex flex-col items-center gap-2">
                                 <div
-                                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all ${step >= s
-                                        ? 'bg-gradient-to-br from-primary-600 to-purple-600 text-white shadow-lg shadow-primary-900/50'
-                                        : 'bg-dark-800 text-gray-500 border border-dark-700'
-                                        }`}
+                                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all ${
+                                        step >= s
+                                            ? 'bg-gradient-to-br from-primary-600 to-purple-600 text-white shadow-lg shadow-primary-900/50'
+                                            : 'bg-dark-800 text-gray-500 border border-dark-700'
+                                    }`}
                                 >
                                     {step > s ? <CheckCircle className="w-6 h-6" /> : s}
                                 </div>
@@ -92,8 +93,9 @@ export const AssessmentStart = () => {
                                 </span>
                             </div>
                             {s < 3 && (
-                                <div className={`w-16 h-1 rounded-full transition-all ${step > s ? 'bg-gradient-to-r from-primary-600 to-purple-600' : 'bg-dark-800'
-                                    }`} />
+                                <div className={`w-16 h-1 rounded-full transition-all ${
+                                    step > s ? 'bg-gradient-to-r from-primary-600 to-purple-600' : 'bg-dark-800'
+                                }`} />
                             )}
                         </React.Fragment>
                     ))}
@@ -117,16 +119,18 @@ export const AssessmentStart = () => {
                             <button
                                 key={role.role_id}
                                 onClick={() => setSelectedRole(role.role_id)}
-                                className={`card-hover text-left p-5 space-y-3 transition-all group ${selectedRole === role.role_id
-                                    ? 'border-primary-600 bg-primary-900/10 shadow-lg shadow-primary-900/30'
-                                    : ''
-                                    }`}
+                                className={`card-hover text-left p-5 space-y-3 transition-all group ${
+                                    selectedRole === role.role_id
+                                        ? 'border-primary-600 bg-primary-900/10 shadow-lg shadow-primary-900/30'
+                                        : ''
+                                }`}
                             >
                                 <div className="flex items-start gap-3">
-                                    <div className={`p-2 rounded-lg transition-colors ${selectedRole === role.role_id
-                                        ? 'bg-primary-600 text-white'
-                                        : 'bg-dark-800 text-gray-400 group-hover:bg-dark-700'
-                                        }`}>
+                                    <div className={`p-2 rounded-lg transition-colors ${
+                                        selectedRole === role.role_id 
+                                            ? 'bg-primary-600 text-white' 
+                                            : 'bg-dark-800 text-gray-400 group-hover:bg-dark-700'
+                                    }`}>
                                         <Target className="w-5 h-5" />
                                     </div>
                                     <div className="flex-1">
@@ -238,7 +242,7 @@ export const AssessmentStart = () => {
                                     <Target className="w-5 h-5 text-primary-400" />
                                     Target Role
                                 </h3>
-                                <p className="text-2xl font-bold gradient-text">
+                                <p className="text-2xl font-bold text-gradient">
                                     {roleDetails.role_name}
                                 </p>
                                 <p className="text-gray-400 mt-2">
