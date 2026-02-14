@@ -30,11 +30,9 @@ async def seed_skills():
     
     skills_data = await load_json_file("skills_seed.json")
     
-    # Check if skills already exist
-    existing_count = await Skill.count()
-    if existing_count > 0:
-        logger.warning(f"Skills already exist ({existing_count} found). Skipping...")
-        return
+    # Clear existing skills
+    await Skill.delete_all()
+    logger.info("Cleared existing skills")
     
     # Insert skills
     inserted = 0
@@ -55,11 +53,9 @@ async def seed_roles():
     
     roles_data = await load_json_file("roles_seed.json")
     
-    # Check if roles already exist
-    existing_count = await Role.count()
-    if existing_count > 0:
-        logger.warning(f"Roles already exist ({existing_count} found). Skipping...")
-        return
+    # Clear existing roles
+    await Role.delete_all()
+    logger.info("Cleared existing roles")
     
     # Insert roles
     inserted = 0

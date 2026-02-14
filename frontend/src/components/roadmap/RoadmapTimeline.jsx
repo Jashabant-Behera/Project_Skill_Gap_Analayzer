@@ -78,58 +78,51 @@ export const RoadmapTimeline = () => {
     );
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
+        <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
             {/* Header */}
-            <div className="card shadow-glow" style={{ background: 'linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(124, 58, 237, 0.1))' }}>
-                <div className="flex items-start justify-between">
+            <div className="glass-card p-8 border-l-4 border-l-brand-cyan relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-cyan/5 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
+
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                     <div className="flex-1">
-                        <h1 className="text-3xl font-bold mb-2 gradient-text">
-                            Your Learning Roadmap
+                        <div className="flex items-center gap-2 mb-2">
+                            <Target className="w-5 h-5 text-brand-cyan" />
+                            <h2 className="text-sm font-medium text-brand-cyan uppercase tracking-wider">Learning Roadmap</h2>
+                        </div>
+                        <h1 className="text-3xl font-bold text-white mb-2">
+                            Your Journey to Success
                         </h1>
-                        <p style={{ color: 'var(--text-secondary)' }} className="mb-4">{roadmap.overview}</p>
+                        <p className="text-gray-400 max-w-2xl">{roadmap.overview}</p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                            <div className="flex items-center gap-3  p-3 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
-                                <div className="p-2 rounded-lg bg-white">
-                                    <Calendar className="w-5 h-5 text-primary-600" />
+                        <div className="flex flex-wrap gap-6 mt-6 pt-6 border-t border-white/5">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 rounded-lg bg-white/5">
+                                    <Calendar className="w-4 h-4 text-brand-blue" />
                                 </div>
                                 <div>
-                                    <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Duration</p>
-                                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>{roadmap.total_weeks} weeks</p>
+                                    <p className="text-xs text-gray-500 uppercase tracking-wide">Duration</p>
+                                    <p className="font-semibold text-white">{roadmap.total_weeks} weeks</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
-                                <div className="p-2 rounded-lg bg-white">
-                                    <Clock className="w-5 h-5 text-primary-600" />
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 rounded-lg bg-white/5">
+                                    <Clock className="w-4 h-4 text-brand-orange" />
                                 </div>
                                 <div>
-                                    <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Weekly Commitment</p>
-                                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>{roadmap.hours_per_week} hours</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
-                                <div className="p-2 rounded-lg bg-white">
-                                    <BookOpen className="w-5 h-5 text-primary-600" />
-                                </div>
-                                <div>
-                                    <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Total Hours</p>
-                                    <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>
-                                        {roadmap.total_weeks * roadmap.hours_per_week} hours
-                                    </p>
+                                    <p className="text-xs text-gray-500 uppercase tracking-wide">Weekly Time</p>
+                                    <p className="font-semibold text-white">{roadmap.hours_per_week} hours</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="mt-6 flex justify-end">
-                        <button
-                            onClick={() => navigate('/')}
-                            className="btn-secondary flex items-center gap-2"
-                        >
-                            <span className="font-semibold">Go to Home</span>
-                        </button>
-                    </div>
+
+                    <button
+                        onClick={() => navigate('/')}
+                        className="px-4 py-2 text-sm text-gray-400 hover:text-white transition-colors border border-white/10 hover:border-white/20 rounded-lg bg-white/5 hover:bg-white/10"
+                    >
+                        Back to Home
+                    </button>
                 </div>
             </div>
 
@@ -137,47 +130,52 @@ export const RoadmapTimeline = () => {
             {/* Additional Skills Callout */}
             {
                 weeksWithAdditionalSkills.length > 0 && (
-                    <div className="card bg-green-50 border-2 border-green-200">
-                        <div className="flex items-start gap-3">
-                            <Plus className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                            <div>
-                                <h3 className="font-semibold text-green-900 mb-2">
-                                    Your Custom Learning Goals Included
-                                </h3>
-                                <p className="text-green-800 text-sm">
-                                    This roadmap includes the additional skills you wanted to learn.
-                                    They're integrated into your learning path at optimal points.
-                                </p>
-                            </div>
+                    <div className="p-4 rounded-xl bg-brand-cyan/5 border border-brand-cyan/20 flex items-start gap-4">
+                        <div className="p-2 rounded-full bg-brand-cyan/10">
+                            <Plus className="w-5 h-5 text-brand-cyan" />
+                        </div>
+                        <div>
+                            <h3 className="font-semibold text-brand-cyan mb-1">
+                                Custom Goals Included
+                            </h3>
+                            <p className="text-gray-400 text-sm">
+                                Your roadmap has been personalized with the additional skills you requested.
+                            </p>
                         </div>
                     </div>
                 )
             }
 
             {/* Timeline */}
-            <div className="relative">
+            <div className="relative pl-4">
                 {/* Vertical Line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5" style={{ background: 'linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary))' }} />
+                <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-white/10" />
 
-                {/* Weeks */}
-                <div className="space-y-8">
+                <div className="space-y-2">
                     {roadmap.weeks.map((week, index) => (
-                        <div key={week.week_number} className="relative">
-                            {/* Week Number Badge */}
-                            <div className="absolute left-0 w-16 h-16 text-white rounded-full flex items-center justify-center font-bold text-lg z-10 shadow-glow" style={{ background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))' }}>
-                                {week.week_number}
-                            </div>
+                        <div key={week.week_number} className="relative group">
+                            <div className="flex items-start gap-8">
+                                {/* Week Node */}
+                                <div className="relative z-10 flex flex-col items-center">
+                                    <div className={`w-10 h-10 rounded-full border-4 border-[#0a0a0a] flex items-center justify-center transition-all duration-300 ${expandedWeek === week.week_number
+                                        ? 'bg-brand-cyan text-black scale-110 shadow-[0_0_15px_rgba(4,222,178,0.4)]'
+                                        : 'bg-dark-800 text-gray-500 border-white/10 group-hover:border-brand-cyan/50'
+                                        }`}>
+                                        <span className="text-sm font-bold">{week.week_number}</span>
+                                    </div>
+                                </div>
 
-                            {/* Week Card */}
-                            <div className="ml-24">
-                                <WeekCard
-                                    week={week}
-                                    isExpanded={expandedWeek === week.week_number}
-                                    onToggle={() => setExpandedWeek(
-                                        expandedWeek === week.week_number ? null : week.week_number
-                                    )}
-                                    roadmapId={roadmap.roadmap_id}
-                                />
+                                {/* Week Card */}
+                                <div className="flex-1 pb-8">
+                                    <WeekCard
+                                        week={week}
+                                        isExpanded={expandedWeek === week.week_number}
+                                        onToggle={() => setExpandedWeek(
+                                            expandedWeek === week.week_number ? null : week.week_number
+                                        )}
+                                        roadmapId={roadmap.roadmap_id}
+                                    />
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -185,14 +183,15 @@ export const RoadmapTimeline = () => {
             </div>
 
             {/* Completion Message */}
-            <div className="card bg-gradient-to-br from-green-50 to-emerald-50 border-green-200 text-center">
-                <Target className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    You've Got This! 🎯
+            <div className="glass-card p-8 text-center border-t-4 border-t-green-500/50">
+                <div className="w-16 h-16 mx-auto bg-green-500/10 rounded-full flex items-center justify-center mb-4">
+                    <Target className="w-8 h-8 text-green-500" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                    Goal in Sight!
                 </h3>
-                <p className="text-gray-700">
-                    Follow this roadmap consistently, and you'll be ready for your target role in {roadmap.total_weeks} weeks.
-                    Remember, the journey of a thousand miles begins with a single step!
+                <p className="text-gray-400 max-w-lg mx-auto">
+                    Consistency is key. Follow this plan for {roadmap.total_weeks} weeks and you'll be interview-ready.
                 </p>
             </div>
         </div >

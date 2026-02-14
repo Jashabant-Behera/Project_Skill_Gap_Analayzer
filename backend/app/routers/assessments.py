@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status, Query
 from typing import List, Optional
 from uuid import UUID
 from datetime import datetime
+import math
 
 from app.schemas.assessment import (
     AssessmentCreate, QuestionResponse, AnswerSubmit,
@@ -128,9 +129,13 @@ async def create_assessment(
                 detail="No skills to assess. You already know all required skills!"
             )
         
-        # Calculate total questions (1 per skill for testing)
-        questions_per_skill = 1
-        total_questions = len(skills_to_assess) * questions_per_skill
+        
+        # Calculate questions per skill (Min 20 total, Min 3 per skill)
+        num_skills = len(skills_to_assess)
+        questions_per_skill = max(3, math.ceil(20 / num_skills)) if num_skills > 0 else 0
+        total_questions = num_skills * questions_per_skill
+        
+        logger.info(f"Assessment Plan: {num_skills} skills, {questions_per_skill} questions/skill, Total: {total_questions}")
         
         # Create assessment
         new_assessment = Assessment(
@@ -246,8 +251,10 @@ async def get_next_question(
     next_skill_id = None
     questions_per_skill = 1
     
+    # RE-Login for next skill selection:
+    # 1. Identify ALL skills that need assessment (re-run the loop or store them)
+    skills_that_need_assessment = []
     for skill_id in required_skill_ids:
-        # Check if additional goal
         is_additional = False
         if assessment.additional_learning_goals:
             for g in assessment.additional_learning_goals:
@@ -255,10 +262,18 @@ async def get_next_question(
                      is_additional = True
                      break
         
-        # Skip if known AND not additional
-        if skill_id in known_ids and not is_additional:
-            continue 
+        if skill_id not in known_ids or is_additional:
+            skills_that_need_assessment.append(skill_id)
             
+    # 2. Calculate dynamic limit
+    num_skills = len(skills_that_need_assessment)
+    if num_skills > 0:
+        questions_per_skill = max(3, math.ceil(20 / num_skills))
+    else:
+        questions_per_skill = 0
+        
+    # 3. Find first skill below limit
+    for skill_id in skills_that_need_assessment:
         if skill_counts.get(skill_id, 0) < questions_per_skill:
             next_skill_id = skill_id
             break

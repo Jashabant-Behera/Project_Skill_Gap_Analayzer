@@ -66,27 +66,33 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
     };
 
     return (
-        <div className="card-glow animate-scale-in">
+        <div className="glass-card animate-scale-in p-8 relative overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
+
             {/* Header */}
-            <div className="flex flex-wrap items-start justify-between gap-4 mb-6 pb-6 border-b border-dark-700/50">
+            <div className="flex flex-wrap items-start justify-between gap-4 mb-8 pb-4 border-b border-white/10">
                 <div className="flex flex-wrap items-center gap-3">
-                    <div className="badge badge-primary flex items-center gap-2">
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-sm font-medium">
                         {getQuestionTypeIcon()}
-                        <span className="font-semibold">{question.skill_name}</span>
+                        <span className="font-semibold uppercase tracking-wide text-xs">{question.skill_name}</span>
                     </div>
 
-                    <div className={`badge bg-gradient-to-r ${getDifficultyColor(question.difficulty_level)} border-0 text-white`}>
+                    <div className={`px-3 py-1 rounded-full border text-xs font-medium uppercase tracking-wide ${question.difficulty_level === 'advanced' ? 'bg-red-500/10 border-red-500/20 text-red-400' :
+                        question.difficulty_level === 'intermediate' ? 'bg-yellow-500/10 border-yellow-500/20 text-yellow-400' :
+                            'bg-brand-cyan/10 border-brand-cyan/20 text-brand-cyan'
+                        }`}>
                         {question.difficulty_level}
                     </div>
 
-                    <div className="badge bg-dark-800 text-gray-300 border-dark-600">
+                    <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-medium uppercase tracking-wide">
                         {question.question_type.replace('_', ' ')}
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2 px-4 py-2 bg-dark-800/50 rounded-xl border border-dark-700">
-                    <Clock className="w-4 h-4 text-primary-400" />
-                    <span className="font-mono text-lg font-semibold text-primary-300">
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <Clock className="w-4 h-4 text-brand-blue" />
+                    <span className="font-mono text-lg font-semibold text-white">
                         {formatTime(timeSpent)}
                     </span>
                 </div>
@@ -94,7 +100,7 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
 
             {/* Question */}
             <div className="mb-8">
-                <h3 className="text-2xl font-display font-semibold text-white mb-6 leading-relaxed">
+                <h3 className="text-2xl font-display font-medium text-white mb-6 leading-snug">
                     {question.question_text}
                 </h3>
 
@@ -108,9 +114,9 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
                             return (
                                 <label
                                     key={index}
-                                    className={`group relative flex items-start p-5 border-2 rounded-xl cursor-pointer transition-all duration-200 ${isSelected
-                                            ? 'border-primary-500 bg-primary-500/10 shadow-lg shadow-primary-500/20'
-                                            : 'border-dark-700 hover:border-primary-500/50 bg-dark-850/50 hover:bg-dark-800'
+                                    className={`group relative flex items-center p-4 border rounded-xl cursor-pointer transition-all duration-300 ${isSelected
+                                        ? 'border-brand-orange bg-brand-orange/10 shadow-[0_0_15px_rgba(255,103,2,0.1)]'
+                                        : 'border-white/10 hover:border-brand-orange/30 bg-white/5 hover:bg-white/10'
                                         }`}
                                 >
                                     <input
@@ -122,25 +128,22 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
                                         className="sr-only"
                                     />
 
-                                    <div className={`flex-shrink-0 w-8 h-8 rounded-lg border-2 flex items-center justify-center mr-4 transition-all ${isSelected
-                                            ? 'border-primary-500 bg-primary-500 text-white'
-                                            : 'border-dark-600 group-hover:border-primary-500/50'
+                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center mr-4 transition-all duration-300 ${isSelected
+                                        ? 'border-brand-orange bg-brand-orange text-white transform scale-105'
+                                        : 'border-white/20 text-white/50 group-hover:border-brand-orange/50 group-hover:text-white'
                                         }`}>
-                                        <span className="font-bold">{optionLabel}</span>
+                                        <span className="font-bold text-sm font-display">{optionLabel}</span>
                                     </div>
 
                                     <div className="flex-1">
-                                        <span className={`text-base leading-relaxed ${isSelected ? 'text-white font-medium' : 'text-gray-300'
+                                        <span className={`text-base transition-colors duration-300 ${isSelected ? 'text-white font-medium' : 'text-gray-300 group-hover:text-white'
                                             }`}>
                                             {option}
                                         </span>
                                     </div>
 
-                                    {isSelected && (
-                                        <div className="absolute top-2 right-2">
-                                            <div className="w-3 h-3 bg-primary-500 rounded-full animate-pulse" />
-                                        </div>
-                                    )}
+                                    {/* Selection Indicator */}
+                                    <div className={`w-3 h-3 rounded-full ml-4 transition-all duration-300 ${isSelected ? 'bg-brand-cyan shadow-[0_0_8px_rgba(4,222,178,0.3)] scale-100' : 'bg-transparent scale-0'}`} />
                                 </label>
                             );
                         })}
@@ -151,35 +154,34 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
                 {(question.question_type === 'short_answer' ||
                     question.question_type === 'scenario' ||
                     question.question_type === 'coding') && (
-                        <div className="space-y-3">
-                            <textarea
-                                value={answer}
-                                onChange={(e) => setAnswer(e.target.value)}
-                                placeholder={
-                                    question.question_type === 'coding'
-                                        ? '// Write your code here...\n'
-                                        : 'Type your answer here...'
-                                }
-                                className={`input-field min-h-[200px] ${question.question_type === 'coding' ? 'font-mono text-sm' : ''
-                                    }`}
-                                rows={question.question_type === 'coding' ? 12 : 6}
-                            />
+                        <div className="space-y-4">
+                            <div className="relative">
+                                <textarea
+                                    value={answer}
+                                    onChange={(e) => setAnswer(e.target.value)}
+                                    placeholder={
+                                        question.question_type === 'coding'
+                                            ? '// Write your code here...\n'
+                                            : 'Type your answer here...'
+                                    }
+                                    className={`input-field min-h-[240px] resize-y ${question.question_type === 'coding' ? 'font-mono text-sm' : 'text-lg'
+                                        }`}
+                                    rows={question.question_type === 'coding' ? 12 : 8}
+                                />
+                                <div className="absolute bottom-4 right-4 text-xs text-white/30 pointer-events-none">
+                                    {question.question_type === 'coding' ? 'JavaScript' : 'Markdown supported'}
+                                </div>
+                            </div>
 
-                            <div className="flex justify-between items-center text-sm">
+                            <div className="flex justify-between items-center text-sm px-1">
                                 <div className="flex items-center gap-4">
-                                    <span className="text-gray-500">
+                                    <span className="text-white/50">
                                         {answer.length} characters
                                     </span>
-                                    {answer.length > 0 && answer.length < 50 && (
-                                        <div className="flex items-center gap-2 text-amber-400">
-                                            <AlertCircle className="w-4 h-4" />
-                                            <span>Consider adding more detail</span>
-                                        </div>
-                                    )}
                                 </div>
 
                                 {answer.length >= 50 && (
-                                    <div className="flex items-center gap-2 text-emerald-400">
+                                    <div className="flex items-center gap-2 text-brand-cyan animate-fade-in">
                                         <CheckCircle2 className="w-4 h-4" />
                                         <span>Good length!</span>
                                     </div>
@@ -190,7 +192,7 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
             </div>
 
             {/* Submit Button */}
-            <div className="flex justify-end pt-6 border-t border-dark-700/50">
+            <div className="flex justify-end pt-8 border-t border-white/10">
                 <button
                     onClick={handleSubmit}
                     disabled={
@@ -198,57 +200,53 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
                         loading ||
                         (question.question_type === 'mcq' ? !selectedOption : !answer.trim())
                     }
-                    className="btn-primary px-8 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    className="btn-primary flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group"
                 >
                     {isSubmitting || loading ? (
                         <>
-                            <div className="spinner w-5 h-5" />
+                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                             <span>Submitting...</span>
                         </>
                     ) : (
                         <>
                             <span>Submit Answer</span>
-                            <ArrowRight className="w-5 h-5" />
+                            <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                         </>
                     )}
                 </button>
             </div>
 
             {/* Helpful Tips */}
-            <div className="mt-6 p-5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl border border-blue-500/20">
-                <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                        <span className="text-lg">💡</span>
+            <div className="mt-8 p-6 rounded-xl bg-white/5 border border-white/5 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 bg-brand-blue/20 rounded-xl flex items-center justify-center border border-brand-blue/30 text-brand-blue">
+                        <span className="text-xl">💡</span>
                     </div>
                     <div>
-                        <h4 className="font-semibold text-blue-300 mb-2">Tips for Success:</h4>
-                        <ul className="text-sm text-gray-400 space-y-1">
+                        <h4 className="font-medium text-white mb-3">Tips for Success</h4>
+                        <ul className="text-sm text-gray-400 space-y-2">
                             {question.question_type === 'scenario' && (
                                 <>
-                                    <li>• Explain your reasoning and thought process</li>
-                                    <li>• Consider real-world implications and trade-offs</li>
-                                    <li>• Mention any assumptions you're making</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-blue mt-1">•</span> Explain your reasoning and thought process</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-blue mt-1">•</span> Consider real-world implications and trade-offs</li>
                                 </>
                             )}
                             {question.question_type === 'coding' && (
                                 <>
-                                    <li>• Write clean, readable code with good variable names</li>
-                                    <li>• Add comments to explain complex logic</li>
-                                    <li>• Consider edge cases and error handling</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-blue mt-1">•</span> Write clean, readable code with good variable names</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-blue mt-1">•</span> Add comments to explain complex logic</li>
                                 </>
                             )}
                             {question.question_type === 'short_answer' && (
                                 <>
-                                    <li>• Be concise but thorough in your explanation</li>
-                                    <li>• Use examples when they help clarify your point</li>
-                                    <li>• Demonstrate deep understanding, not just surface knowledge</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-blue mt-1">•</span> Be concise but thorough in your explanation</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-blue mt-1">•</span> Use examples when they help clarify your point</li>
                                 </>
                             )}
                             {question.question_type === 'mcq' && (
                                 <>
-                                    <li>• Read all options carefully before selecting</li>
-                                    <li>• Eliminate obviously wrong answers first</li>
-                                    <li>• Choose the most complete and accurate option</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-blue mt-1">•</span> Read all options carefully before selecting</li>
+                                    <li className="flex items-start gap-2"><span className="text-brand-blue mt-1">•</span> Eliminate obviously wrong answers first</li>
                                 </>
                             )}
                         </ul>

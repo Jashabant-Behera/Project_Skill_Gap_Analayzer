@@ -57,26 +57,32 @@ export const SkillGapDashboard = () => {
         .filter(gap => gap.is_additional);
 
     return (
-        <div className="space-y-8">
+        <div className="max-w-5xl mx-auto space-y-6">
             {/* Header */}
-            <div className="card shadow-glow" style={{ background: 'linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(124, 58, 237, 0.1))' }}>
-                <h1 className="text-3xl font-bold mb-2 gradient-text">
-                    Assessment Results
-                </h1>
-                <p style={{ color: 'var(--text-secondary)' }}>
-                    Target Role: <span className="font-semibold gradient-text">{dashboardData.summary.target_role}</span>
-                </p>
-                <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>
-                    Completed on {new Date(dashboardData.summary.completed_at).toLocaleDateString()}
-                </p>
+            <div className="glass-card p-6 border-l-4 border-l-brand-orange">
+                <div className="flex justify-between items-start">
+                    <div>
+                        <h1 className="text-2xl font-bold mb-1 text-white">
+                            Assessment Results
+                        </h1>
+                        <p className="text-gray-400 text-sm">
+                            Target Role: <span className="font-semibold text-brand-orange">{dashboardData.summary.target_role}</span>
+                        </p>
+                    </div>
+                    <div className="text-right">
+                        <p className="text-xs text-gray-500">
+                            Completed on {new Date(dashboardData.summary.completed_at).toLocaleDateString()}
+                        </p>
+                    </div>
+                </div>
             </div>
 
             {/* Stats Cards */}
             <StatsCards summary={dashboardData.summary} />
 
             {/* Radar Chart */}
-            <div className="card">
-                <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+            <div className="glass-card p-6">
+                <h2 className="text-lg font-bold mb-6 text-white uppercase tracking-wide">
                     Skills Overview
                 </h2>
                 <SkillRadarChart data={dashboardData.skill_radar} />
@@ -84,8 +90,9 @@ export const SkillGapDashboard = () => {
 
             {/* Role-Required Gaps */}
             <div>
-                <h2 className="text-2xl font-bold mb-4 gradient-text">
-                    Skills Gap Analysis - Role Requirements
+                <h2 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                    <span className="w-1 h-6 bg-brand-orange rounded-full"></span>
+                    Skills Gap Analysis
                 </h2>
                 <GapPriorityCards
                     highPriority={dashboardData.skill_gaps.high.filter(g => !g.is_additional)}
@@ -160,8 +167,8 @@ export const SkillGapDashboard = () => {
             )}
 
             {/* Competency Distribution */}
-            <div className="card">
-                <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+            <div className="glass-card p-6">
+                <h2 className="text-lg font-bold mb-6 text-white uppercase tracking-wide">
                     Competency Distribution
                 </h2>
                 <CompetencyDistribution data={dashboardData.statistics.competency_distribution} />
@@ -169,24 +176,24 @@ export const SkillGapDashboard = () => {
 
             {/* Detailed Stats */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="card">
-                    <h3 className="font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Score by Skill</h3>
-                    <div className="space-y-3">
+                <div className="glass-card p-6">
+                    <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wide">Score by Skill</h3>
+                    <div className="space-y-4">
                         {Object.entries(dashboardData.statistics.score_by_skill || {}).map(([skill, score]) => (
                             <div key={skill}>
-                                <div className="flex justify-between text-sm mb-1">
-                                    <span style={{ color: 'var(--text-secondary)' }}>{skill}</span>
-                                    <span className="font-semibold gradient-text">{Math.round(score)}%</span>
+                                <div className="flex justify-between text-xs mb-2">
+                                    <span className="text-gray-400 font-medium uppercase tracking-wider">{skill}</span>
+                                    <span className="font-bold text-white">{Math.round(score)}%</span>
                                 </div>
-                                <div className="w-full rounded-full h-2 relative overflow-hidden" style={{ background: 'var(--bg-tertiary)' }}>
+                                <div className="w-full rounded-full h-1.5 bg-white/5 overflow-hidden">
                                     <div
-                                        className={`progress-shimmer h-2 rounded-full ${score >= 80
-                                            ? 'bg-green-500'
+                                        className={`h-full rounded-full transition-all duration-1000 ${score >= 80
+                                            ? 'bg-brand-cyan shadow-[0_0_10px_rgba(4,222,178,0.4)]'
                                             : score >= 60
-                                                ? 'bg-blue-500'
+                                                ? 'bg-brand-blue shadow-[0_0_10px_rgba(40,155,255,0.4)]'
                                                 : score >= 40
-                                                    ? 'bg-amber-500'
-                                                    : 'bg-red-500'
+                                                    ? 'bg-brand-orange shadow-[0_0_10px_rgba(255,103,2,0.4)]'
+                                                    : 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.4)]'
                                             }`}
                                         style={{ width: `${score}%` }}
                                     />
@@ -196,24 +203,25 @@ export const SkillGapDashboard = () => {
                     </div>
                 </div>
 
-                <div className="card">
-                    <h3 className="font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Assessment Summary</h3>
-                    <div className="space-y-3 text-sm">
-                        <div className="flex justify-between">
-                            <span style={{ color: 'var(--text-secondary)' }}>Total Questions:</span>
-                            <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>{dashboardData.summary.total_questions || 0}</span>
+                <div className="glass-card p-6 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
+                    <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wide">Assessment Summary</h3>
+                    <div className="space-y-4">
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/5">
+                            <span className="text-gray-400 text-sm">Total Questions</span>
+                            <span className="font-bold text-white text-lg">{dashboardData.summary.total_questions || 0}</span>
                         </div>
-                        <div className="flex justify-between">
-                            <span style={{ color: 'var(--text-secondary)' }}>Time Taken:</span>
-                            <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>{dashboardData.summary.time_taken_minutes || 0} minutes</span>
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/5">
+                            <span className="text-gray-400 text-sm">Time Taken</span>
+                            <span className="font-bold text-white text-lg">{dashboardData.summary.time_taken_minutes || 0} <span className="text-xs text-gray-500 font-normal">min</span></span>
                         </div>
-                        <div className="flex justify-between">
-                            <span style={{ color: 'var(--text-secondary)' }}>Average Score:</span>
-                            <span className="font-semibold gradient-text">{Math.round(dashboardData.statistics.average_score || 0)}%</span>
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/5">
+                            <span className="text-gray-400 text-sm">Average Score</span>
+                            <span className="font-bold text-brand-cyan text-lg">{Math.round(dashboardData.statistics.average_score || 0)}%</span>
                         </div>
-                        <div className="flex justify-between">
-                            <span style={{ color: 'var(--text-secondary)' }}>Skills Assessed:</span>
-                            <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/5">
+                            <span className="text-gray-400 text-sm">Skills Assessed</span>
+                            <span className="font-bold text-white text-lg">
                                 {Object.keys(dashboardData.statistics.score_by_skill || {}).length}
                             </span>
                         </div>

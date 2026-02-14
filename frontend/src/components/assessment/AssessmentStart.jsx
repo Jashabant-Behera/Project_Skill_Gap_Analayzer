@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Target, BookOpen, Plus, CheckCircle, Sparkles, ChevronRight } from 'lucide-react';
+import { Target, BookOpen, Plus, CheckCircle, Sparkles, ChevronRight, Search } from 'lucide-react';
 import { masterDataService } from '../../services/masterDataService';
 import { useAssessment } from '../../hooks/useAssessment';
 import { AdditionalSkillsManager } from '../profile/AdditionalSkillsManager';
@@ -12,6 +12,7 @@ export const AssessmentStart = () => {
     const { startAssessment, loading } = useAssessment();
 
     const [roles, setRoles] = useState([]);
+    const [roleSearchQuery, setRoleSearchQuery] = useState('');
     const [selectedRole, setSelectedRole] = useState(null);
     const [roleDetails, setRoleDetails] = useState(null);
     const [additionalSkills, setAdditionalSkills] = useState([]);
@@ -72,7 +73,7 @@ export const AssessmentStart = () => {
     }
 
     return (
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
             {/* Progress Steps */}
             <div className="mb-12">
                 <div className="flex items-center justify-center gap-2">
@@ -80,7 +81,7 @@ export const AssessmentStart = () => {
                         <React.Fragment key={s}>
                             <div className="flex flex-col items-center gap-2">
                                 <div
-                                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all ${step >= s
+                                    className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-base transition-all ${step >= s
                                         ? 'bg-gradient-to-br from-primary-600 to-purple-600 text-white shadow-lg shadow-primary-900/50'
                                         : 'bg-dark-800 text-gray-500 border border-dark-700'
                                         }`}
@@ -102,45 +103,60 @@ export const AssessmentStart = () => {
 
             {/* Step 1: Role Selection */}
             {step === 1 && (
-                <div className="card animate-fadeIn space-y-6">
+                <div className="glass-card animate-fadeIn space-y-6 p-6">
                     <div className="text-center space-y-2">
-                        <h2 className="text-3xl font-bold text-white">
+                        <h2 className="text-xl font-bold text-white">
                             Choose Your Target Role
                         </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-gray-400 text-sm max-w-lg mx-auto">
                             Select the role you're aiming for. We'll assess your skills against this role's requirements.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {roles.map((role) => (
+                    {/* Role Search */}
+                    <div className="relative max-w-md mx-auto">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                        <input
+                            type="text"
+                            placeholder="Search for a role..."
+                            value={roleSearchQuery}
+                            onChange={(e) => setRoleSearchQuery(e.target.value)}
+                            className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-gray-500 focus:border-brand-orange/50 focus:ring-1 focus:ring-brand-orange/50 transition-all outline-none"
+                        />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {roles.filter(role =>
+                            role.role_name.toLowerCase().includes(roleSearchQuery.toLowerCase()) ||
+                            role.description.toLowerCase().includes(roleSearchQuery.toLowerCase())
+                        ).map((role) => (
                             <button
                                 key={role.role_id}
                                 onClick={() => setSelectedRole(role.role_id)}
-                                className={`card-hover text-left p-5 space-y-3 transition-all group ${selectedRole === role.role_id
-                                    ? 'border-primary-600 bg-primary-900/10 shadow-lg shadow-primary-900/30'
-                                    : ''
+                                className={`text-left p-4 space-y-2 transition-all rounded-xl border group hover:bg-white/5 ${selectedRole === role.role_id
+                                    ? 'border-brand-orange bg-brand-orange/10 shadow-[0_4px_20px_rgba(255,103,2,0.15)]'
+                                    : 'border-white/10 hover:border-brand-orange/30 bg-transparent'
                                     }`}
                             >
                                 <div className="flex items-start gap-3">
-                                    <div className={`p-2 rounded-lg transition-colors ${selectedRole === role.role_id
-                                        ? 'bg-primary-600 text-white'
-                                        : 'bg-dark-800 text-gray-400 group-hover:bg-dark-700'
+                                    <div className={`p-1.5 rounded-lg transition-colors ${selectedRole === role.role_id
+                                        ? 'bg-brand-orange text-white'
+                                        : 'bg-white/5 text-gray-400 group-hover:bg-white/10'
                                         }`}>
-                                        <Target className="w-5 h-5" />
+                                        <Target className="w-4 h-4" />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="font-semibold text-white group-hover:text-primary-300 transition-colors">
+                                        <h3 className="font-semibold text-sm text-white group-hover:text-brand-orange transition-colors">
                                             {role.role_name}
                                         </h3>
-                                        <p className="text-sm text-gray-400 mt-1 line-clamp-2">
+                                        <p className="text-xs text-gray-400 mt-1 line-clamp-2">
                                             {role.description}
                                         </p>
-                                        <div className="flex gap-2 mt-3">
-                                            <span className="px-2 py-1 bg-dark-800 text-gray-400 rounded text-xs">
+                                        <div className="flex gap-2 mt-2">
+                                            <span className="px-1.5 py-0.5 bg-white/5 border border-white/5 text-gray-400 rounded text-[10px] uppercase tracking-wide">
                                                 {role.category}
                                             </span>
-                                            <span className="px-2 py-1 bg-dark-800 text-gray-400 rounded text-xs">
+                                            <span className="px-1.5 py-0.5 bg-white/5 border border-white/5 text-gray-400 rounded text-[10px] uppercase tracking-wide">
                                                 {role.experience_level}
                                             </span>
                                         </div>
@@ -165,19 +181,19 @@ export const AssessmentStart = () => {
 
             {/* Step 2: Additional Skills */}
             {step === 2 && (
-                <div className="card animate-fadeIn space-y-6">
+                <div className="glass-card animate-fadeIn space-y-6 p-6">
                     <div className="space-y-2">
-                        <h2 className="text-3xl font-bold text-white">
+                        <h2 className="text-xl font-bold text-white">
                             Add Custom Learning Goals
                         </h2>
-                        <p className="text-gray-400">
+                        <p className="text-sm text-gray-400">
                             Want to learn additional skills beyond the role requirements? Add them here for a personalized roadmap.
                         </p>
                     </div>
 
                     {roleDetails && (
-                        <div className="card bg-dark-800 border-dark-700">
-                            <h3 className="font-semibold text-white mb-3">Selected Role</h3>
+                        <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                            <h3 className="font-semibold text-white mb-2 text-sm">Selected Role</h3>
                             <div className="space-y-3">
                                 <p className="font-medium text-gray-200">{roleDetails.role_name}</p>
                                 <div>
@@ -188,7 +204,7 @@ export const AssessmentStart = () => {
                                         {roleDetails.required_skills.map(skill => (
                                             <span
                                                 key={skill.skill_id}
-                                                className="px-3 py-1.5 bg-dark-900 border border-dark-700 rounded-lg text-sm font-medium text-gray-300"
+                                                className="px-3 py-1.5 bg-black/20 border border-white/10 rounded-lg text-sm font-medium text-gray-300"
                                             >
                                                 {skill.skill_name}
                                             </span>
@@ -204,7 +220,7 @@ export const AssessmentStart = () => {
                         onSkillsChange={setAdditionalSkills}
                     />
 
-                    <div className="flex justify-between pt-4 border-t border-dark-800">
+                    <div className="flex justify-between pt-4 border-t border-white/10">
                         <button onClick={() => setStep(1)} className="btn-secondary">
                             Back
                         </button>
@@ -218,68 +234,68 @@ export const AssessmentStart = () => {
 
             {/* Step 3: Confirmation */}
             {step === 3 && (
-                <div className="card animate-fadeIn space-y-6">
+                <div className="glass-card animate-fadeIn space-y-6 p-6">
                     <div className="text-center space-y-2">
-                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl shadow-lg shadow-green-900/50 mb-4">
-                            <Sparkles className="w-8 h-8 text-white" />
+                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand-cyan to-teal-500 rounded-xl shadow-lg shadow-teal-900/50 mb-2">
+                            <Sparkles className="w-6 h-6 text-white" />
                         </div>
-                        <h2 className="text-3xl font-bold text-white">
+                        <h2 className="text-xl font-bold text-white">
                             Ready to Start Assessment
                         </h2>
-                        <p className="text-gray-400">
+                        <p className="text-sm text-gray-400">
                             Review your selections and begin your skill evaluation
                         </p>
                     </div>
 
                     {roleDetails && (
-                        <div className="space-y-4">
-                            <div className="card bg-gradient-to-br from-primary-900/20 to-purple-900/10 border-primary-800/50">
-                                <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                                    <Target className="w-5 h-5 text-primary-400" />
+                        <div className="space-y-3">
+                            <div className="p-4 rounded-xl bg-gradient-to-br from-brand-orange/10 to-transparent border border-brand-orange/20">
+                                <h3 className="font-semibold text-white mb-2 flex items-center gap-2 text-sm">
+                                    <Target className="w-4 h-4 text-brand-orange" />
                                     Target Role
                                 </h3>
-                                <p className="text-2xl font-bold gradient-text">
+                                <p className="text-xl font-bold text-gradient-orange">
                                     {roleDetails.role_name}
                                 </p>
-                                <p className="text-gray-400 mt-2">
+                                <p className="text-xs text-gray-400 mt-1">
                                     {roleDetails.required_skills.length} required skills will be assessed
                                 </p>
                             </div>
 
                             {additionalSkills.length > 0 && (
-                                <div className="card bg-gradient-to-br from-green-900/20 to-emerald-900/10 border-green-800/50">
-                                    <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                                        <Plus className="w-5 h-5 text-green-400" />
+                                <div className="p-4 rounded-xl bg-gradient-to-br from-brand-cyan/10 to-transparent border border-brand-cyan/20">
+                                    <h3 className="font-semibold text-white mb-2 flex items-center gap-2 text-sm">
+                                        <Plus className="w-4 h-4 text-brand-cyan" />
                                         Additional Learning Goals
                                     </h3>
                                     <div className="space-y-2">
                                         {additionalSkills.map((skill) => (
-                                            <div key={skill.skill_id} className="flex items-center gap-3 text-sm">
-                                                <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                                            <div key={skill.skill_id} className="flex items-center gap-3 text-xs">
+                                                <CheckCircle className="w-3.5 h-3.5 text-brand-cyan flex-shrink-0" />
                                                 <span className="font-medium text-gray-200">{skill.skill_name}</span>
                                                 <span className="text-gray-500">→</span>
-                                                <span className="text-green-400">{skill.desired_proficiency}</span>
+                                                <span className="text-brand-cyan">{skill.desired_proficiency}</span>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             )}
 
-                            <div className="card bg-dark-800 border-dark-700">
-                                <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-                                    <BookOpen className="w-5 h-5 text-primary-400" />
+                            <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                                <h3 className="font-semibold text-white mb-3 flex items-center gap-2 text-sm">
+                                    <BookOpen className="w-4 h-4 text-brand-blue" />
                                     What to Expect
                                 </h3>
-                                <div className="space-y-3">
+                                <div className="space-y-2">
                                     {[
                                         'Scenario-based questions for each skill',
                                         'Questions adapt to your experience level',
                                         'Detailed analysis of your strengths and gaps',
                                         'Personalized roadmap after completion'
                                     ].map((item, index) => (
-                                        <div key={index} className="flex items-start gap-3 text-gray-300">
-                                            <div className="w-5 h-5 rounded-full bg-primary-900/30 border border-primary-800/50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <span className="text-primary-400 text-xs font-bold">{index + 1}</span>
+                                        <div key={index} className="flex items-start gap-3 text-gray-300 text-sm">
+                                            <div className="w-4 h-4 rounded-full bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <span className="text-brand-blue text-[10px] font-bold">{index + 1}</span>
                                             </div>
                                             <span>{item}</span>
                                         </div>
@@ -296,7 +312,7 @@ export const AssessmentStart = () => {
                         <button
                             onClick={handleStartAssessment}
                             disabled={loading}
-                            className="btn-primary text-lg px-8 py-3 disabled:opacity-50 flex items-center gap-2"
+                            className="btn-primary text-base px-6 py-2 disabled:opacity-50 flex items-center gap-2"
                         >
                             {loading ? (
                                 <>

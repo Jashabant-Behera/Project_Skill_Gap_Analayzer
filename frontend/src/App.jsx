@@ -22,10 +22,10 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <AssessmentProvider>
-          <div className="min-h-screen bg-dark-950" style={{ background: 'var(--bg-primary)' }}>
+          <div className="min-h-screen text-white font-body selection:bg-brand-orange selection:text-white">
             <Navbar />
 
-            <main>
+            <main className="pt-24 min-h-screen">
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
@@ -94,23 +94,25 @@ function App() {
               toastOptions={{
                 duration: 4000,
                 style: {
-                  background: 'var(--bg-elevated)',
-                  color: 'var(--text-primary)',
-                  border: '1px solid var(--border-secondary)',
-                  borderRadius: '0.75rem',
+                  background: 'rgba(5, 5, 5, 0.9)',
+                  color: '#fff',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '1rem',
                   padding: '1rem',
+                  boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
                 },
                 success: {
                   duration: 3000,
                   iconTheme: {
-                    primary: 'var(--success)',
+                    primary: '#04DEB2', // Brand Cyan
                     secondary: '#fff',
                   },
                 },
                 error: {
                   duration: 4000,
                   iconTheme: {
-                    primary: 'var(--error)',
+                    primary: '#FF6702', // Brand Orange matches typical warning/error tone better than red in this design
                     secondary: '#fff',
                   },
                 },

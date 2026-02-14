@@ -202,25 +202,6 @@
         ]
     },
     {
-        "skill_id": "git",
-        "skill_name": "Git",
-        "category": "tool",
-        "description": "Version control system for tracking code changes",
-        "sub_skills": [
-            "commits",
-            "branches",
-            "merge",
-            "rebase",
-            "pull_requests"
-        ],
-        "prerequisites": [],
-        "difficulty_levels": [
-            "beginner",
-            "intermediate",
-            "advanced"
-        ]
-    },
-    {
         "skill_id": "aws",
         "skill_name": "AWS",
         "category": "tool",
@@ -231,25 +212,6 @@
             "lambda",
             "rds",
             "iam"
-        ],
-        "prerequisites": [],
-        "difficulty_levels": [
-            "beginner",
-            "intermediate",
-            "advanced"
-        ]
-    },
-    {
-        "skill_id": "html_css",
-        "skill_name": "HTML & CSS",
-        "category": "technical",
-        "description": "Markup and styling languages for web pages",
-        "sub_skills": [
-            "html5",
-            "css3",
-            "flexbox",
-            "grid",
-            "responsive"
         ],
         "prerequisites": [],
         "difficulty_levels": [

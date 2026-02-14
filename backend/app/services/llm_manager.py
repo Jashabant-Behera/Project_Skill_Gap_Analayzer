@@ -222,7 +222,7 @@ Return ONLY valid JSON:
       "skills_to_learn": ["..."],
       "learning_objectives": "...",
       "estimated_hours": 10,
-      "resources": {{}},
+
       "projects": {{}},
       "success_criteria": ["..."]
     }}
