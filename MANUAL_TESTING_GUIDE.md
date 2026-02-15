@@ -4,7 +4,8 @@ This guide provides a comprehensive list of all API endpoints and manual UI test
 
 ## Base URL
 All requests should be prefixed with:
-`http://localhost:8000/api/v1`
+- **Local**: `http://localhost:8000/api/v1`
+- **Deployed**: `https://project-skill-gap-analayzer.onrender.com/api/v1`
 
 ---
 
@@ -51,7 +52,7 @@ All requests should be prefixed with:
 
 ### 2.1 Background Animations
 *   **Scenario:** Verify floating geometric shapes on Landing Page.
-*   **Step:** Open `http://localhost:3000/`.
+*   **Step:** Open `http://localhost:3000/` or `https://project-skill-gap-analayzer.vercel.app/`.
 *   **Expected:** You should see subtle, floating shapes (circles, squares, triangles) in the background with a parallax effect.
 
 ### 2.2 Question Card Auto-Save
