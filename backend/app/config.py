@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     GROQ_MODEL_SMART: str = "llama-3.3-70b-versatile"
     
     # CORS
-    ALLOWED_ORIGINS: str = "https://project-skill-gap-analayzer.vercel.app/"
+    ALLOWED_ORIGINS: str = "https://project-skill-gap-analayzer.vercel.app"
     
     # Pagination
     DEFAULT_PAGE_SIZE: int = 10
