@@ -34,8 +34,27 @@ class LLMManager:
             )
             return response.choices[0].message.content
         except Exception as e:
-            logger.error(f"Groq API error: {str(e)}")
-            raise Exception(f"LLM API call failed: {str(e)}")
+            error_msg = str(e)
+            if "429" in error_msg or "Rate limit" in error_msg:
+                if model != self.fast_model:
+                     # Try fallback to fast model if we weren't already using it
+                     logger.warning(f"Rate limit hit on {model or self.smart_model}, falling back to {self.fast_model}")
+                     try:
+                        response = self.client.chat.completions.create(
+                            model=self.fast_model,
+                            messages=messages,
+                            temperature=temperature,
+                            max_tokens=max_tokens
+                        )
+                        return response.choices[0].message.content
+                     except Exception as fallback_e:
+                        logger.error(f"Fallback model also failed: {fallback_e}")
+                        
+                logger.error(f"Groq API Rate Limit: {error_msg}")
+                raise Exception("API_RATE_LIMIT_EXCEEDED")
+            
+            logger.error(f"Groq API error: {error_msg}")
+            raise Exception(f"LLM API call failed: {error_msg}")
     
     def _extract_json(self, text: str) -> dict:
         """Extract JSON from LLM response with fallback strategies"""
@@ -92,6 +111,7 @@ class LLMManager:
         target_role: str,
         experience_level: str,
         user_context: dict,
+        previous_questions: list = None,
         num_questions: int = 5
     ) -> list:
         """Generate assessment questions"""
@@ -100,29 +120,37 @@ class LLMManager:
         current_role = user_context.get('current_role', 'Unknown')
         years_exp = user_context.get('years_of_experience', 0)
         
-        prompt = f"""Generate {num_questions} technical assessment questions for:
-- Skill: {skill}
-- Target Role: {target_role}
-- Experience Level: {experience_level}
-- Candidate's Background: {current_role} with {years_exp} years
-- Known Skills: {', '.join(known_skills)}
+        avoid_context = ""
+        if previous_questions:
+            # Take last 5 questions to keep context small but relevant
+            recent_questions = previous_questions[-5:]
+            avoid_context = "Do NOT repeat or ask similar questions to these:\n" + "\n".join(f"- {q}" for q in recent_questions)
 
-Return ONLY valid JSON array with this structure:
-[
-  {{
-    "question_text": "Scenario based question text...",
-    "question_type": "mcq",
-    "difficulty_level": "beginner|intermediate|advanced",
-    "options": ["Specific Answer A", "Specific Answer B", "Specific Answer C", "Specific Answer D"],
-    "correct_answer": "Specific Answer C (Must be exact textmatch with one option)",
-    "expected_competency": ["Competency 1", "Competency 2"],
-    "evaluation_criteria": ["Criteria 1", "Criteria 2"]
-  }}
-]
-Ensure all questions are Multiple Choice Questions (MCQ) with 4 distinct, realistic technical options. Do NOT use placeholders like 'Option 1'. The correct_answer field must exactly match the text of one of the options."""
+        prompt = f"""Generate {num_questions} technical assessment questions for:
+                    - Skill: {skill}
+                    - Target Role: {target_role}
+                    - Experience Level: {experience_level}
+                    - Candidate's Background: {current_role} with {years_exp} years
+                    - Known Skills: {', '.join(known_skills)}
+
+                    {avoid_context}
+
+                    Return ONLY valid JSON array with this structure:
+                    [
+                    {{
+                        "question_text": "Scenario based question text...",
+                        "question_type": "mcq",
+                        "difficulty_level": "beginner|intermediate|advanced",
+                        "options": ["Specific Answer A", "Specific Answer B", "Specific Answer C", "Specific Answer D"],
+                        "correct_answer": "Specific Answer C (Must be exact textmatch with one option)",
+                        "expected_competency": ["Competency 1", "Competency 2"],
+                        "evaluation_criteria": ["Criteria 1", "Criteria 2"]
+                    }}
+                    ]
+                    Ensure all questions are Multiple Choice Questions (MCQ) with 4 distinct, realistic technical options. Do NOT use placeholders like 'Option 1'. The correct_answer field must exactly match the text of one of the options."""
 
         messages = [{"role": "user", "content": prompt}]
-        response = self._make_completion(messages, temperature=0.4)
+        response = self._make_completion(messages, temperature=0.5)
         
         try:
             questions = self._extract_json(response)
@@ -138,10 +166,15 @@ Ensure all questions are Multiple Choice Questions (MCQ) with 4 distinct, realis
                 q['skill_name'] = skill
                 # Sanitize question text
                 if 'question_text' in q:
-                    from app.services.validation_service import ValidationService
-                    q['question_text'] = ValidationService.sanitize_html(q['question_text'])
+                    try:
+                        from app.services.validation_service import ValidationService
+                        q['question_text'] = ValidationService.sanitize_html(q['question_text'])
+                    except ImportError:
+                        pass # validation service might not be available
             return questions
         except Exception as e:
+            if "API_RATE_LIMIT_EXCEEDED" in str(e):
+                raise
             logger.error(f"Failed to parse questions: {response}. Error: {e}")
             raise Exception("Failed to generate questions")
     
@@ -155,24 +188,24 @@ Ensure all questions are Multiple Choice Questions (MCQ) with 4 distinct, realis
         
         prompt = f"""Evaluate this answer:
 
-Question: {question['question_text']}
-Type: {question['question_type']}
-Skill: {skill_name}
+                    Question: {question['question_text']}
+                    Type: {question['question_type']}
+                    Skill: {skill_name}
 
-Expected: {', '.join(question.get('expected_competency', []))}
-Correct Answer: {question.get('correct_answer', 'Not provided')}
+                    Expected: {', '.join(question.get('expected_competency', []))}
+                    Correct Answer: {question.get('correct_answer', 'Not provided')}
 
-Answer: {user_answer}
+                    Answer: {user_answer}
 
-Return ONLY valid JSON:
-{{
-  "score": 0-100,
-  "competency_level": "beginner|intermediate|advanced",
-  "strengths": ["..."],
-  "gaps": ["..."],
-  "feedback": "...",
-  "missing_concepts": ["..."]
-}}"""
+                    Return ONLY valid JSON:
+                    {{
+                    "score": 0-100,
+                    "competency_level": "beginner|intermediate|advanced",
+                    "strengths": ["..."],
+                    "gaps": ["..."],
+                    "feedback": "...",
+                    "missing_concepts": ["..."]
+                    }}"""
 
         messages = [{"role": "user", "content": prompt}]
         response = self._make_completion(messages, temperature=0.2, max_tokens=1500)

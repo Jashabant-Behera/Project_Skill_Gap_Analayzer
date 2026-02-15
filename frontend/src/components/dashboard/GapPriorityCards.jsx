@@ -15,57 +15,74 @@ export const GapPriorityCards = ({ highPriority, mediumPriority, lowPriority }) 
         }));
     };
 
-    const GapCard = ({ gap, colors }) => (
-        <div className={`glass-card p-4 rounded-xl border border-white/5 ${colors.hoverBorder} transition-all duration-300 group`}>
-            <div className="flex justify-between items-start mb-4">
-                <h4 className="font-semibold text-white text-lg">{gap.skill_name}</h4>
-                <div className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${colors.badgeBg} ${colors.badgeText} ${colors.badgeBorder} border`}>
-                    Gap: {Math.round(gap.gap_score)}%
-                </div>
-            </div>
+    const GapCard = ({ gap, colors }) => {
+        const [showAll, setShowAll] = useState(false);
 
-            <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-                <div className="p-2 rounded-lg bg-white/5 border border-white/5">
-                    <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Current</p>
-                    <p className="font-medium text-white">{gap.current_level || 'N/A'}</p>
-                </div>
-                <div className="p-2 rounded-lg bg-white/5 border border-white/5">
-                    <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Required</p>
-                    <p className={`font-medium ${colors.text}`}>{gap.required_level}</p>
-                </div>
-            </div>
-
-            <div className="mb-4">
-                <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden">
-                    <div
-                        className={`${colors.progressBar} h-full rounded-full transition-all duration-1000 ease-out`}
-                        style={{ width: `${gap.gap_score}%` }}
-                    />
-                </div>
-            </div>
-
-            {gap.missing_concepts && gap.missing_concepts.length > 0 && (
-                <div>
-                    <p className="text-xs text-gray-500 mb-2 uppercase tracking-wide">Key Concepts</p>
-                    <div className="flex flex-wrap gap-2">
-                        {gap.missing_concepts.slice(0, 4).map((concept, i) => (
-                            <span
-                                key={i}
-                                className="px-2 py-1 bg-white/5 text-gray-300 border border-white/10 text-xs rounded-md"
-                            >
-                                {concept}
-                            </span>
-                        ))}
-                        {gap.missing_concepts.length > 4 && (
-                            <span className="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded-md">
-                                +{gap.missing_concepts.length - 4}
-                            </span>
-                        )}
+        return (
+            <div className={`glass-card p-4 rounded-xl border border-white/5 ${colors.hoverBorder} transition-all duration-300 group`}>
+                <div className="flex justify-between items-start mb-4">
+                    <h4 className="font-semibold text-white text-lg">{gap.skill_name}</h4>
+                    <div className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${colors.badgeBg} ${colors.badgeText} ${colors.badgeBorder} border`}>
+                        Gap: {Math.round(gap.gap_score)}%
                     </div>
                 </div>
-            )}
-        </div>
-    );
+
+                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div className="p-2 rounded-lg bg-white/5 border border-white/5">
+                        <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Current</p>
+                        <p className="font-medium text-white">{gap.current_level || 'N/A'}</p>
+                    </div>
+                    <div className="p-2 rounded-lg bg-white/5 border border-white/5">
+                        <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Required</p>
+                        <p className={`font-medium ${colors.text}`}>{gap.required_level}</p>
+                    </div>
+                </div>
+
+                <div className="mb-4">
+                    <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden">
+                        <div
+                            className={`${colors.progressBar} h-full rounded-full transition-all duration-1000 ease-out`}
+                            style={{ width: `${gap.gap_score}%` }}
+                        />
+                    </div>
+                </div>
+
+                {gap.missing_concepts && gap.missing_concepts.length > 0 && (
+                    <div>
+                        <div className="flex justify-between items-center mb-2">
+                            <p className="text-xs text-gray-500 uppercase tracking-wide">Key Concepts</p>
+                            {gap.missing_concepts.length > 4 && (
+                                <button
+                                    onClick={() => setShowAll(!showAll)}
+                                    className="text-xs text-brand-cyan hover:text-brand-cyan/80 transition-colors"
+                                >
+                                    {showAll ? 'Show Less' : 'Show All'}
+                                </button>
+                            )}
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                            {(showAll ? gap.missing_concepts : gap.missing_concepts.slice(0, 4)).map((concept, i) => (
+                                <span
+                                    key={i}
+                                    className="px-2 py-1 bg-white/5 text-gray-300 border border-white/10 text-xs rounded-md"
+                                >
+                                    {concept}
+                                </span>
+                            ))}
+                            {!showAll && gap.missing_concepts.length > 4 && (
+                                <button
+                                    onClick={() => setShowAll(true)}
+                                    className="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded-md hover:bg-white/10 transition-colors"
+                                >
+                                    +{gap.missing_concepts.length - 4} more
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                )}
+            </div>
+        );
+    };
 
     const PrioritySection = ({ title, icon: Icon, color, gaps, section }) => {
         if (!gaps || gaps.length === 0) return null;
@@ -77,8 +94,8 @@ export const GapPriorityCards = ({ highPriority, mediumPriority, lowPriority }) 
                 <button
                     onClick={() => toggleSection(section)}
                     className={`w-full p-4 flex items-center justify-between rounded-xl transition-all duration-300 ${isExpanded
-                            ? `${color.bg} border ${color.border}`
-                            : `hover:bg-white/5 border border-transparent`
+                        ? `${color.bg} border ${color.border}`
+                        : `hover:bg-white/5 border border-transparent`
                         }`}
                 >
                     <div className="flex items-center gap-3">

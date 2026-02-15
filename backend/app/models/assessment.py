@@ -86,6 +86,7 @@ class Assessment(Document):
     total_questions: int = 0
     answered_questions: int = 0
     time_taken_minutes: int = 0
+    time_taken_seconds: int = 0  # NEW: More accurate tracking
     created_at: datetime = Field(default_factory=datetime.utcnow)
     completed_at: Optional[datetime] = None
     

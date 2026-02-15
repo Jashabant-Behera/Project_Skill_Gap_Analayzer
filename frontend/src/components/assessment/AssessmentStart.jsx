@@ -65,6 +65,11 @@ export const AssessmentStart = () => {
             navigate(`/assessment/${assessment.assessment_id}`);
         } catch (error) {
             console.error('Failed to start assessment:', error);
+            const detail = error.response?.data?.detail;
+            if (detail?.message === "Profile incomplete") {
+                toast.error("Please complete your profile first. Redirecting...");
+                setTimeout(() => navigate('/profile'), 2000);
+            }
         }
     };
 

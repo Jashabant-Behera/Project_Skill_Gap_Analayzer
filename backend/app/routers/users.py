@@ -128,7 +128,9 @@ async def check_profile_completion(current_user: User = Depends(get_current_user
     if not current_user.current_role:
         missing_fields.append("current_role")
     
-    if current_user.experience_years == 0:
+    is_student = current_user.current_role and current_user.current_role.strip().lower() == "student"
+    
+    if current_user.experience_years == 0 and not is_student:
         missing_fields.append("experience_years")
     
     # Check if at least one skill added
@@ -136,7 +138,7 @@ async def check_profile_completion(current_user: User = Depends(get_current_user
         UserSkill.user_id == current_user.user_id
     ).count()
     
-    if skills_count == 0:
+    if skills_count == 0 and not is_student:
         missing_fields.append("skills (at least 1)")
     
     # Calculate completion percentage

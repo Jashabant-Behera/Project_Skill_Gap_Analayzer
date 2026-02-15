@@ -100,7 +100,7 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
 
             {/* Question */}
             <div className="mb-8">
-                <h3 className="text-2xl font-display font-medium text-white mb-6 leading-snug">
+                <h3 className="text-lg font-display font-medium text-white mb-6 leading-snug">
                     {question.question_text}
                 </h3>
 
@@ -136,7 +136,7 @@ export const QuestionCard = ({ question, onSubmit, loading }) => {
                                     </div>
 
                                     <div className="flex-1">
-                                        <span className={`text-base transition-colors duration-300 ${isSelected ? 'text-white font-medium' : 'text-gray-300 group-hover:text-white'
+                                        <span className={`text-sm transition-colors duration-300 ${isSelected ? 'text-white font-medium' : 'text-gray-300 group-hover:text-white'
                                             }`}>
                                             {option}
                                         </span>

@@ -33,7 +33,7 @@ class SkillGapAnalyzer:
         skill_responses = {}
         
         for response in assessment_results:
-            skill_id = getattr(response, 'skill_id', None)
+            skill_id = str(getattr(response, 'skill_id', '')).lower().strip()
             if not skill_id:
                 continue
             
@@ -55,7 +55,7 @@ class SkillGapAnalyzer:
         
         # Helper to process a skill requirement
         def process_requirement(req_skill, is_additional=False):
-            skill_id = req_skill["skill_id"]
+            skill_id = str(req_skill["skill_id"]).lower().strip()
             
             if is_additional:
                 required_level = req_skill.get("desired_proficiency", "intermediate")

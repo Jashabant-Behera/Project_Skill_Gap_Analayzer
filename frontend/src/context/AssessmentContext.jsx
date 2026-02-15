@@ -18,7 +18,22 @@ export const AssessmentProvider = ({ children }) => {
             toast.success('Assessment started!');
             return assessment;
         } catch (error) {
-            toast.error('Failed to start assessment');
+            console.error('Assessment start error:', error);
+            const detail = error.response?.data?.detail;
+            let message = 'Failed to start assessment';
+
+            if (detail) {
+                if (typeof detail === 'string') {
+                    message = detail;
+                } else if (detail.message) {
+                    message = detail.message;
+                    if (detail.missing_fields?.length) {
+                        message += `: ${detail.missing_fields.join(', ')}`;
+                    }
+                }
+            }
+
+            toast.error(message);
             throw error;
         } finally {
             setLoading(false);

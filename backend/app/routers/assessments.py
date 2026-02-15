@@ -30,15 +30,22 @@ async def check_profile_complete(user: User) -> dict:
     """Check if user profile is complete"""
     missing = []
     
+    is_student = user.current_role and user.current_role.strip().lower() == "student"
+
     if not user.full_name:
         missing.append("full_name")
+    
     if not user.current_role:
         missing.append("current_role")
-    if user.experience_years == 0:
+    
+    # Exempt students from experience requirements
+    if user.experience_years == 0 and not is_student:
         missing.append("experience_years")
     
     skills_count = await UserSkill.find(UserSkill.user_id == user.user_id).count()
-    if skills_count == 0:
+    
+    # Students might not have skills yet
+    if skills_count == 0 and not is_student:
         missing.append("skills")
     
     return {
@@ -132,7 +139,8 @@ async def create_assessment(
         
         # Calculate questions per skill (Min 20 total, Min 3 per skill)
         num_skills = len(skills_to_assess)
-        questions_per_skill = max(3, math.ceil(20 / num_skills)) if num_skills > 0 else 0
+        # Calculate questions per skill (Strictly 3 per skill)
+        questions_per_skill = min(3, max(2, math.ceil(15 / num_skills))) if num_skills > 0 else 0
         total_questions = num_skills * questions_per_skill
         
         logger.info(f"Assessment Plan: {num_skills} skills, {questions_per_skill} questions/skill, Total: {total_questions}")
@@ -268,7 +276,9 @@ async def get_next_question(
     # 2. Calculate dynamic limit
     num_skills = len(skills_that_need_assessment)
     if num_skills > 0:
-        questions_per_skill = max(3, math.ceil(20 / num_skills))
+        # Cap questions per skill (Strictly 3 per skill)
+        # Target total reduced to 15 for faster assessments
+        questions_per_skill = min(3, max(2, math.ceil(15 / num_skills)))
     else:
         questions_per_skill = 0
         
@@ -305,6 +315,13 @@ async def get_next_question(
         "years_of_experience": current_user.experience_years,
         "known_skills": [s.skill_name for s in user_skills]
     }
+
+    # Fetch previous questions for this skill to avoid duplicates
+    previous_questions_objs = await AssessmentQuestion.find(
+        AssessmentQuestion.assessment_id == assessment_id,
+        AssessmentQuestion.skill_id == next_skill_id
+    ).to_list()
+    previous_question_texts = [q.question_text for q in previous_questions_objs]
     
     # Generate question
     try:
@@ -313,13 +330,22 @@ async def get_next_question(
             target_role=target_role.role_name,
             experience_level="intermediate",
             user_context=user_context,
+            previous_questions=previous_question_texts,
             num_questions=1
         )
         
         question_data = questions[0]
         
     except Exception as e:
-        logger.error(f"Failed to generate question: {e}")
+        error_msg = str(e)
+        logger.error(f"Failed to generate question: {error_msg}")
+        
+        if "API_RATE_LIMIT_EXCEEDED" in error_msg or "429" in error_msg:
+            raise HTTPException(
+                status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+                detail="Our AI service is currently experiencing high demand. Please try again in a few minutes."
+            )
+            
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to generate question. Please try again."
@@ -446,7 +472,16 @@ async def submit_answer(
     ).count()
     
     assessment.answered_questions = answered_count
-    assessment.time_taken_minutes += answer_data.time_taken_seconds // 60
+    
+    # Update time accurately
+    # Handle migration/initialization if seconds is 0 but minutes exist
+    if assessment.time_taken_seconds == 0 and assessment.time_taken_minutes > 0:
+        assessment.time_taken_seconds = assessment.time_taken_minutes * 60
+        
+    assessment.time_taken_seconds += answer_data.time_taken_seconds
+    # Rounds down to nearest minute for display, but keeps seconds for accuracy
+    assessment.time_taken_minutes = assessment.time_taken_seconds // 60
+    
     await assessment.save()
     
     logger.info(f"Answer evaluated for assessment {assessment_id}")
