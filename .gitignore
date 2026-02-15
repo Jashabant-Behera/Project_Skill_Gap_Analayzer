@@ -1,4 +1,42 @@
-# Python
+# --- Global ---
+.DS_Store
+Thumbs.db
+*.sw?
+*.swp
+*.swo
+
+# --- IDEs & Editors ---
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# --- Logs ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+output.txt
+test_output.txt
+backend/error_debug.log
+
+# --- Environment ---
+.env
+.env.*
+!.env.example
+.env.local
+.venv/
+venv/
+env/
+ENV/
+
+# --- Python ---
 __pycache__/
 *.py[cod]
 *$py.class
@@ -21,30 +59,25 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+instance/
+.webassets-cache
+integration_test_state.json
 
-# Virtual Environments
-venv/
-.venv/
-env/
-.env
-.env.local
+# --- Python Testing ---
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
 
-# IDEs
-.vscode/
-.idea/
-
-# Backend specific
-backend/py_venv/
-backend/__pycache__/
-
-# Node / Frontend
+# --- Node / Frontend ---
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+dist/
+dist-ssr/
+*.local
 .next/
 out/
+coverage/
 
-# Reference and temporary files
+# --- Reference and temporary files ---
 files/
 ref animation/

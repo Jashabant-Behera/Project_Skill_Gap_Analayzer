@@ -37,8 +37,8 @@ export const Navbar = () => {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-3 group">
-                        <span className="text-2xl font-display font-medium text-white group-hover:text-brand-cyan transition-colors duration-300">
-                            Skill Gap Analyzer
+                        <span className="text-2xl font-display font-bold tracking-tight text-white group-hover:text-brand-cyan transition-colors duration-300">
+                            SkillSync
                         </span>
                     </Link>
 

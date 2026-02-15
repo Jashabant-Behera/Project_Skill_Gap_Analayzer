@@ -73,52 +73,52 @@ export const LandingPage = () => {
 
             {/* Hero Section */}
             <section className="relative pt-20 pb-12 px-4">
-                <div className="relative max-w-4xl mx-auto">
-                    <div className="text-center space-y-6 animate-fade-in">
+                <div className="relative max-w-5xl mx-auto">
+                    <div className="text-center space-y-8 animate-fade-in relative z-10">
                         {/* Internal Badge */}
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md animate-pulse-glow">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 backdrop-blur-md animate-pulse-glow hover:bg-brand-cyan/10 transition-colors cursor-default">
                             <Sparkles className="w-3.5 h-3.5 text-brand-cyan" />
-                            <span className="text-xs font-medium text-brand-cyan tracking-wide uppercase">
-                                AI-Powered Career Development
+                            <span className="text-xs font-semibold text-brand-cyan tracking-wider uppercase">
+                                Intelligent Career Synchronization
                             </span>
                         </div>
 
                         {/* Main heading */}
-                        <h1 className="text-4xl md:text-6xl font-display font-medium tracking-tight text-white mb-4">
-                            Master Your Skills,<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-cyan to-brand-blue">
-                                Accelerate Your Career
+                        <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-white mb-6 leading-tight">
+                            Sync Your Skills<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-cyan to-brand-blue animate-gradient-x">
+                                To Your Goals
                             </span>
                         </h1>
 
                         {/* Subheading */}
-                        <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-white/70 font-light">
-                            Discover skill gaps with AI precision, get personalized learning roadmaps,
-                            and transform your career trajectory in weeks, not years.
+                        <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-white/80 font-light">
+                            <strong className="text-white font-medium">SkillSync</strong> bridges the gap between where you are and where you want to be.
+                            Leverage AI-driven insights to analyze, plan, and master your career path with precision.
                         </p>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+                        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-8">
                             {isAuthenticated ? (
                                 <Link
                                     to="/assessment/start"
-                                    className="btn-primary text-base px-8 py-3 flex items-center justify-center gap-2 group"
+                                    className="btn-primary text-lg px-10 py-4 flex items-center justify-center gap-3 group shadow-xl shadow-brand-orange/20 hover:shadow-brand-orange/40 transition-all duration-300"
                                 >
-                                    <span>Go to Dashboard</span>
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    <span>Sync Your Profile</span>
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             ) : (
                                 <>
                                     <Link
                                         to="/register"
-                                        className="btn-primary text-base px-8 py-3 flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(255,103,2,0.3)]"
+                                        className="btn-primary text-lg px-10 py-4 flex items-center justify-center gap-3 group shadow-xl shadow-brand-orange/20 hover:shadow-brand-orange/40 transition-all duration-300"
                                     >
-                                        <span>Start Free Assessment</span>
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        <span>Start Free Synchronization</span>
+                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                     <Link
                                         to="/login"
-                                        className="btn-secondary text-base px-8 py-3 flex items-center justify-center"
+                                        className="btn-secondary text-lg px-10 py-4 flex items-center justify-center backdrop-blur-md hover:bg-white/10"
                                     >
                                         Sign In
                                     </Link>
@@ -127,9 +127,9 @@ export const LandingPage = () => {
                         </div>
 
                         {/* Scroll Indicator */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-12 animate-bounce opacity-40">
-                            <div className="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center pt-1.5">
-                                <div className="w-1 h-1.5 bg-brand-cyan rounded-full"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-24 animate-bounce opacity-60 hidden md:block">
+                            <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
+                                <div className="w-1.5 h-2 bg-brand-cyan rounded-full animate-scroll-down"></div>
                             </div>
                         </div>
                     </div>
@@ -137,19 +137,19 @@ export const LandingPage = () => {
             </section>
 
             {/* Statistics Section (Black Break) */}
-            <section className="py-10 bg-black/50 border-y border-white/5 backdrop-blur-sm relative z-10">
-                <div className="max-w-5xl mx-auto px-4">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <section className="py-12 bg-black/40 border-y border-white/5 backdrop-blur-md relative z-10">
+                <div className="max-w-6xl mx-auto px-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {stats.map((stat, index) => (
                             <div
                                 key={index}
-                                className="text-center space-y-2 animate-scale-in"
+                                className="text-center space-y-2 animate-scale-in group cursor-default"
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
-                                <div className="text-3xl md:text-4xl font-display font-medium text-brand-cyan">
+                                <div className="text-4xl md:text-5xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-white/50 group-hover:from-brand-cyan group-hover:to-brand-blue transition-all duration-500">
                                     {stat.number}
                                 </div>
-                                <div className="text-xs md:text-sm text-white/50 uppercase tracking-widest font-medium">
+                                <div className="text-xs md:text-sm text-brand-cyan/80 uppercase tracking-widest font-semibold">
                                     {stat.label}
                                 </div>
                             </div>
@@ -159,14 +159,14 @@ export const LandingPage = () => {
             </section>
 
             {/* Features Section */}
-            <section className="py-16 px-4 relative">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center space-y-4 mb-12">
-                        <h2 className="text-3xl md:text-4xl font-display font-medium text-white">
-                            Why Choose <span className="text-brand-orange">SkillGap</span>?
+            <section className="py-24 px-4 relative">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center space-y-4 mb-16">
+                        <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
+                            Why <span className="text-brand-orange">SkillSync</span>?
                         </h2>
-                        <p className="text-lg text-white/60 max-w-xl mx-auto font-light leading-relaxed">
-                            Everything you need to identify, learn, and master the skills that matter
+                        <p className="text-xl text-white/60 max-w-2xl mx-auto font-light leading-relaxed">
+                            Data-driven intelligence to power your professional evolution.
                         </p>
                     </div>
 
