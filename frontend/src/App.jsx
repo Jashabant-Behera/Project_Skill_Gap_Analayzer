@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext';
 import { AssessmentProvider } from './context/AssessmentContext';
 import { ProtectedRoute } from './components/common/ProtectedRoute';
 import { Navbar } from './components/common/Navbar';
+import { BackgroundAnimation } from './components/common/BackgroundAnimation';
 
 // Pages
 import { LandingPage } from './pages/LandingPage';
@@ -22,7 +23,8 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <AssessmentProvider>
-          <div className="min-h-screen text-white font-body selection:bg-brand-orange selection:text-white">
+          <div className="min-h-screen text-white font-body selection:bg-brand-orange selection:text-white relative">
+            <BackgroundAnimation />
             <Navbar />
 
             <main className="pt-24 min-h-screen">
